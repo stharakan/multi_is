@@ -1,0 +1,10 @@
+Git repository aimed at implementing 
+multi scale solutions to image segmentation 
+problem. 
+
+Top level dirs:
+
+matlab - MATLAB code, experiments, etc.
+docs - latex files explaining methodologies,
+	important figures, etc.
+src - code in c++ to be written later
