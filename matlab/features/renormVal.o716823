@@ -1,0 +1,1166 @@
+Lmod has detected the following error: These module(s) exist but cannot be
+loaded as requested: "python3"
+   Try: "module spider python3" to see how to load the module(s).
+
+
+
+WARNING (08/16/17 17:21:49): LAUNCHER_WORKDIR variable not set. Using current directory.
+Launcher: Setup complete.
+
+------------- SUMMARY ---------------
+   Number of hosts:    20
+   Working directory:  /work/03158/tharakan/research/brats17/matlab/features
+   Processes per host: 2
+   Total processes:    40
+   Total jobs:         40
+   Scheduling method:  interleaved
+
+------ Process Binding Enabled ------
+   Sockets per host:   2
+   Cores per host:     20
+   Threads per host:   20
+   Binding each task to 10 cores (Hyperthreads ignored)
+
+-------------------------------------
+Launcher: Starting parallel tasks...
+Launcher: Task 1 running job 2 on c225-101.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(2,40); quit;")
+Launcher: Task 0 running job 1 on c225-101.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(1,40); quit;")
+Launcher: Task 38 running job 39 on c225-504.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(39,40); quit;")
+Launcher: Task 39 running job 40 on c225-504.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(40,40); quit;")
+Launcher: Task 10 running job 11 on c225-202.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(11,40); quit;")
+Launcher: Task 11 running job 12 on c225-202.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(12,40); quit;")
+Launcher: Task 9 running job 10 on c225-201.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(10,40); quit;")
+Launcher: Task 8 running job 9 on c225-201.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(9,40); quit;")
+Launcher: Task 34 running job 35 on c225-502.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(35,40); quit;")
+Launcher: Task 35 running job 36 on c225-502.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(36,40); quit;")
+Launcher: Task 17 running job 18 on c225-301.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(18,40); quit;")
+Launcher: Task 16 running job 17 on c225-301.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(17,40); quit;")
+Launcher: Task 14 running job 15 on c225-204.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(15,40); quit;")
+Launcher: Task 15 running job 16 on c225-204.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(16,40); quit;")
+Launcher: Task 24 running job 25 on c225-401.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(25,40); quit;")
+Launcher: Task 25 running job 26 on c225-401.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(26,40); quit;")
+Launcher: Task 28 running job 29 on c225-403.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(29,40); quit;")
+Launcher: Task 29 running job 30 on c225-403.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(30,40); quit;")
+Launcher: Task 33 running job 34 on c225-501.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(34,40); quit;")
+Launcher: Task 32 running job 33 on c225-501.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(33,40); quit;")
+Launcher: Task 5 running job 6 on c225-103.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(6,40); quit;")
+Launcher: Task 4 running job 5 on c225-103.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(5,40); quit;")
+Launcher: Task 21 running job 22 on c225-303.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(22,40); quit;")
+Launcher: Task 20 running job 21 on c225-303.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(21,40); quit;")
+Launcher: Task 3 running job 4 on c225-102.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(4,40); quit;")
+Launcher: Task 2 running job 3 on c225-102.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(3,40); quit;")
+Launcher: Task 27 running job 28 on c225-402.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(28,40); quit;")
+Launcher: Task 26 running job 27 on c225-402.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(27,40); quit;")
+Launcher: Task 31 running job 32 on c225-404.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(32,40); quit;")
+Launcher: Task 30 running job 31 on c225-404.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(31,40); quit;")
+Launcher: Task 36 running job 37 on c225-503.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(37,40); quit;")
+Launcher: Task 37 running job 38 on c225-503.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(38,40); quit;")
+Launcher: Task 19 running job 20 on c225-302.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(20,40); quit;")
+Launcher: Task 18 running job 19 on c225-302.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(19,40); quit;")
+Launcher: Task 22 running job 23 on c225-304.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(23,40); quit;")
+Launcher: Task 23 running job 24 on c225-304.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(24,40); quit;")
+Launcher: Task 13 running job 14 on c225-203.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(14,40); quit;")
+Launcher: Task 12 running job 13 on c225-203.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(13,40); quit;")
+Launcher: Task 7 running job 8 on c225-104.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(8,40); quit;")
+Launcher: Task 6 running job 7 on c225-104.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(7,40); quit;")
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+To get started, type one of these: helpwin, helpdesk, or demo.
+ 
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+To get started, type one of these: helpwin, helpdesk, or demo.
+ 
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+To get started, type one of these: helpwin, helpdesk, or demo.
+ 
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+updated brain list..
+updated brain list..
+Loading 1 out of 2 (Brats17_CBICA_AAM_1)
+Loading 1 out of 2 (Brats17_CBICA_ABT_1)
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+updated brain list..
+Loading 1 out of 2 (Brats17_CBICA_ALZ_1)
+updated brain list..
+Loading 1 out of 2 (Brats17_CBICA_ALV_1)
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+updated brain list..
+updated brain list..
+Loading 1 out of 1 (Brats17_TCIA_400_1)
+Loading 1 out of 1 (Brats17_TCIA_313_1)
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+updated brain list..
+updated brain list..
+Loading 1 out of 1 (Brats17_CBICA_ANK_1)
+Loading 1 out of 1 (Brats17_CBICA_APM_1)
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+updated brain list..
+Loading 1 out of 1 (Brats17_CBICA_AZA_1)
+updated brain list..
+Loading 1 out of 1 (Brats17_CBICA_AUE_1)
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+updated brain list..
+updated brain list..
+Loading 1 out of 1 (Brats17_TCIA_652_1)
+Loading 1 out of 1 (Brats17_TCIA_646_1)
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+updated brain list..
+updated brain list..
+Loading 1 out of 1 (Brats17_CBICA_AMF_1)
+Loading 1 out of 1 (Brats17_CBICA_AMU_1)
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+updated brain list..
+updated brain list..
+Loading 1 out of 1 (Brats17_TCIA_311_1)
+Loading 1 out of 1 (Brats17_TCIA_288_1)
+Set path and variables
+Set path and variables
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+updated brain list..
+Loading 1 out of 1 (Brats17_TCIA_195_1)
+updated brain list..
+Loading 1 out of 1 (Brats17_TCIA_212_1)
+Got brain list
+Got brain list
+updated brain list..
+updated brain list..
+Loading 1 out of 1 (Brats17_TCIA_610_1)
+Loading 1 out of 1 (Brats17_TCIA_609_1)
+Set path and variables
+Set path and variables
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+updated brain list..
+updated brain list..
+Loading 1 out of 1 (Brats17_TCIA_617_1)
+Loading 1 out of 1 (Brats17_TCIA_613_1)
+Got brain list
+Got brain list
+updated brain list..
+Loading 1 out of 1 (Brats17_TCIA_253_1)
+updated brain list..
+Loading 1 out of 1 (Brats17_TCIA_248_1)
+Set path and variables
+Set path and variables
+Set path and variables
+Set path and variables
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+Got brain list
+Got brain list
+updated brain list..
+Loading 1 out of 1 (Brats17_TCIA_600_1)
+updated brain list..
+Loading 1 out of 1 (Brats17_TCIA_601_1)
+updated brain list..
+updated brain list..
+Loading 1 out of 1 (Brats17_CBICA_AQE_1)
+Loading 1 out of 1 (Brats17_CBICA_ARR_1)
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+updated brain list..
+updated brain list..
+Loading 1 out of 1 (Brats17_TCIA_602_1)
+Loading 1 out of 1 (Brats17_TCIA_604_1)
+Got brain list
+Got brain list
+updated brain list..
+updated brain list..
+Loading 1 out of 1 (Brats17_TCIA_638_1)
+Loading 1 out of 1 (Brats17_TCIA_636_1)
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+updated brain list..
+updated brain list..
+Loading 1 out of 2 (Brats17_CBICA_ALT_1)
+Loading 1 out of 2 (Brats17_CBICA_ALA_1)
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+updated brain list..
+updated brain list..
+Loading 1 out of 1 (Brats17_TCIA_216_1)
+Loading 1 out of 1 (Brats17_TCIA_230_1)
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+updated brain list..
+updated brain list..
+Loading 1 out of 1 (Brats17_TCIA_611_1)
+Loading 1 out of 1 (Brats17_TCIA_612_1)
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+updated brain list..
+updated brain list..
+Loading 1 out of 1 (Brats17_CBICA_AUC_1)
+Loading 1 out of 1 (Brats17_CBICA_ATW_1)
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 50 seconds
+ Loading brain took 48 seconds
+ Loading brain took 57 seconds
+ Loading brain took 54 seconds
+ Computing int
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 50 seconds
+ Loading brain took 57 seconds
+ Loading brain took 55 seconds
+ Loading brain took 52 seconds
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 51 seconds
+ Loading brain took 49 seconds
+ Loading brain took 57 seconds
+ Loading brain took 55 seconds
+ Computing int
+ Computing int
+ Took 0.097167 seconds
+ Computing gabor
+ Took 0.098423 seconds
+ Computing gabor
+ Took 0.093038 seconds
+ Computing gabor
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 52 seconds
+ Loading brain took 53 seconds
+ Loading brain took 53 seconds
+ Computing int
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 52 seconds
+ Loading brain took 55 seconds
+ Loading brain took 48 seconds
+ Loading brain took 52 seconds
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 53 seconds
+ Loading brain took 52 seconds
+ Loading brain took 57 seconds
+ Took 0.90037 seconds
+ Computing gabor
+ Computing int
+ Computing int
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 56 seconds
+ Loading brain took 52 seconds
+ Loading brain took 55 seconds
+ Loading brain took 55 seconds
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 57 seconds
+ Loading brain took 50 seconds
+ Loading brain took 50 seconds
+ Loading brain took 54 seconds
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 57 seconds
+ Loading brain took 50 seconds
+ Loading brain took 50 seconds
+ Loading brain took 54 seconds
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 56 seconds
+ Loading brain took 53 seconds
+ Loading brain took 48 seconds
+ Loading brain took 55 seconds
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 56 seconds
+ Loading brain took 48 seconds
+ Loading brain took 55 seconds
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 56 seconds
+ Loading brain took 48 seconds
+ Loading brain took 55 seconds
+ Loading brain took 49 seconds
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 54 seconds
+ Loading brain took 54 seconds
+ Loading brain took 49 seconds
+ Loading brain took 52 seconds
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 54 seconds
+ Loading brain took 54 seconds
+ Loading brain took 53 seconds
+ Loading brain took 57 seconds
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 54 seconds
+ Loading brain took 55 seconds
+ Loading brain took 57 seconds
+ Loading brain took 53 seconds
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 54 seconds
+ Loading brain took 48 seconds
+ Loading brain took 51 seconds
+ Loading brain took 57 seconds
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 54 seconds
+ Loading brain took 56 seconds
+ Loading brain took 48 seconds
+ Loading brain took 53 seconds
+ Computing int
+ Computing int
+ Computing int
+ Computing int
+ Took 0.095417 seconds
+ Computing gabor
+ Took 0.098715 seconds
+ Computing gabor
+ Computing int
+ Computing int
+ Computing int
+ Computing int
+ Computing int
+ Computing int
+ Computing int
+ Took 0.10009 seconds
+ Computing gabor
+ Took 0.099093 seconds
+ Computing gabor
+ Took 0.10184 seconds
+ Computing gabor
+ Took 0.10351 seconds
+ Computing gabor
+ Took 0.094562 seconds
+ Computing gabor
+ Took 0.099106 seconds
+ Took 0.099188 seconds
+ Computing gabor
+ Computing gabor
+ Took 0.099802 seconds
+ Computing gabor
+ Took 0.096535 seconds
+ Computing gabor
+ Took 0.099085 seconds
+ Computing gabor
+ Took 0.10185 seconds
+ Computing gabor
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 49 seconds
+ Loading brain took 55 seconds
+ Loading brain took 53 seconds
+ Loading brain took 53 seconds
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 50 seconds
+ Loading brain took 48 seconds
+ Loading brain took 53 seconds
+ Loading brain took 51 seconds
+ Computing int
+ Computing int
+ Took 0.099201 seconds
+ Computing gabor
+ Took 0.095785 seconds
+ Computing gabor
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 48 seconds
+ Loading brain took 55 seconds
+ Loading brain took 49 seconds
+ Loading brain took 50 seconds
+ Computing int
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 48 seconds
+ Loading brain took 57 seconds
+ Loading brain took 52 seconds
+ Loading brain took 56 seconds
+ Loading brain took 53 seconds
+ Loading brain took 46 seconds
+ Loading brain took 49 seconds
+ Loading brain took 50 seconds
+ Loading brain took 54 seconds
+ Loading brain took 56 seconds
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 49 seconds
+ Loading brain took 50 seconds
+ Loading brain took 57 seconds
+ Loading brain took 57 seconds
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 49 seconds
+ Loading brain took 51 seconds
+ Loading brain took 52 seconds
+ Loading brain took 51 seconds
+ Loading brain took 53 seconds
+ Loading brain took 46 seconds
+ Loading brain took 49 seconds
+ Loading brain took 52 seconds
+ Loading brain took 55 seconds
+ Loading brain took 50 seconds
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 49 seconds
+ Loading brain took 55 seconds
+ Loading brain took 51 seconds
+ Loading brain took 50 seconds
+ Computing int
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 49 seconds
+ Loading brain took 55 seconds
+ Loading brain took 57 seconds
+ Loading brain took 55 seconds
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 48 seconds
+ Loading brain took 55 seconds
+ Loading brain took 55 seconds
+ Loading brain took 49 seconds
+ Computing int
+ Computing int
+ Computing int
+ Computing int
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 49 seconds
+ Loading brain took 54 seconds
+ Loading brain took 57 seconds
+ Took 0.10033 seconds
+ Computing gabor
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 49 seconds
+ Loading brain took 48 seconds
+ Loading brain took 52 seconds
+ Loading brain took 54 seconds
+ Computing int
+ Computing int
+ Computing int
+ Computing int
+ Computing int
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 49 seconds
+ Loading brain took 48 seconds
+ Loading brain took 56 seconds
+ Took 0.091338 seconds
+ Computing gabor
+ Took 0.096858 seconds
+ Computing gabor
+ Took 0.088582 seconds
+ Computing gabor
+ Took 0.094206 seconds
+ Computing gabor
+ Took 0.095724 seconds
+ Computing gabor
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 57 seconds
+ Loading brain took 57 seconds
+ Loading brain took 52 seconds
+ Loading brain took 52 seconds
+ Computing int
+ Took 0.10138 seconds
+ Computing gabor
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 48 seconds
+ Loading brain took 48 seconds
+ Loading brain took 57 seconds
+ Loading brain took 55 seconds
+ Took 0.099588 seconds
+ Computing gabor
+ Took 0.095878 seconds
+ Computing gabor
+ Computing int
+ Took 0.09799 seconds
+ Computing gabor
+ Took 0.099152 seconds
+ Computing gabor
+ Computing int
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 51 seconds
+ Loading brain took 52 seconds
+ Loading brain took 51 seconds
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 50 seconds
+ Loading brain took 49 seconds
+ Loading brain took 50 seconds
+ Loading brain took 51 seconds
+ Took 0.09388 seconds
+ Computing gabor
+ Computing int
+ Computing int
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 51 seconds
+ Loading brain took 57 seconds
+ Loading brain took 55 seconds
+ Loading brain took 57 seconds
+ Took 0.09958 seconds
+ Computing gabor
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 57 seconds
+ Loading brain took 55 seconds
+ Loading brain took 51 seconds
+ Loading brain took 51 seconds
+ Took 0.10042 seconds
+ Computing gabor
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 52 seconds
+ Loading brain took 48 seconds
+ Loading brain took 55 seconds
+ Loading brain took 54 seconds
+ Computing int
+ Computing int
+ Computing int
+ Took 0.097448 seconds
+ Computing gabor
+ Took 0.096156 seconds
+ Computing gabor
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 53 seconds
+ Loading brain took 48 seconds
+ Loading brain took 52 seconds
+ Loading brain took 54 seconds
+ Took 0.095592 seconds
+ Computing gabor
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 48 seconds
+ Loading brain took 56 seconds
+ Loading brain took 56 seconds
+ Loading brain took 53 seconds
+ Took 0.090175 seconds
+ Computing gabor
+ Took 0.09196 seconds
+ Computing gabor
+ Computing int
+ Computing int
+ Took 0.09694 seconds
+ Computing gabor
+ Took 0.094555 seconds
+ Computing gabor
+ Took 95.2567 seconds
+ Took 96.502 seconds
+Launcher: Job 27 completed in 119 seconds.
+Launcher: Task 26 done. Exiting.
+ Took 99.2789 seconds
+ Took 99.9642 seconds
+ Took 101.8155 seconds
+Loading 2 out of 2 (Brats17_UAB_3454_1)
+ Took 103.7924 seconds
+Loading 2 out of 2 (Brats17_UAB_3498_1)
+ Took 102.0206 seconds
+ Took 102.7052 seconds
+Launcher: Job 28 completed in 122 seconds.
+Launcher: Task 27 done. Exiting.
+ Took 103.4166 seconds
+ Took 102.8304 seconds
+ Took 103.4955 seconds
+ Took 103.5164 seconds
+ Took 103.617 seconds
+ Took 102.7254 seconds
+ Took 103.1193 seconds
+Loading 2 out of 2 (Brats17_UAB_3446_1)
+ Took 104.9857 seconds
+Loading 2 out of 2 (Brats17_UAB_3499_1)
+ Took 103.3425 seconds
+Launcher: Job 37 completed in 123 seconds.
+Launcher: Task 36 done. Exiting.
+Launcher: Job 16 completed in 124 seconds.
+Launcher: Task 15 done. Exiting.
+ Took 103.6532 seconds
+ Took 105.6735 seconds
+ Took 103.6418 seconds
+ Took 104.4854 seconds
+ Took 104.9877 seconds
+ Took 104.1394 seconds
+ Took 105.185 seconds
+ Loading brain took 50 seconds
+ Loading brain took 46 seconds
+ Loading brain took 55 seconds
+ Loading brain took 53 seconds
+ Loading brain took 48 seconds
+ Loading brain took 56 seconds
+ Took 105.4255 seconds
+ Computing int
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 48 seconds
+ Loading brain took 49 seconds
+ Loading brain took 55 seconds
+ Loading brain took 56 seconds
+ Computing int
+ Took 0.089637 seconds
+ Computing gabor
+ Took 104.86 seconds
+ Took 0.085815 seconds
+ Computing gabor
+ Took 104.8081 seconds
+ Took 105.6635 seconds
+ Took 105.5789 seconds
+ Took 106.5052 seconds
+ Took 108.4922 seconds
+Launcher: Job 20 completed in 127 seconds.
+Launcher: Task 19 done. Exiting.
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 55 seconds
+ Loading brain took 51 seconds
+ Loading brain took 48 seconds
+ Loading brain took 51 seconds
+Launcher: Job 32 completed in 127 seconds.
+Launcher: Task 31 done. Exiting.
+ Computing int
+ Took 0.088815 seconds
+ Computing gabor
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 50 seconds
+ Loading brain took 51 seconds
+ Loading brain took 51 seconds
+ Loading brain took 52 seconds
+ Computing int
+ Took 0.085858 seconds
+ Computing gabor
+ Took 107.593 seconds
+Launcher: Job 18 completed in 128 seconds.
+Launcher: Task 17 done. Exiting.
+Launcher: Job 22 completed in 128 seconds.
+Launcher: Task 21 done. Exiting.
+Launcher: Job 24 completed in 128 seconds.
+Launcher: Job 30 completed in 128 seconds.
+Launcher: Task 23 done. Exiting.
+Launcher: Task 29 done. Exiting.
+Launcher: Job 25 completed in 128 seconds.
+Launcher: Task 24 done. Exiting.
+Launcher: Job 36 completed in 128 seconds.
+Launcher: Task 35 done. Exiting.
+ Took 108.2715 seconds
+Launcher: Job 40 completed in 128 seconds.
+Launcher: Task 39 done. Exiting.
+Launcher: Job 33 completed in 128 seconds.
+Launcher: Task 32 done. Exiting.
+Launcher: Job 38 completed in 128 seconds.
+Launcher: Task 37 done. Exiting.
+Launcher: Job 29 completed in 128 seconds.
+Launcher: Task 28 done. Exiting.
+ Took 108.3042 seconds
+Launcher: Job 23 completed in 128 seconds.
+Launcher: Task 22 done. Exiting.
+ Took 107.781 seconds
+Loading 2 out of 2 (Brats17_UAB_3455_1)
+ Took 108.732 seconds
+Launcher: Job 14 completed in 128 seconds.
+Launcher: Task 13 done. Exiting.
+ Took 108.0957 seconds
+ Took 108.2458 seconds
+Loading 2 out of 2 (Brats17_UAB_3456_1)
+Launcher: Job 39 completed in 128 seconds.
+Launcher: Task 38 done. Exiting.
+Launcher: Job 17 completed in 128 seconds.
+Launcher: Task 16 done. Exiting.
+Launcher: Job 9 completed in 129 seconds.
+Launcher: Task 8 done. Exiting.
+ Took 108.6156 seconds
+ Took 109.1392 seconds
+Launcher: Job 7 completed in 130 seconds.
+Launcher: Task 6 done. Exiting.
+Launcher: Job 15 completed in 130 seconds.
+Launcher: Task 14 done. Exiting.
+Launcher: Job 19 completed in 130 seconds.
+Launcher: Task 18 done. Exiting.
+Launcher: Job 21 completed in 130 seconds.
+Launcher: Task 20 done. Exiting.
+Launcher: Job 12 completed in 131 seconds.
+Launcher: Task 11 done. Exiting.
+ Loading brain took 52 seconds
+ Loading brain took 46 seconds
+ Loading brain took 48 seconds
+ Loading brain took 57 seconds
+ Loading brain took 55 seconds
+ Loading brain took 55 seconds
+ Loading brain took 51 seconds
+ Loading brain took 46 seconds
+ Loading brain took 54 seconds
+ Loading brain took 55 seconds
+ Loading brain took 50 seconds
+ Loading brain took 52 seconds
+ Computing int
+ Computing int
+Launcher: Job 26 completed in 132 seconds.
+Launcher: Task 25 done. Exiting.
+ Took 0.087447 seconds
+ Computing gabor
+ Took 0.089643 seconds
+ Computing gabor
+Launcher: Job 35 completed in 133 seconds.
+Launcher: Task 34 done. Exiting.
+Launcher: Job 31 completed in 133 seconds.
+Launcher: Job 8 completed in 133 seconds.
+Launcher: Job 10 completed in 133 seconds.
+Launcher: Task 30 done. Exiting.
+Launcher: Task 7 done. Exiting.
+Launcher: Task 9 done. Exiting.
+Launcher: Job 34 completed in 133 seconds.
+Launcher: Task 33 done. Exiting.
+Launcher: Job 11 completed in 133 seconds.
+Launcher: Task 10 done. Exiting.
+Launcher: Job 13 completed in 134 seconds.
+Launcher: Task 12 done. Exiting.
+ Took 100.7077 seconds
+Launcher: Job 2 completed in 230 seconds.
+Launcher: Task 1 done. Exiting.
+ Took 105.4215 seconds
+ Took 105.0613 seconds
+ Took 104.7333 seconds
+Launcher: Job 5 completed in 234 seconds.
+Launcher: Task 4 done. Exiting.
+ Took 102.007 seconds
+ Took 103.1577 seconds
+Launcher: Job 6 completed in 236 seconds.
+Launcher: Task 5 done. Exiting.
+Launcher: Job 1 completed in 237 seconds.
+Launcher: Task 0 done. Exiting.
+Launcher: Job 3 completed in 238 seconds.
+Launcher: Task 2 done. Exiting.
+Launcher: Job 4 completed in 239 seconds.
+Launcher: Task 3 done. Exiting.
+Launcher: Done. Job exited without errors

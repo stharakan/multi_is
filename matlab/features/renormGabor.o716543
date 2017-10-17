@@ -1,0 +1,2031 @@
+Lmod has detected the following error: These module(s) exist but cannot be
+loaded as requested: "python3"
+   Try: "module spider python3" to see how to load the module(s).
+
+
+
+WARNING (08/15/17 14:59:55): LAUNCHER_WORKDIR variable not set. Using current directory.
+Launcher: Setup complete.
+
+------------- SUMMARY ---------------
+   Number of hosts:    20
+   Working directory:  /work/03158/tharakan/research/brats17/matlab/features
+   Processes per host: 2
+   Total processes:    40
+   Total jobs:         40
+   Scheduling method:  interleaved
+
+------ Process Binding Enabled ------
+   Sockets per host:   2
+   Cores per host:     20
+   Threads per host:   20
+   Binding each task to 10 cores (Hyperthreads ignored)
+
+-------------------------------------
+Launcher: Starting parallel tasks...
+Launcher: Task 1 running job 2 on c221-401.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(2,40); quit;")
+Launcher: Task 0 running job 1 on c221-401.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(1,40); quit;")
+Launcher: Task 35 running job 36 on c222-802.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(36,40); quit;")
+Launcher: Task 34 running job 35 on c222-802.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(35,40); quit;")
+Launcher: Task 25 running job 26 on c222-303.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(26,40); quit;")
+Launcher: Task 24 running job 25 on c222-303.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(25,40); quit;")
+Launcher: Task 7 running job 8 on c222-102.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(8,40); quit;")
+Launcher: Task 6 running job 7 on c222-102.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(7,40); quit;")
+Launcher: Task 38 running job 39 on c222-804.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(39,40); quit;")
+Launcher: Task 39 running job 40 on c222-804.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(40,40); quit;")
+Launcher: Task 36 running job 37 on c222-803.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(37,40); quit;")
+Launcher: Task 37 running job 38 on c222-803.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(38,40); quit;")
+Launcher: Task 33 running job 34 on c222-801.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(34,40); quit;")
+Launcher: Task 32 running job 33 on c222-801.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(33,40); quit;")
+Launcher: Task 16 running job 17 on c222-203.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(17,40); quit;")
+Launcher: Task 17 running job 18 on c222-203.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(18,40); quit;")
+Launcher: Task 9 running job 10 on c222-103.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(10,40); quit;")
+Launcher: Task 8 running job 9 on c222-103.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(9,40); quit;")
+Launcher: Task 20 running job 21 on c222-301.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(21,40); quit;")
+Launcher: Task 21 running job 22 on c222-301.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(22,40); quit;")
+Launcher: Task 26 running job 27 on c222-702.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(27,40); quit;")
+Launcher: Task 27 running job 28 on c222-702.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(28,40); quit;")
+Launcher: Task 5 running job 6 on c222-101.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(6,40); quit;")
+Launcher: Task 4 running job 5 on c222-101.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(5,40); quit;")
+Launcher: Task 22 running job 23 on c222-302.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(23,40); quit;")
+Launcher: Task 23 running job 24 on c222-302.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(24,40); quit;")
+Launcher: Task 2 running job 3 on c221-502.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(3,40); quit;")
+Launcher: Task 3 running job 4 on c221-502.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(4,40); quit;")
+Launcher: Task 10 running job 11 on c222-104.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(11,40); quit;")
+Launcher: Task 11 running job 12 on c222-104.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(12,40); quit;")
+Launcher: Task 13 running job 14 on c222-201.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(14,40); quit;")
+Launcher: Task 12 running job 13 on c222-201.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(13,40); quit;")
+Launcher: Task 28 running job 29 on c222-703.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(29,40); quit;")
+Launcher: Task 29 running job 30 on c222-703.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(30,40); quit;")
+Launcher: Task 18 running job 19 on c222-204.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(19,40); quit;")
+Launcher: Task 19 running job 20 on c222-204.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(20,40); quit;")
+Launcher: Task 30 running job 31 on c222-704.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(31,40); quit;")
+Launcher: Task 31 running job 32 on c222-704.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(32,40); quit;")
+Launcher: Task 15 running job 16 on c222-202.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(16,40); quit;")
+Launcher: Task 14 running job 15 on c222-202.maverick.tacc.utexas.edu (matlab -nodisplay -r "addpath( [getenv('BRATSREPO'),'/matlab/features']); save_indiv_brain_features_func(15,40); quit;")
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2017 The MathWorks, Inc.
+                   R2017a (9.2.0.538062) 64-bit (glnxa64)
+                             February 23, 2017
+
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+To get started, type one of these: helpwin, helpdesk, or demo.
+ 
+For product information, visit www.mathworks.com.
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+To get started, type one of these: helpwin, helpdesk, or demo.
+ 
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Set path and variables
+Set path and variables
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Set path and variables
+Set path and variables
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Set path and variables
+Set path and variables
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Set path and variables
+Got brain list
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Set path and variables
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Set path and variables
+Set path and variables
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Set path and variables
+Set path and variables
+Set path and variables
+Set path and variables
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Set path and variables
+Set path and variables
+Set path and variables
+Set path and variables
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Got brain list
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Got brain list
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Set path and variables
+Set path and variables
+updated brain list..
+updated brain list..
+Loading LGG no 1 (Brats17_2013_0_1), has 110398 features 
+Loading LGG no 2 (Brats17_2013_15_1), has 63830 features 
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Set path and variables
+Set path and variables
+Got brain list
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Set path and variables
+Set path and variables
+updated brain list..
+updated brain list..
+Loading LGG no 26 (Brats17_TCIA_276_1), has 93544 features 
+Loading LGG no 25 (Brats17_TCIA_266_1), has 46628 features 
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+Got brain list
+Loading indices from /work/00921/biros/BRATS17/classification/training/models/BRATS_50M_Meta.idxs.mat
+updated brain list..
+updated brain list..
+Loading LGG no 35 (Brats17_TCIA_346_1), has 202730 features 
+Loading LGG no 36 (Brats17_TCIA_351_1), has 344690 features 
+updated brain list..
+Loading LGG no 14 (Brats17_TCIA_130_1), has 60980 features 
+updated brain list..
+Loading LGG no 13 (Brats17_TCIA_109_1), has 396738 features 
+updated brain list..
+Loading LGG no 32 (Brats17_TCIA_312_1), has 105942 features 
+updated brain list..
+Loading LGG no 31 (Brats17_TCIA_310_1), has 74420 features 
+updated brain list..
+Loading LGG no 24 (Brats17_TCIA_261_1), has 412686 features 
+updated brain list..
+Loading LGG no 23 (Brats17_TCIA_255_1), has 454876 features 
+updated brain list..
+updated brain list..
+Loading LGG no 39 (Brats17_TCIA_402_1), has 284688 features 
+Loading LGG no 40 (Brats17_TCIA_408_1), has 129706 features 
+updated brain list..
+Loading LGG no 17 (Brats17_TCIA_175_1), has 422012 features 
+updated brain list..
+Brain Brats17_TCIA_177_1 has 0 features to load
+Loading LGG no 58 (Brats17_TCIA_623_1), has 472340 features 
+updated brain list..
+updated brain list..
+Loading LGG no 15 (Brats17_TCIA_141_1), has 388162 features 
+Brain Brats17_TCIA_152_1 has 0 features to load
+Loading LGG no 56 (Brats17_TCIA_620_1), has 49976 features 
+updated brain list..
+Loading LGG no 19 (Brats17_TCIA_202_1), has 316372 features 
+updated brain list..
+Loading LGG no 20 (Brats17_TCIA_241_1), has 354724 features 
+updated brain list..
+Loading LGG no 12 (Brats17_TCIA_103_1), has 435886 features 
+updated brain list..
+Loading LGG no 11 (Brats17_TCIA_101_1), has 65930 features 
+updated brain list..
+updated brain list..
+Loading LGG no 28 (Brats17_TCIA_298_1), has 259288 features 
+Brain Brats17_TCIA_282_1 has 0 features to load
+Loading LGG no 67 (Brats17_TCIA_637_1), has 480982 features 
+updated brain list..
+Loading LGG no 37 (Brats17_TCIA_387_1), has 212140 features 
+updated brain list..
+updated brain list..
+Loading LGG no 34 (Brats17_TCIA_330_1), has 164834 features 
+Loading LGG no 33 (Brats17_TCIA_325_1), has 248266 features 
+updated brain list..
+updated brain list..
+Loading LGG no 38 (Brats17_TCIA_393_1), has 354930 features 
+Loading LGG no 10 (Brats17_2013_9_1), has 74734 features 
+updated brain list..
+Loading LGG no 9 (Brats17_2013_8_1), has 46632 features 
+updated brain list..
+Brain Brats17_TCIA_249_1 has 0 features to load
+Loading LGG no 61 (Brats17_TCIA_628_1), has 299718 features 
+updated brain list..
+Loading LGG no 22 (Brats17_TCIA_254_1), has 387664 features 
+updated brain list..
+Loading LGG no 7 (Brats17_2013_29_1), has 112276 features 
+updated brain list..
+Loading LGG no 8 (Brats17_2013_6_1), has 469666 features 
+updated brain list..
+updated brain list..
+Loading LGG no 4 (Brats17_2013_1_1), has 36574 features 
+Loading LGG no 3 (Brats17_2013_16_1), has 121594 features 
+updated brain list..
+Loading LGG no 5 (Brats17_2013_24_1), has 142474 features 
+updated brain list..
+Loading LGG no 6 (Brats17_2013_28_1), has 160268 features 
+updated brain list..
+updated brain list..
+Loading LGG no 29 (Brats17_TCIA_299_1), has 94700 features 
+Loading LGG no 30 (Brats17_TCIA_307_1), has 145846 features 
+Loading brain took 3.6286 seconds
+Brain Brats17_2013_15_1 has 63830 features to load
+Computing gabor
+Loading brain took 3.7465 seconds
+Brain Brats17_2013_0_1 has 110398 features to load
+Computing gabor
+Loading brain took 3.3744 seconds
+Brain Brats17_TCIA_351_1 has 344690 features to load
+Computing gabor
+Loading brain took 3.4345 seconds
+Brain Brats17_TCIA_346_1 has 202730 features to load
+Computing gabor
+Loading brain took 3.5455 seconds
+Brain Brats17_TCIA_276_1 has 93544 features to load
+Computing gabor
+Loading brain took 3.6331 seconds
+Brain Brats17_TCIA_266_1 has 46628 features to load
+Computing gabor
+Loading brain took 3.4727 seconds
+Brain Brats17_TCIA_402_1 has 284688 features to load
+Loading brain took 3.4819 seconds
+Brain Brats17_TCIA_408_1 has 129706 features to load
+Loading brain took 3.385 seconds
+Brain Brats17_TCIA_241_1 has 354724 features to load
+Computing gabor
+Computing gabor
+Loading brain took 3.5552 seconds
+Brain Brats17_TCIA_175_1 has 422012 features to load
+Computing gabor
+Loading brain took 3.5744 seconds
+Brain Brats17_TCIA_623_1 has 472340 features to load
+Loading brain took 3.6364 seconds
+Brain Brats17_TCIA_255_1 has 454876 features to load
+Loading brain took 3.2617 seconds
+Brain Brats17_TCIA_254_1 has 387664 features to load
+Loading brain took 3.4653 seconds
+Brain Brats17_TCIA_202_1 has 316372 features to load
+Loading brain took 3.6535 seconds
+Brain Brats17_TCIA_261_1 has 412686 features to load
+Computing gabor
+Loading brain took 3.6015 seconds
+Brain Brats17_TCIA_620_1 has 49976 features to load
+Computing gabor
+Computing gabor
+Computing gabor
+Computing gabor
+Loading brain took 3.6284 seconds
+Brain Brats17_TCIA_141_1 has 388162 features to load
+Computing gabor
+Computing gabor
+Loading brain took 3.3932 seconds
+Brain Brats17_TCIA_325_1 has 248266 features to load
+Loading brain took 3.5091 seconds
+Brain Brats17_TCIA_101_1 has 65930 features to load
+Loading brain took 3.5242 seconds
+Brain Brats17_TCIA_103_1 has 435886 features to load
+Loading brain took 3.4524 seconds
+Brain Brats17_TCIA_637_1 has 480982 features to load
+Loading brain took 3.4139 seconds
+Brain Brats17_TCIA_330_1 has 164834 features to load
+Computing gabor
+Loading brain took 3.4698 seconds
+Brain Brats17_TCIA_298_1 has 259288 features to load
+Computing gabor
+Computing gabor
+Loading brain took 3.4488 seconds
+Brain Brats17_2013_9_1 has 74734 features to load
+Computing gabor
+Computing gabor
+Computing gabor
+Computing gabor
+Computing gabor
+Loading brain took 3.977 seconds
+Brain Brats17_TCIA_109_1 has 396738 features to load
+Loading brain took 3.5557 seconds
+Brain Brats17_TCIA_628_1 has 299718 features to load
+Computing gabor
+Loading brain took 3.6326 seconds
+Brain Brats17_2013_8_1 has 46632 features to load
+Loading brain took 4.0704 seconds
+Brain Brats17_TCIA_130_1 has 60980 features to load
+Computing gabor
+Computing gabor
+Computing gabor
+Loading brain took 4.0839 seconds
+Brain Brats17_TCIA_310_1 has 74420 features to load
+Computing gabor
+Loading brain took 3.7661 seconds
+Brain Brats17_2013_6_1 has 469666 features to load
+Computing gabor
+Loading brain took 4.2682 seconds
+Brain Brats17_TCIA_312_1 has 105942 features to load
+Computing gabor
+Loading brain took 3.8869 seconds
+Brain Brats17_2013_29_1 has 112276 features to load
+Computing gabor
+Loading brain took 4.1025 seconds
+Brain Brats17_TCIA_387_1 has 212140 features to load
+Loading brain took 3.2932 seconds
+Brain Brats17_TCIA_307_1 has 145846 features to load
+Computing gabor
+Computing gabor
+Loading brain took 3.8605 seconds
+Brain Brats17_2013_24_1 has 142474 features to load
+Loading brain took 3.3546 seconds
+Brain Brats17_TCIA_299_1 has 94700 features to load
+Computing gabor
+Computing gabor
+Loading brain took 3.947 seconds
+Brain Brats17_2013_28_1 has 160268 features to load
+Loading brain took 4.2857 seconds
+Brain Brats17_TCIA_393_1 has 354930 features to load
+Computing gabor
+Computing gabor
+Loading brain took 4.2834 seconds
+Brain Brats17_2013_16_1 has 121594 features to load
+Loading brain took 4.2886 seconds
+Brain Brats17_2013_1_1 has 36574 features to load
+Computing gabor
+Computing gabor
+Took 102.804 seconds
+Loading LGG no 42 (Brats17_TCIA_413_1), has 142076 features 
+Took 102.6911 seconds
+Loading LGG no 65 (Brats17_TCIA_633_1), has 626078 features 
+Took 102.4791 seconds
+Loading HGG no 5 (Brats17_2013_14_1), has 342054 features 
+Took 103.5824 seconds
+Loading LGG no 41 (Brats17_TCIA_410_1), has 575702 features 
+Took 102.9698 seconds
+Loading LGG no 75 (Brats17_TCIA_654_1), has 275682 features 
+Took 103.003 seconds
+Loading LGG no 64 (Brats17_TCIA_632_1), has 67368 features 
+Took 103.354 seconds
+Brain Brats17_2013_10_1 is being skipped
+Loading HGG no 41 (Brats17_CBICA_AOH_1), has 80882 features 
+Took 103.0418 seconds
+Loading LGG no 51 (Brats17_TCIA_480_1), has 366666 features 
+Took 102.9395 seconds
+Loading LGG no 74 (Brats17_TCIA_653_1), has 89014 features 
+Took 102.6705 seconds
+Loading LGG no 70 (Brats17_TCIA_642_1), has 324126 features 
+Took 103.35 seconds
+Loading LGG no 43 (Brats17_TCIA_420_1), has 76600 features 
+Took 103.9771 seconds
+Loading LGG no 52 (Brats17_TCIA_490_1), has 258634 features 
+Took 104.661 seconds
+Loading LGG no 71 (Brats17_TCIA_644_1), has 320424 features 
+Took 104.6192 seconds
+Loading LGG no 55 (Brats17_TCIA_618_1), has 114332 features 
+Took 104.3727 seconds
+Loading HGG no 3 (Brats17_2013_12_1), has 464060 features 
+Loading brain took 2.763 seconds
+Brain Brats17_TCIA_413_1 has 142076 features to load
+Computing gabor
+Loading brain took 2.5007 seconds
+Brain Brats17_TCIA_633_1 has 626078 features to load
+Computing gabor
+Took 104.7619 seconds
+Loading HGG no 32 (Brats17_CBICA_ALU_1), has 54734 features 
+Took 105.0288 seconds
+Loading HGG no 21 (Brats17_CBICA_AAB_1), has 426298 features 
+Loading brain took 2.606 seconds
+Brain Brats17_2013_14_1 has 342054 features to load
+Took 104.7461 seconds
+Loading LGG no 48 (Brats17_TCIA_462_1), has 301290 features 
+Computing gabor
+Took 105.4562 seconds
+Loading LGG no 72 (Brats17_TCIA_645_1), has 119538 features 
+Took 105.5572 seconds
+Brain Brats17_TCIA_493_1 has 0 features to load
+Loading HGG no 18 (Brats17_2013_4_1), has 313936 features 
+Took 105.4478 seconds
+Loading LGG no 57 (Brats17_TCIA_621_1), has 98692 features 
+Took 105.1938 seconds
+Loading LGG no 73 (Brats17_TCIA_650_1), has 32810 features 
+Took 105.3634 seconds
+Loading LGG no 59 (Brats17_TCIA_624_1), has 275508 features 
+Loading brain took 2.5531 seconds
+Brain Brats17_TCIA_632_1 has 67368 features to load
+Loading brain took 2.7779 seconds
+Brain Brats17_TCIA_410_1 has 575702 features to load
+Computing gabor
+Computing gabor
+Loading brain took 2.8978 seconds
+Brain Brats17_TCIA_654_1 has 275682 features to load
+Took 105.1096 seconds
+Loading LGG no 45 (Brats17_TCIA_442_1), has 216890 features 
+Computing gabor
+Loading brain took 2.5626 seconds
+Brain Brats17_TCIA_653_1 has 89014 features to load
+Computing gabor
+Loading brain took 2.7901 seconds
+Brain Brats17_CBICA_AOH_1 has 80882 features to load
+Computing gabor
+Loading brain took 2.7828 seconds
+Brain Brats17_TCIA_480_1 has 366666 features to load
+Computing gabor
+Took 105.7547 seconds
+Loading LGG no 49 (Brats17_TCIA_466_1), has 138578 features 
+Took 106.2144 seconds
+Loading HGG no 4 (Brats17_2013_13_1), has 36894 features 
+Loading brain took 2.4688 seconds
+Brain Brats17_TCIA_642_1 has 324126 features to load
+Computing gabor
+Loading brain took 2.4776 seconds
+Brain Brats17_TCIA_420_1 has 76600 features to load
+Computing gabor
+Took 106.1715 seconds
+Loading LGG no 62 (Brats17_TCIA_629_1), has 57306 features 
+Took 106.1719 seconds
+Loading LGG no 47 (Brats17_TCIA_451_1), has 118472 features 
+Took 106.4324 seconds
+Loading LGG no 60 (Brats17_TCIA_625_1), has 302554 features 
+Loading brain took 2.7693 seconds
+Brain Brats17_TCIA_490_1 has 258634 features to load
+Computing gabor
+Took 106.7798 seconds
+Loading LGG no 68 (Brats17_TCIA_639_1), has 338724 features 
+Took 107.3533 seconds
+Loading LGG no 66 (Brats17_TCIA_634_1), has 280714 features 
+Loading brain took 2.5666 seconds
+Brain Brats17_2013_12_1 has 464060 features to load
+Computing gabor
+Took 106.9506 seconds
+Loading HGG no 26 (Brats17_CBICA_ABE_1), has 258290 features 
+Loading brain took 2.6993 seconds
+Brain Brats17_TCIA_644_1 has 320424 features to load
+Computing gabor
+Took 106.8605 seconds
+Loading LGG no 44 (Brats17_TCIA_428_1), has 81150 features 
+Took 107.5302 seconds
+Loading LGG no 63 (Brats17_TCIA_630_1), has 114944 features 
+Loading brain took 2.8441 seconds
+Brain Brats17_TCIA_618_1 has 114332 features to load
+Computing gabor
+Loading brain took 2.5808 seconds
+Brain Brats17_CBICA_ALU_1 has 54734 features to load
+Took 107.3549 seconds
+Loading HGG no 2 (Brats17_2013_11_1), has 272054 features 
+Computing gabor
+Loading brain took 2.6211 seconds
+Brain Brats17_TCIA_462_1 has 301290 features to load
+Computing gabor
+Loading brain took 2.7755 seconds
+Brain Brats17_CBICA_AAB_1 has 426298 features to load
+Took 107.8523 seconds
+Loading HGG no 23 (Brats17_CBICA_AAL_1), has 64896 features 
+Computing gabor
+Loading brain took 2.5219 seconds
+Brain Brats17_TCIA_650_1 has 32810 features to load
+Loading brain took 2.6156 seconds
+Brain Brats17_2013_4_1 has 313936 features to load
+Computing gabor
+Computing gabor
+Loading brain took 2.6274 seconds
+Brain Brats17_TCIA_621_1 has 98692 features to load
+Loading brain took 2.7078 seconds
+Brain Brats17_TCIA_645_1 has 119538 features to load
+Computing gabor
+Computing gabor
+Loading brain took 2.4778 seconds
+Brain Brats17_TCIA_442_1 has 216890 features to load
+Computing gabor
+Loading brain took 2.7495 seconds
+Brain Brats17_TCIA_624_1 has 275508 features to load
+Computing gabor
+Took 108.6465 seconds
+Loading LGG no 54 (Brats17_TCIA_615_1), has 263810 features 
+Took 107.9785 seconds
+Loading LGG no 46 (Brats17_TCIA_449_1), has 105198 features 
+Loading brain took 2.5776 seconds
+Brain Brats17_TCIA_466_1 has 138578 features to load
+Computing gabor
+Loading brain took 2.5736 seconds
+Brain Brats17_2013_13_1 has 36894 features to load
+Computing gabor
+Took 107.8426 seconds
+Loading LGG no 69 (Brats17_TCIA_640_1), has 55898 features 
+Loading brain took 2.6729 seconds
+Brain Brats17_TCIA_451_1 has 118472 features to load
+Loading brain took 2.6525 seconds
+Brain Brats17_TCIA_625_1 has 302554 features to load
+Loading brain took 2.7354 seconds
+Brain Brats17_TCIA_629_1 has 57306 features to load
+Computing gabor
+Computing gabor
+Computing gabor
+Loading brain took 2.5415 seconds
+Brain Brats17_TCIA_639_1 has 338724 features to load
+Took 109.3192 seconds
+Loading LGG no 50 (Brats17_TCIA_470_1), has 38790 features 
+Computing gabor
+Loading brain took 2.7344 seconds
+Brain Brats17_TCIA_634_1 has 280714 features to load
+Computing gabor
+Loading brain took 2.6262 seconds
+Brain Brats17_TCIA_428_1 has 81150 features to load
+Loading brain took 2.72 seconds
+Brain Brats17_CBICA_ABE_1 has 258290 features to load
+Computing gabor
+Computing gabor
+Loading brain took 2.6411 seconds
+Brain Brats17_2013_11_1 has 272054 features to load
+Computing gabor
+Loading brain took 2.5442 seconds
+Brain Brats17_CBICA_AAL_1 has 64896 features to load
+Loading brain took 2.9457 seconds
+Brain Brats17_TCIA_630_1 has 114944 features to load
+Computing gabor
+Computing gabor
+Loading brain took 2.4898 seconds
+Brain Brats17_TCIA_615_1 has 263810 features to load
+Computing gabor
+Loading brain took 2.7416 seconds
+Brain Brats17_TCIA_449_1 has 105198 features to load
+Computing gabor
+Loading brain took 2.491 seconds
+Brain Brats17_TCIA_640_1 has 55898 features to load
+Computing gabor
+Loading brain took 2.5193 seconds
+Brain Brats17_TCIA_470_1 has 38790 features to load
+Computing gabor
+Took 96.6943 seconds
+Loading HGG no 39 (Brats17_CBICA_ANZ_1), has 92894 features 
+Took 99.7242 seconds
+Loading HGG no 30 (Brats17_CBICA_ABY_1), has 95998 features 
+Took 99.4307 seconds
+Loading HGG no 40 (Brats17_CBICA_AOD_1), has 301796 features 
+Loading brain took 2.5312 seconds
+Brain Brats17_CBICA_ANZ_1 has 92894 features to load
+Computing gabor
+Took 100.2109 seconds
+Loading HGG no 45 (Brats17_CBICA_APR_1), has 171360 features 
+Took 99.0624 seconds
+Loading HGG no 35 (Brats17_CBICA_AMH_1), has 205208 features 
+Took 101.4452 seconds
+Loading HGG no 7 (Brats17_2013_18_1), has 302120 features 
+Took 98.835 seconds
+Loading HGG no 20 (Brats17_2013_7_1), has 292542 features 
+Took 100.5521 seconds
+Loading HGG no 29 (Brats17_CBICA_ABO_1), has 375076 features 
+Took 101.0615 seconds
+Loading HGG no 16 (Brats17_2013_2_1), has 113976 features 
+Loading brain took 2.4676 seconds
+Brain Brats17_CBICA_AOD_1 has 301796 features to load
+Computing gabor
+Loading brain took 2.6434 seconds
+Brain Brats17_CBICA_ABY_1 has 95998 features to load
+Computing gabor
+Loading brain took 2.7832 seconds
+Brain Brats17_CBICA_AMH_1 has 205208 features to load
+Computing gabor
+Loading brain took 3.0512 seconds
+Brain Brats17_CBICA_APR_1 has 171360 features to load
+Computing gabor
+Loading brain took 2.4626 seconds
+Brain Brats17_CBICA_ABO_1 has 375076 features to load
+Computing gabor
+Loading brain took 2.6927 seconds
+Brain Brats17_2013_18_1 has 302120 features to load
+Computing gabor
+Took 101.5154 seconds
+Loading HGG no 43 (Brats17_CBICA_AOP_1), has 93640 features 
+Loading brain took 2.7741 seconds
+Brain Brats17_2013_7_1 has 292542 features to load
+Computing gabor
+Took 103.9542 seconds
+Loading HGG no 6 (Brats17_2013_17_1), has 356092 features 
+Loading brain took 2.6041 seconds
+Brain Brats17_2013_2_1 has 113976 features to load
+Computing gabor
+Took 102.3865 seconds
+Loading HGG no 37 (Brats17_CBICA_ANI_1), has 176208 features 
+Took 102.2894 seconds
+Loading HGG no 24 (Brats17_CBICA_AAP_1), has 185530 features 
+Took 101.445 seconds
+Loading HGG no 25 (Brats17_CBICA_ABB_1), has 42422 features 
+Took 100.4838 seconds
+Loading HGG no 42 (Brats17_CBICA_AOO_1), has 124644 features 
+Took 105.5054 seconds
+Loading HGG no 81 (Brats17_CBICA_ATX_1), has 39492 features 
+Took 102.576 seconds
+Loading HGG no 44 (Brats17_CBICA_AOZ_1), has 175530 features 
+Loading brain took 2.6376 seconds
+Brain Brats17_CBICA_AOP_1 has 93640 features to load
+Computing gabor
+Took 105.3575 seconds
+Loading HGG no 8 (Brats17_2013_19_1), has 157818 features 
+Took 104.34 seconds
+Loading HGG no 72 (Brats17_CBICA_ASU_1), has 93176 features 
+Took 104.0493 seconds
+Loading HGG no 38 (Brats17_CBICA_ANP_1), has 95278 features 
+Loading brain took 3.1418 seconds
+Brain Brats17_2013_17_1 has 356092 features to load
+Computing gabor
+Took 105.9351 seconds
+Loading HGG no 17 (Brats17_2013_3_1), has 230048 features 
+Took 104.3792 seconds
+Loading HGG no 10 (Brats17_2013_21_1), has 287556 features 
+Took 101.166 seconds
+Loading HGG no 34 (Brats17_CBICA_AME_1), has 121894 features 
+Loading brain took 2.4755 seconds
+Brain Brats17_CBICA_ANI_1 has 176208 features to load
+Computing gabor
+Took 102.8276 seconds
+Loading HGG no 28 (Brats17_CBICA_ABN_1), has 61106 features 
+Loading brain took 2.7739 seconds
+Brain Brats17_CBICA_AAP_1 has 185530 features to load
+Took 103.4645 seconds
+Loading HGG no 31 (Brats17_CBICA_ALN_1), has 94448 features 
+Computing gabor
+Loading brain took 2.5311 seconds
+Brain Brats17_CBICA_AOO_1 has 124644 features to load
+Computing gabor
+Took 104.2461 seconds
+Loading HGG no 27 (Brats17_CBICA_ABM_1), has 81518 features 
+Loading brain took 2.7768 seconds
+Brain Brats17_CBICA_ABB_1 has 42422 features to load
+Computing gabor
+Loading brain took 2.4418 seconds
+Brain Brats17_CBICA_ATX_1 has 39492 features to load
+Computing gabor
+Took 106.6047 seconds
+Loading HGG no 36 (Brats17_CBICA_ANG_1), has 247686 features 
+Took 102.7499 seconds
+Loading HGG no 19 (Brats17_2013_5_1), has 125438 features 
+Loading brain took 2.48 seconds
+Brain Brats17_CBICA_AOZ_1 has 175530 features to load
+Computing gabor
+Took 104.0422 seconds
+Loading HGG no 66 (Brats17_CBICA_ASE_1), has 70108 features 
+Took 106.477 seconds
+Loading HGG no 13 (Brats17_2013_25_1), has 42548 features 
+Took 106.2424 seconds
+Loading HGG no 58 (Brats17_CBICA_AQU_1), has 208680 features 
+Loading brain took 2.5684 seconds
+Brain Brats17_2013_19_1 has 157818 features to load
+Computing gabor
+Loading brain took 2.5109 seconds
+Brain Brats17_CBICA_ASU_1 has 93176 features to load
+Computing gabor
+Took 106.477 seconds
+Loading HGG no 22 (Brats17_CBICA_AAG_1), has 120486 features 
+Loading brain took 2.489 seconds
+Brain Brats17_CBICA_ANP_1 has 95278 features to load
+Computing gabor
+Took 107.3413 seconds
+Loading HGG no 61 (Brats17_CBICA_AQZ_1), has 181224 features 
+Loading brain took 2.4483 seconds
+Brain Brats17_CBICA_AME_1 has 121894 features to load
+Computing gabor
+Loading brain took 2.6038 seconds
+Brain Brats17_2013_21_1 has 287556 features to load
+Computing gabor
+Loading brain took 2.6596 seconds
+Brain Brats17_2013_3_1 has 230048 features to load
+Took 105.4286 seconds
+Loading HGG no 9 (Brats17_2013_20_1), has 388660 features 
+Loading brain took 2.4712 seconds
+Brain Brats17_CBICA_ABN_1 has 61106 features to load
+Computing gabor
+Computing gabor
+Loading brain took 2.4144 seconds
+Brain Brats17_CBICA_ALN_1 has 94448 features to load
+Computing gabor
+Took 104.7488 seconds
+Loading HGG no 11 (Brats17_2013_22_1), has 481752 features 
+Took 106.4532 seconds
+Loading HGG no 33 (Brats17_CBICA_ALX_1), has 85830 features 
+Loading brain took 2.8216 seconds
+Brain Brats17_CBICA_ABM_1 has 81518 features to load
+Computing gabor
+Took 104.0443 seconds
+Loading HGG no 15 (Brats17_2013_27_1), has 151750 features 
+Loading brain took 2.9359 seconds
+Brain Brats17_CBICA_ANG_1 has 247686 features to load
+Loading brain took 2.5658 seconds
+Brain Brats17_2013_25_1 has 42548 features to load
+Loading brain took 2.9103 seconds
+Brain Brats17_2013_5_1 has 125438 features to load
+Computing gabor
+Computing gabor
+Computing gabor
+Loading brain took 2.8842 seconds
+Brain Brats17_CBICA_ASE_1 has 70108 features to load
+Computing gabor
+Loading brain took 2.7377 seconds
+Brain Brats17_CBICA_AQU_1 has 208680 features to load
+Loading brain took 2.4682 seconds
+Brain Brats17_CBICA_AAG_1 has 120486 features to load
+Computing gabor
+Computing gabor
+Took 106.9771 seconds
+Loading HGG no 63 (Brats17_CBICA_ARW_1), has 67386 features 
+Loading brain took 2.4862 seconds
+Brain Brats17_CBICA_AQZ_1 has 181224 features to load
+Computing gabor
+Loading brain took 2.6163 seconds
+Brain Brats17_2013_20_1 has 388660 features to load
+Took 108.8734 seconds
+Loading HGG no 12 (Brats17_2013_23_1), has 277232 features 
+Computing gabor
+Loading brain took 2.576 seconds
+Brain Brats17_2013_22_1 has 481752 features to load
+Computing gabor
+Loading brain took 2.5588 seconds
+Brain Brats17_CBICA_ALX_1 has 85830 features to load
+Computing gabor
+Loading brain took 2.6078 seconds
+Brain Brats17_2013_27_1 has 151750 features to load
+Computing gabor
+Loading brain took 2.6722 seconds
+Brain Brats17_CBICA_ARW_1 has 67386 features to load
+Computing gabor
+Loading brain took 3.1342 seconds
+Brain Brats17_2013_23_1 has 277232 features to load
+Computing gabor
+Took 112.8521 seconds
+Loading HGG no 14 (Brats17_2013_26_1), has 25248 features 
+Loading brain took 2.7014 seconds
+Brain Brats17_2013_26_1 has 25248 features to load
+Computing gabor
+Took 101.6175 seconds
+Loading HGG no 80 (Brats17_CBICA_ATV_1), has 179622 features 
+Took 100.5979 seconds
+Loading HGG no 60 (Brats17_CBICA_AQY_1), has 284250 features 
+Took 99.9165 seconds
+Loading HGG no 56 (Brats17_CBICA_AQR_1), has 30148 features 
+Took 101.7845 seconds
+Loading HGG no 75 (Brats17_CBICA_ASY_1), has 194308 features 
+Loading brain took 2.5462 seconds
+Brain Brats17_CBICA_ATV_1 has 179622 features to load
+Computing gabor
+Loading brain took 2.4616 seconds
+Brain Brats17_CBICA_AQY_1 has 284250 features to load
+Computing gabor
+Loading brain took 2.4736 seconds
+Brain Brats17_CBICA_AQR_1 has 30148 features to load
+Computing gabor
+Loading brain took 2.4834 seconds
+Brain Brats17_CBICA_ASY_1 has 194308 features to load
+Computing gabor
+Took 104.0318 seconds
+Loading HGG no 47 (Brats17_CBICA_APZ_1), has 127364 features 
+Took 98.9806 seconds
+Loading HGG no 74 (Brats17_CBICA_ASW_1), has 164262 features 
+Took 109.8413 seconds
+Loading HGG no 79 (Brats17_CBICA_ATP_1), has 52302 features 
+Loading brain took 2.5418 seconds
+Brain Brats17_CBICA_APZ_1 has 127364 features to load
+Computing gabor
+Took 108.127 seconds
+Loading HGG no 70 (Brats17_CBICA_ASN_1), has 149498 features 
+Took 102.5905 seconds
+Loading HGG no 64 (Brats17_CBICA_ARZ_1), has 35226 features 
+Took 101.9436 seconds
+Loading HGG no 121 (Brats17_TCIA_150_1), has 140714 features 
+Took 107.9046 seconds
+Loading HGG no 69 (Brats17_CBICA_ASK_1), has 152652 features 
+Took 102.2837 seconds
+Loading HGG no 48 (Brats17_CBICA_AQA_1), has 35890 features 
+Loading brain took 2.5196 seconds
+Brain Brats17_CBICA_ATP_1 has 52302 features to load
+Loading brain took 3.1838 seconds
+Brain Brats17_CBICA_ASW_1 has 164262 features to load
+Computing gabor
+Computing gabor
+Took 102.3197 seconds
+Loading HGG no 50 (Brats17_CBICA_AQG_1), has 176880 features 
+Took 104.5978 seconds
+Loading HGG no 82 (Brats17_CBICA_AUN_1), has 291050 features 
+Took 103.944 seconds
+Loading HGG no 84 (Brats17_CBICA_AUR_1), has 199996 features 
+Took 105.0049 seconds
+Loading HGG no 77 (Brats17_CBICA_ATD_1), has 217898 features 
+Loading brain took 2.4921 seconds
+Brain Brats17_CBICA_ASN_1 has 149498 features to load
+Computing gabor
+Loading brain took 2.4904 seconds
+Brain Brats17_CBICA_ARZ_1 has 35226 features to load
+Computing gabor
+Took 102.3454 seconds
+Loading HGG no 71 (Brats17_CBICA_ASO_1), has 243992 features 
+Loading brain took 2.5285 seconds
+Brain Brats17_TCIA_150_1 has 140714 features to load
+Took 102.8509 seconds
+Loading HGG no 68 (Brats17_CBICA_ASH_1), has 56496 features 
+Computing gabor
+Took 101.2126 seconds
+Loading HGG no 101 (Brats17_CBICA_AYW_1), has 59372 features 
+Loading brain took 2.4848 seconds
+Brain Brats17_CBICA_AQA_1 has 35890 features to load
+Computing gabor
+Loading brain took 2.6242 seconds
+Brain Brats17_CBICA_ASK_1 has 152652 features to load
+Took 106.0468 seconds
+Loading HGG no 65 (Brats17_CBICA_ASA_1), has 207780 features 
+Computing gabor
+Took 107.418 seconds
+Loading HGG no 46 (Brats17_CBICA_APY_1), has 299714 features 
+Loading brain took 2.5244 seconds
+Brain Brats17_CBICA_AQG_1 has 176880 features to load
+Computing gabor
+Loading brain took 2.4914 seconds
+Brain Brats17_CBICA_AUN_1 has 291050 features to load
+Loading brain took 2.47 seconds
+Brain Brats17_CBICA_AUR_1 has 199996 features to load
+Computing gabor
+Computing gabor
+Loading brain took 2.4705 seconds
+Brain Brats17_CBICA_ATD_1 has 217898 features to load
+Computing gabor
+Took 104.0239 seconds
+Loading HGG no 106 (Brats17_CBICA_BHB_1), has 36602 features 
+Loading brain took 2.5204 seconds
+Brain Brats17_CBICA_ASO_1 has 243992 features to load
+Computing gabor
+Took 104.1496 seconds
+Loading HGG no 53 (Brats17_CBICA_AQO_1), has 262888 features 
+Loading brain took 2.6324 seconds
+Brain Brats17_CBICA_ASH_1 has 56496 features to load
+Took 113.1183 seconds
+Loading HGG no 85 (Brats17_CBICA_AVG_1), has 51558 features 
+Computing gabor
+Took 106.792 seconds
+Loading HGG no 112 (Brats17_TCIA_117_1), has 149264 features 
+Loading brain took 2.5573 seconds
+Brain Brats17_CBICA_AYW_1 has 59372 features to load
+Computing gabor
+Took 105.1496 seconds
+Loading HGG no 76 (Brats17_CBICA_ATB_1), has 131500 features 
+Loading brain took 2.4831 seconds
+Brain Brats17_CBICA_ASA_1 has 207780 features to load
+Computing gabor
+Loading brain took 2.5678 seconds
+Brain Brats17_CBICA_APY_1 has 299714 features to load
+Computing gabor
+Took 107.2365 seconds
+Loading HGG no 78 (Brats17_CBICA_ATF_1), has 168696 features 
+Took 103.3082 seconds
+Loading HGG no 73 (Brats17_CBICA_ASV_1), has 239488 features 
+Took 104.2724 seconds
+Loading HGG no 49 (Brats17_CBICA_AQD_1), has 137508 features 
+Took 107.1755 seconds
+Loading HGG no 57 (Brats17_CBICA_AQT_1), has 396390 features 
+Took 103.771 seconds
+Loading HGG no 55 (Brats17_CBICA_AQQ_1), has 146244 features 
+Took 106.3844 seconds
+Loading HGG no 59 (Brats17_CBICA_AQV_1), has 119762 features 
+Loading brain took 2.5473 seconds
+Brain Brats17_CBICA_BHB_1 has 36602 features to load
+Computing gabor
+Took 102.7225 seconds
+Loading HGG no 52 (Brats17_CBICA_AQN_1), has 54678 features 
+Took 103.2977 seconds
+Loading HGG no 103 (Brats17_CBICA_AZH_1), has 132658 features 
+Loading brain took 2.5502 seconds
+Brain Brats17_CBICA_AQO_1 has 262888 features to load
+Loading brain took 2.4895 seconds
+Brain Brats17_CBICA_AVG_1 has 51558 features to load
+Took 104.9695 seconds
+Loading HGG no 51 (Brats17_CBICA_AQJ_1), has 149882 features 
+Computing gabor
+Computing gabor
+Took 106.7504 seconds
+Loading HGG no 62 (Brats17_CBICA_ARF_1), has 153848 features 
+Loading brain took 2.5228 seconds
+Brain Brats17_CBICA_ATB_1 has 131500 features to load
+Computing gabor
+Loading brain took 2.7803 seconds
+Brain Brats17_TCIA_117_1 has 149264 features to load
+Computing gabor
+Loading brain took 2.449 seconds
+Brain Brats17_CBICA_ATF_1 has 168696 features to load
+Computing gabor
+Loading brain took 2.7477 seconds
+Brain Brats17_CBICA_ASV_1 has 239488 features to load
+Loading brain took 2.4912 seconds
+Brain Brats17_CBICA_AQD_1 has 137508 features to load
+Computing gabor
+Computing gabor
+Loading brain took 2.5885 seconds
+Brain Brats17_CBICA_AQT_1 has 396390 features to load
+Computing gabor
+Loading brain took 2.5017 seconds
+Brain Brats17_CBICA_AQQ_1 has 146244 features to load
+Computing gabor
+Took 113.8727 seconds
+Loading HGG no 83 (Brats17_CBICA_AUQ_1), has 25262 features 
+Loading brain took 2.456 seconds
+Brain Brats17_CBICA_AQV_1 has 119762 features to load
+Computing gabor
+Took 108.5392 seconds
+Loading HGG no 98 (Brats17_CBICA_AYA_1), has 77018 features 
+Took 109.7091 seconds
+Loading HGG no 67 (Brats17_CBICA_ASG_1), has 226664 features 
+Loading brain took 2.549 seconds
+Brain Brats17_CBICA_AQN_1 has 54678 features to load
+Computing gabor
+Loading brain took 2.4323 seconds
+Brain Brats17_CBICA_AQJ_1 has 149882 features to load
+Computing gabor
+Loading brain took 2.781 seconds
+Brain Brats17_CBICA_AZH_1 has 132658 features to load
+Computing gabor
+Loading brain took 2.6761 seconds
+Brain Brats17_CBICA_ARF_1 has 153848 features to load
+Computing gabor
+Took 102.9121 seconds
+Loading HGG no 54 (Brats17_CBICA_AQP_1), has 194480 features 
+Loading brain took 2.46 seconds
+Brain Brats17_CBICA_AUQ_1 has 25262 features to load
+Computing gabor
+Loading brain took 2.6166 seconds
+Brain Brats17_CBICA_AYA_1 has 77018 features to load
+Computing gabor
+Loading brain took 2.4821 seconds
+Brain Brats17_CBICA_ASG_1 has 226664 features to load
+Computing gabor
+Loading brain took 2.5261 seconds
+Brain Brats17_CBICA_AQP_1 has 194480 features to load
+Computing gabor
+Took 101.1777 seconds
+Loading HGG no 100 (Brats17_CBICA_AYU_1), has 84930 features 
+Took 101.8052 seconds
+Brain Brats17_TCIA_131_1 has 0 features to load
+Loading HGG no 155 (Brats17_TCIA_280_1), has 109706 features 
+Loading brain took 2.4655 seconds
+Brain Brats17_CBICA_AYU_1 has 84930 features to load
+Computing gabor
+Took 104.4555 seconds
+Loading HGG no 120 (Brats17_TCIA_149_1), has 139420 features 
+Loading brain took 2.4643 seconds
+Brain Brats17_TCIA_280_1 has 109706 features to load
+Computing gabor
+Took 105.5039 seconds
+Loading HGG no 96 (Brats17_CBICA_AXQ_1), has 105122 features 
+Loading brain took 2.5362 seconds
+Brain Brats17_TCIA_149_1 has 139420 features to load
+Computing gabor
+Took 104.022 seconds
+Loading HGG no 87 (Brats17_CBICA_AVV_1), has 232316 features 
+Loading brain took 2.4792 seconds
+Brain Brats17_CBICA_AXQ_1 has 105122 features to load
+Computing gabor
+Took 102.1918 seconds
+Loading HGG no 104 (Brats17_CBICA_BFB_1), has 106542 features 
+Took 102.4509 seconds
+Loading HGG no 110 (Brats17_TCIA_111_1), has 157856 features 
+Took 103.7408 seconds
+Loading HGG no 114 (Brats17_TCIA_121_1), has 267252 features 
+Took 102.4381 seconds
+Brain Brats17_TCIA_314_1 has 0 features to load
+Loading HGG no 201 (Brats17_TCIA_478_1), has 365416 features 
+Took 101.2536 seconds
+Loading HGG no 90 (Brats17_CBICA_AWI_1), has 101752 features 
+Loading brain took 2.4621 seconds
+Brain Brats17_CBICA_AVV_1 has 232316 features to load
+Computing gabor
+Took 105.1865 seconds
+Loading HGG no 119 (Brats17_TCIA_147_1), has 281068 features 
+Took 100.9231 seconds
+Loading HGG no 86 (Brats17_CBICA_AVJ_1), has 111382 features 
+Loading brain took 2.485 seconds
+Brain Brats17_CBICA_BFB_1 has 106542 features to load
+Computing gabor
+Loading brain took 2.5657 seconds
+Brain Brats17_TCIA_111_1 has 157856 features to load
+Loading brain took 2.5111 seconds
+Brain Brats17_TCIA_121_1 has 267252 features to load
+Computing gabor
+Computing gabor
+Loading brain took 2.4699 seconds
+Brain Brats17_TCIA_478_1 has 365416 features to load
+Computing gabor
+Took 100.5179 seconds
+Loading HGG no 146 (Brats17_TCIA_234_1), has 146160 features 
+Loading brain took 2.5237 seconds
+Brain Brats17_CBICA_AWI_1 has 101752 features to load
+Computing gabor
+Took 105.0073 seconds
+Loading HGG no 88 (Brats17_CBICA_AWG_1), has 117000 features 
+Took 100.9153 seconds
+Loading HGG no 152 (Brats17_TCIA_274_1), has 349880 features 
+Took 105.7533 seconds
+Brain Brats17_TCIA_105_1 has 0 features to load
+Loading HGG no 149 (Brats17_TCIA_247_1), has 103206 features 
+Took 104.5315 seconds
+Loading HGG no 122 (Brats17_TCIA_151_1), has 240570 features 
+Loading brain took 2.4955 seconds
+Brain Brats17_TCIA_147_1 has 281068 features to load
+Computing gabor
+Took 104.0489 seconds
+Loading HGG no 141 (Brats17_TCIA_218_1), has 165058 features 
+Loading brain took 2.6358 seconds
+Brain Brats17_CBICA_AVJ_1 has 111382 features to load
+Computing gabor
+Took 101.275 seconds
+Loading HGG no 113 (Brats17_TCIA_118_1), has 325596 features 
+Loading brain took 2.6492 seconds
+Brain Brats17_TCIA_234_1 has 146160 features to load
+Computing gabor
+Loading brain took 2.4798 seconds
+Brain Brats17_CBICA_AWG_1 has 117000 features to load
+Computing gabor
+Took 105.8921 seconds
+Loading HGG no 108 (Brats17_CBICA_BHM_1), has 57428 features 
+Took 106.8468 seconds
+Brain Brats17_TCIA_165_1 has 0 features to load
+Loading HGG no 164 (Brats17_TCIA_322_1), has 37120 features 
+Took 106.9075 seconds
+Loading HGG no 117 (Brats17_TCIA_135_1), has 162086 features 
+Loading brain took 2.6666 seconds
+Brain Brats17_TCIA_274_1 has 349880 features to load
+Loading brain took 2.4961 seconds
+Brain Brats17_TCIA_151_1 has 240570 features to load
+Loading brain took 2.5671 seconds
+Brain Brats17_TCIA_247_1 has 103206 features to load
+Computing gabor
+Computing gabor
+Computing gabor
+Took 103.0909 seconds
+Loading HGG no 118 (Brats17_TCIA_138_1), has 228994 features 
+Took 107.1014 seconds
+Loading HGG no 111 (Brats17_TCIA_113_1), has 305224 features 
+Loading brain took 2.4943 seconds
+Brain Brats17_TCIA_218_1 has 165058 features to load
+Computing gabor
+Took 101.9438 seconds
+Loading HGG no 91 (Brats17_CBICA_AXJ_1), has 308044 features 
+Loading brain took 2.6553 seconds
+Brain Brats17_TCIA_118_1 has 325596 features to load
+Computing gabor
+Took 105.467 seconds
+Loading HGG no 125 (Brats17_TCIA_167_1), has 311386 features 
+Loading brain took 2.5819 seconds
+Brain Brats17_CBICA_BHM_1 has 57428 features to load
+Computing gabor
+Took 101.5091 seconds
+Brain Brats17_TCIA_205_1 has 0 features to load
+Loading HGG no 178 (Brats17_TCIA_378_1), has 251460 features 
+Took 103.9564 seconds
+Loading HGG no 143 (Brats17_TCIA_222_1), has 320768 features 
+Loading brain took 2.4534 seconds
+Brain Brats17_TCIA_135_1 has 162086 features to load
+Computing gabor
+Loading brain took 2.5987 seconds
+Brain Brats17_TCIA_322_1 has 37120 features to load
+Computing gabor
+Took 104.8358 seconds
+Loading HGG no 95 (Brats17_CBICA_AXO_1), has 296606 features 
+Loading brain took 2.5279 seconds
+Brain Brats17_TCIA_138_1 has 228994 features to load
+Computing gabor
+Loading brain took 2.4455 seconds
+Brain Brats17_TCIA_113_1 has 305224 features to load
+Computing gabor
+Loading brain took 2.4649 seconds
+Brain Brats17_CBICA_AXJ_1 has 308044 features to load
+Computing gabor
+Took 105.5339 seconds
+Loading HGG no 97 (Brats17_CBICA_AXW_1), has 107610 features 
+Took 108.7601 seconds
+Loading HGG no 105 (Brats17_CBICA_BFP_1), has 67898 features 
+Loading brain took 2.5804 seconds
+Brain Brats17_TCIA_167_1 has 311386 features to load
+Computing gabor
+Took 105.7952 seconds
+Loading HGG no 92 (Brats17_CBICA_AXL_1), has 180610 features 
+Took 105.4734 seconds
+Loading HGG no 102 (Brats17_CBICA_AZD_1), has 20424 features 
+Loading brain took 2.5173 seconds
+Brain Brats17_TCIA_378_1 has 251460 features to load
+Computing gabor
+Loading brain took 2.5603 seconds
+Brain Brats17_TCIA_222_1 has 320768 features to load
+Computing gabor
+Loading brain took 2.4849 seconds
+Brain Brats17_CBICA_AXO_1 has 296606 features to load
+Computing gabor
+Took 109.1328 seconds
+Loading HGG no 93 (Brats17_CBICA_AXM_1), has 84970 features 
+Took 108.7528 seconds
+Brain Brats17_TCIA_133_1 has 0 features to load
+Loading HGG no 156 (Brats17_TCIA_283_1), has 148196 features 
+Loading brain took 2.4599 seconds
+Brain Brats17_CBICA_BFP_1 has 67898 features to load
+Loading brain took 2.5198 seconds
+Brain Brats17_CBICA_AXW_1 has 107610 features to load
+Took 104.8528 seconds
+Loading HGG no 107 (Brats17_CBICA_BHK_1), has 53916 features 
+Computing gabor
+Computing gabor
+Took 108.34 seconds
+Loading HGG no 89 (Brats17_CBICA_AWH_1), has 335498 features 
+Took 105.6898 seconds
+Loading HGG no 123 (Brats17_TCIA_162_1), has 192140 features 
+Loading brain took 2.7948 seconds
+Brain Brats17_CBICA_AXL_1 has 180610 features to load
+Loading brain took 2.5979 seconds
+Brain Brats17_CBICA_AZD_1 has 20424 features to load
+Computing gabor
+Computing gabor
+Took 105.3873 seconds
+Loading HGG no 94 (Brats17_CBICA_AXN_1), has 144190 features 
+Loading brain took 2.6641 seconds
+Brain Brats17_CBICA_AXM_1 has 84970 features to load
+Loading brain took 2.4719 seconds
+Brain Brats17_TCIA_283_1 has 148196 features to load
+Computing gabor
+Computing gabor
+Loading brain took 2.4831 seconds
+Brain Brats17_CBICA_BHK_1 has 53916 features to load
+Computing gabor
+Loading brain took 2.4843 seconds
+Brain Brats17_CBICA_AWH_1 has 335498 features to load
+Computing gabor
+Loading brain took 2.482 seconds
+Brain Brats17_TCIA_162_1 has 192140 features to load
+Computing gabor
+Loading brain took 2.5143 seconds
+Brain Brats17_CBICA_AXN_1 has 144190 features to load
+Computing gabor
+Took 115.9652 seconds
+Loading HGG no 99 (Brats17_CBICA_AYI_1), has 14772 features 
+Loading brain took 2.4205 seconds
+Brain Brats17_CBICA_AYI_1 has 14772 features to load
+Computing gabor
+Took 100.3238 seconds
+Loading HGG no 195 (Brats17_TCIA_455_1), has 170464 features 
+Loading brain took 2.4193 seconds
+Brain Brats17_TCIA_455_1 has 170464 features to load
+Computing gabor
+Took 102.9193 seconds
+Loading HGG no 160 (Brats17_TCIA_309_1), has 106608 features 
+Took 105.9588 seconds
+Loading HGG no 140 (Brats17_TCIA_211_1), has 311260 features 
+Took 100.809 seconds
+Loading HGG no 150 (Brats17_TCIA_257_1), has 209126 features 
+Loading brain took 2.4964 seconds
+Brain Brats17_TCIA_309_1 has 106608 features to load
+Loading brain took 2.5037 seconds
+Brain Brats17_TCIA_211_1 has 311260 features to load
+Computing gabor
+Computing gabor
+Took 101.0792 seconds
+Took 97.3988 seconds
+Loading HGG no 189 (Brats17_TCIA_429_1), has 227798 features 
+Took 103.6458 seconds
+Loading HGG no 127 (Brats17_TCIA_171_1), has 88176 features 
+Loading brain took 2.4763 seconds
+Brain Brats17_TCIA_257_1 has 209126 features to load
+Computing gabor
+Took 100.9482 seconds
+Loading HGG no 186 (Brats17_TCIA_412_1), has 322174 features 
+Took 103.3405 seconds
+Loading HGG no 130 (Brats17_TCIA_184_1), has 318642 features 
+Took 104.6103 seconds
+Brain Brats17_TCIA_278_1 has 0 features to load
+Brain Brats17_TCIA_448_1 has 0 features to load
+Loading brain took 2.9394 seconds
+Brain Brats17_TCIA_429_1 has 227798 features to load
+Computing gabor
+Loading brain took 2.4829 seconds
+Brain Brats17_TCIA_171_1 has 88176 features to load
+Computing gabor
+Took 102.8073 seconds
+Loading HGG no 159 (Brats17_TCIA_300_1), has 211512 features 
+Launcher: Job 36 completed in 532 seconds.
+Launcher: Task 35 done. Exiting.
+Took 100.5079 seconds
+Brain Brats17_TCIA_396_1 has 0 features to load
+Took 101.4053 seconds
+Brain Brats17_TCIA_437_1 has 0 features to load
+Took 102.7301 seconds
+Brain Brats17_TCIA_179_1 has 0 features to load
+Loading HGG no 168 (Brats17_TCIA_335_1), has 168592 features 
+Loading brain took 2.5703 seconds
+Brain Brats17_TCIA_412_1 has 322174 features to load
+Computing gabor
+Loading brain took 2.4763 seconds
+Brain Brats17_TCIA_184_1 has 318642 features to load
+Computing gabor
+Took 97.8133 seconds
+Loading HGG no 135 (Brats17_TCIA_199_1), has 302858 features 
+Loading brain took 2.4683 seconds
+Brain Brats17_TCIA_300_1 has 211512 features to load
+Computing gabor
+Took 110.6617 seconds
+Loading HGG no 136 (Brats17_TCIA_201_1), has 280974 features 
+Took 108.1937 seconds
+Loading HGG no 144 (Brats17_TCIA_226_1), has 91288 features 
+Took 103.0229 seconds
+Loading HGG no 153 (Brats17_TCIA_277_1), has 311116 features 
+Launcher: Job 29 completed in 535 seconds.
+Launcher: Task 28 done. Exiting.
+Took 103.9322 seconds
+Brain Brats17_TCIA_319_1 has 0 features to load
+Loading HGG no 202 (Brats17_TCIA_479_1), has 142448 features 
+Launcher: Job 16 completed in 535 seconds.
+Launcher: Task 15 done. Exiting.
+Launcher: Job 27 completed in 536 seconds.
+Launcher: Task 26 done. Exiting.
+Loading brain took 2.9652 seconds
+Brain Brats17_TCIA_335_1 has 168592 features to load
+Computing gabor
+Took 107.3189 seconds
+Loading HGG no 126 (Brats17_TCIA_168_1), has 269450 features 
+Loading brain took 2.5267 seconds
+Brain Brats17_TCIA_199_1 has 302858 features to load
+Computing gabor
+Took 102.8884 seconds
+Loading HGG no 158 (Brats17_TCIA_296_1), has 289666 features 
+Loading brain took 2.457 seconds
+Brain Brats17_TCIA_201_1 has 280974 features to load
+Computing gabor
+Loading brain took 2.4486 seconds
+Brain Brats17_TCIA_226_1 has 91288 features to load
+Computing gabor
+Loading brain took 2.4703 seconds
+Brain Brats17_TCIA_277_1 has 311116 features to load
+Computing gabor
+Took 103.5906 seconds
+Loading HGG no 151 (Brats17_TCIA_265_1), has 153390 features 
+Loading brain took 2.4823 seconds
+Brain Brats17_TCIA_479_1 has 142448 features to load
+Computing gabor
+Took 102.8854 seconds
+Loading HGG no 165 (Brats17_TCIA_328_1), has 170592 features 
+Took 99.5364 seconds
+Loading HGG no 196 (Brats17_TCIA_460_1), has 256834 features 
+Took 102.7245 seconds
+Loading HGG no 183 (Brats17_TCIA_406_1), has 134918 features 
+Took 105.171 seconds
+Loading HGG no 157 (Brats17_TCIA_290_1), has 240292 features 
+Loading brain took 2.6677 seconds
+Brain Brats17_TCIA_168_1 has 269450 features to load
+Computing gabor
+Loading brain took 2.5584 seconds
+Brain Brats17_TCIA_296_1 has 289666 features to load
+Computing gabor
+Took 105.5081 seconds
+Loading HGG no 131 (Brats17_TCIA_186_1), has 112946 features 
+Took 106.3053 seconds
+Loading HGG no 204 (Brats17_TCIA_498_1), has 160388 features 
+Loading brain took 2.4392 seconds
+Brain Brats17_TCIA_265_1 has 153390 features to load
+Computing gabor
+Took 107.5664 seconds
+Loading HGG no 148 (Brats17_TCIA_242_1), has 311210 features 
+Loading brain took 2.6328 seconds
+Brain Brats17_TCIA_328_1 has 170592 features to load
+Computing gabor
+Loading brain took 2.5237 seconds
+Brain Brats17_TCIA_406_1 has 134918 features to load
+Computing gabor
+Loading brain took 2.7742 seconds
+Brain Brats17_TCIA_460_1 has 256834 features to load
+Computing gabor
+Loading brain took 2.7396 seconds
+Brain Brats17_TCIA_290_1 has 240292 features to load
+Computing gabor
+Took 106.2093 seconds
+Loading brain took 2.4619 seconds
+Brain Brats17_TCIA_186_1 has 112946 features to load
+Computing gabor
+Loading brain took 2.5739 seconds
+Brain Brats17_TCIA_498_1 has 160388 features to load
+Computing gabor
+Took 104.008 seconds
+Loading HGG no 133 (Brats17_TCIA_192_1), has 211246 features 
+Loading brain took 2.4848 seconds
+Brain Brats17_TCIA_242_1 has 311210 features to load
+Computing gabor
+Took 106.6299 seconds
+Loading HGG no 145 (Brats17_TCIA_231_1), has 209524 features 
+Took 106.1172 seconds
+Brain Brats17_TCIA_221_1 has 0 features to load
+Loading HGG no 182 (Brats17_TCIA_401_1), has 409814 features 
+Took 103.3654 seconds
+Loading HGG no 134 (Brats17_TCIA_198_1), has 82512 features 
+Loading brain took 2.496 seconds
+Brain Brats17_TCIA_192_1 has 211246 features to load
+Computing gabor
+Launcher: Job 13 completed in 546 seconds.
+Launcher: Task 12 done. Exiting.
+Loading brain took 2.4712 seconds
+Brain Brats17_TCIA_231_1 has 209524 features to load
+Took 106.5508 seconds
+Brain Brats17_TCIA_180_1 has 0 features to load
+Loading HGG no 169 (Brats17_TCIA_338_1), has 41972 features 
+Computing gabor
+Took 109.39 seconds
+Loading HGG no 137 (Brats17_TCIA_203_1), has 389256 features 
+Took 107.4076 seconds
+Loading HGG no 147 (Brats17_TCIA_235_1), has 184560 features 
+Loading brain took 2.4667 seconds
+Brain Brats17_TCIA_401_1 has 409814 features to load
+Computing gabor
+Loading brain took 2.5223 seconds
+Brain Brats17_TCIA_198_1 has 82512 features to load
+Computing gabor
+Took 109.817 seconds
+Loading HGG no 132 (Brats17_TCIA_190_1), has 52826 features 
+Took 108.4216 seconds
+Loading HGG no 163 (Brats17_TCIA_321_1), has 261080 features 
+Loading brain took 2.4464 seconds
+Brain Brats17_TCIA_338_1 has 41972 features to load
+Computing gabor
+Loading brain took 2.6269 seconds
+Brain Brats17_TCIA_203_1 has 389256 features to load
+Computing gabor
+Loading brain took 2.4498 seconds
+Brain Brats17_TCIA_235_1 has 184560 features to load
+Computing gabor
+Loading brain took 2.5214 seconds
+Brain Brats17_TCIA_190_1 has 52826 features to load
+Computing gabor
+Loading brain took 2.4615 seconds
+Brain Brats17_TCIA_321_1 has 261080 features to load
+Computing gabor
+Took 103.5225 seconds
+Loading HGG no 139 (Brats17_TCIA_208_1), has 56016 features 
+Loading brain took 2.4836 seconds
+Brain Brats17_TCIA_208_1 has 56016 features to load
+Computing gabor
+Took 101.7912 seconds
+Launcher: Job 30 completed in 626 seconds.
+Launcher: Task 29 done. Exiting.
+Took 102.1291 seconds
+Loading HGG no 180 (Brats17_TCIA_394_1), has 93224 features 
+Took 103.4851 seconds
+Loading HGG no 200 (Brats17_TCIA_474_1), has 414122 features 
+Took 101.9133 seconds
+Loading HGG no 190 (Brats17_TCIA_430_1), has 219986 features 
+Loading brain took 2.467 seconds
+Brain Brats17_TCIA_394_1 has 93224 features to load
+Computing gabor
+Loading brain took 2.5798 seconds
+Brain Brats17_TCIA_474_1 has 414122 features to load
+Computing gabor
+Took 100.6437 seconds
+Loading HGG no 170 (Brats17_TCIA_343_1), has 101324 features 
+Loading brain took 2.4957 seconds
+Brain Brats17_TCIA_430_1 has 219986 features to load
+Computing gabor
+Took 103.6057 seconds
+Loading HGG no 167 (Brats17_TCIA_332_1), has 293262 features 
+Took 97.5794 seconds
+Took 98.57 seconds
+Loading HGG no 176 (Brats17_TCIA_375_1), has 161090 features 
+Took 102.3734 seconds
+Took 98.7349 seconds
+Brain Brats17_TCIA_409_1 has 0 features to load
+Took 100.3256 seconds
+Loading HGG no 208 (Brats17_TCIA_606_1), has 350066 features 
+Took 105.076 seconds
+Loading brain took 2.8767 seconds
+Brain Brats17_TCIA_343_1 has 101324 features to load
+Computing gabor
+Loading brain took 2.4964 seconds
+Brain Brats17_TCIA_332_1 has 293262 features to load
+Computing gabor
+Loading brain took 2.4953 seconds
+Brain Brats17_TCIA_375_1 has 161090 features to load
+Computing gabor
+Took 100.6078 seconds
+Loading HGG no 193 (Brats17_TCIA_444_1), has 256652 features 
+Loading brain took 2.4604 seconds
+Brain Brats17_TCIA_606_1 has 350066 features to load
+Computing gabor
+Launcher: Job 37 completed in 637 seconds.
+Launcher: Task 36 done. Exiting.
+Took 104.9424 seconds
+Loading HGG no 199 (Brats17_TCIA_473_1), has 55472 features 
+Launcher: Job 21 completed in 637 seconds.
+Launcher: Task 20 done. Exiting.
+Launcher: Job 19 completed in 637 seconds.
+Launcher: Task 18 done. Exiting.
+Took 103.1158 seconds
+Loading HGG no 175 (Brats17_TCIA_374_1), has 282434 features 
+Took 98.5997 seconds
+Launcher: Job 24 completed in 637 seconds.
+Launcher: Task 23 done. Exiting.
+Loading brain took 2.4601 seconds
+Brain Brats17_TCIA_444_1 has 256652 features to load
+Computing gabor
+Loading brain took 2.4746 seconds
+Brain Brats17_TCIA_473_1 has 55472 features to load
+Computing gabor
+Took 102.7054 seconds
+Loading HGG no 198 (Brats17_TCIA_471_1), has 355644 features 
+Loading brain took 2.5196 seconds
+Brain Brats17_TCIA_374_1 has 282434 features to load
+Computing gabor
+Took 101.289 seconds
+Loading HGG no 197 (Brats17_TCIA_469_1), has 341072 features 
+Took 102.0176 seconds
+Launcher: Job 31 completed in 641 seconds.
+Launcher: Task 30 done. Exiting.
+Took 100.8538 seconds
+Loading HGG no 188 (Brats17_TCIA_425_1), has 73690 features 
+Loading brain took 2.4671 seconds
+Brain Brats17_TCIA_471_1 has 355644 features to load
+Computing gabor
+Took 103.8914 seconds
+Loading HGG no 205 (Brats17_TCIA_499_1), has 100528 features 
+Loading brain took 2.4683 seconds
+Brain Brats17_TCIA_469_1 has 341072 features to load
+Computing gabor
+Took 105.1389 seconds
+Brain Brats17_TCIA_436_1 has 0 features to load
+Took 104.0296 seconds
+Loading HGG no 171 (Brats17_TCIA_361_1), has 293452 features 
+Loading brain took 2.5182 seconds
+Brain Brats17_TCIA_425_1 has 73690 features to load
+Computing gabor
+Took 107.9609 seconds
+Loading HGG no 166 (Brats17_TCIA_331_1), has 150322 features 
+Loading brain took 2.4863 seconds
+Brain Brats17_TCIA_499_1 has 100528 features to load
+Computing gabor
+Launcher: Job 18 completed in 645 seconds.
+Launcher: Task 17 done. Exiting.
+Took 101.1357 seconds
+Brain Brats17_TCIA_372_1 has 0 features to load
+Took 103.0343 seconds
+Loading HGG no 173 (Brats17_TCIA_370_1), has 210238 features 
+Took 102.5737 seconds
+Loading HGG no 185 (Brats17_TCIA_411_1), has 24454 features 
+Loading brain took 2.43 seconds
+Brain Brats17_TCIA_361_1 has 293452 features to load
+Computing gabor
+Took 102.101 seconds
+Launcher: Job 26 completed in 647 seconds.
+Launcher: Task 25 done. Exiting.
+Took 106.6122 seconds
+Took 100.6929 seconds
+Loading HGG no 209 (Brats17_TCIA_607_1), has 129556 features 
+Loading brain took 2.513 seconds
+Brain Brats17_TCIA_331_1 has 150322 features to load
+Computing gabor
+Took 101.1803 seconds
+Loading HGG no 177 (Brats17_TCIA_377_1), has 412428 features 
+Loading brain took 2.4644 seconds
+Brain Brats17_TCIA_370_1 has 210238 features to load
+Computing gabor
+Loading brain took 2.4497 seconds
+Brain Brats17_TCIA_411_1 has 24454 features to load
+Computing gabor
+Took 100.9142 seconds
+Loading HGG no 172 (Brats17_TCIA_368_1), has 309954 features 
+Took 102.3498 seconds
+Brain Brats17_TCIA_419_1 has 0 features to load
+Loading brain took 2.473 seconds
+Brain Brats17_TCIA_607_1 has 129556 features to load
+Computing gabor
+Launcher: Job 9 completed in 649 seconds.
+Launcher: Task 8 done. Exiting.
+Loading brain took 2.6085 seconds
+Brain Brats17_TCIA_377_1 has 412428 features to load
+Took 98.8928 seconds
+Brain Brats17_TCIA_390_1 has 0 features to load
+Computing gabor
+Launcher: Job 17 completed in 650 seconds.
+Launcher: Task 16 done. Exiting.
+Launcher: Job 39 completed in 650 seconds.
+Launcher: Task 38 done. Exiting.
+Took 102.3399 seconds
+Loading HGG no 203 (Brats17_TCIA_491_1), has 307912 features 
+Loading brain took 3.1206 seconds
+Brain Brats17_TCIA_368_1 has 309954 features to load
+Computing gabor
+Launcher: Job 22 completed in 653 seconds.
+Launcher: Task 21 done. Exiting.
+Loading brain took 2.4502 seconds
+Brain Brats17_TCIA_491_1 has 307912 features to load
+Computing gabor
+Launcher: Job 14 completed in 654 seconds.
+Launcher: Task 13 done. Exiting.
+Took 91.3128 seconds
+Took 101.922 seconds
+Launcher: Job 28 completed in 731 seconds.
+Launcher: Task 27 done. Exiting.
+Launcher: Job 15 completed in 732 seconds.
+Launcher: Task 14 done. Exiting.
+Took 104.4315 seconds
+Took 102.2867 seconds
+Loading HGG no 210 (Brats17_TCIA_608_1), has 181384 features 
+Took 104.6458 seconds
+Took 102.1134 seconds
+Loading HGG no 207 (Brats17_TCIA_605_1), has 106988 features 
+Took 102.9147 seconds
+Took 102.8088 seconds
+Loading brain took 2.4799 seconds
+Brain Brats17_TCIA_608_1 has 181384 features to load
+Computing gabor
+Took 100.112 seconds
+Launcher: Job 35 completed in 737 seconds.
+Launcher: Task 34 done. Exiting.
+Loading brain took 2.5175 seconds
+Brain Brats17_TCIA_605_1 has 106988 features to load
+Computing gabor
+Launcher: Job 25 completed in 738 seconds.
+Launcher: Task 24 done. Exiting.
+Launcher: Job 11 completed in 739 seconds.
+Launcher: Task 10 done. Exiting.
+Launcher: Job 3 completed in 740 seconds.
+Launcher: Task 2 done. Exiting.
+Launcher: Job 34 completed in 741 seconds.
+Launcher: Task 33 done. Exiting.
+Took 101.4627 seconds
+Took 104.2271 seconds
+Took 102.3434 seconds
+Took 101.0393 seconds
+Launcher: Job 32 completed in 745 seconds.
+Launcher: Task 31 done. Exiting.
+Took 104.3 seconds
+Took 101.0874 seconds
+Launcher: Job 33 completed in 747 seconds.
+Launcher: Task 32 done. Exiting.
+Took 110.6451 seconds
+Launcher: Job 40 completed in 748 seconds.
+Launcher: Task 39 done. Exiting.
+Launcher: Job 6 completed in 749 seconds.
+Launcher: Task 5 done. Exiting.
+Took 104.4234 seconds
+Loading HGG no 206 (Brats17_TCIA_603_1), has 295102 features 
+Took 103.4993 seconds
+Launcher: Job 23 completed in 750 seconds.
+Launcher: Task 22 done. Exiting.
+Launcher: Job 8 completed in 751 seconds.
+Launcher: Task 7 done. Exiting.
+Loading brain took 2.5918 seconds
+Brain Brats17_TCIA_603_1 has 295102 features to load
+Computing gabor
+Launcher: Job 10 completed in 752 seconds.
+Launcher: Task 9 done. Exiting.
+Took 105.2914 seconds
+Took 104.9822 seconds
+Took 104.157 seconds
+Took 102.6976 seconds
+Launcher: Job 20 completed in 754 seconds.
+Launcher: Task 19 done. Exiting.
+Launcher: Job 4 completed in 756 seconds.
+Launcher: Task 3 done. Exiting.
+Launcher: Job 12 completed in 756 seconds.
+Launcher: Task 11 done. Exiting.
+Launcher: Job 7 completed in 757 seconds.
+Launcher: Task 6 done. Exiting.
+Launcher: Job 38 completed in 757 seconds.
+Launcher: Task 37 done. Exiting.
+Took 101.0935 seconds
+Took 105.0866 seconds
+Launcher: Job 2 completed in 840 seconds.
+Launcher: Task 1 done. Exiting.
+Launcher: Job 5 completed in 843 seconds.
+Launcher: Task 4 done. Exiting.
+Took 109.9811 seconds
+Launcher: Job 1 completed in 863 seconds.
+Launcher: Task 0 done. Exiting.
+Launcher: Done. Job exited without errors
