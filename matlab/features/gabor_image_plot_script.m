@@ -7,7 +7,6 @@ disp('Set path and variables')
 % Location of brains + output
 brn_dir = [brats,'/preprocessed/trainingdata/meanrenorm/'];
 out_dir = [getenv('SCRATCH'),'/gabor_figs/'];
-mkdir out_dir
 
 % gabor preferences 
 wvs = 5; % goes to 2^wvs, number of gabor filts to check
@@ -36,9 +35,16 @@ end
 for bi = 1:length(brncell);
 	% pick out brain
     brnname = brncell{bi};
-	brnname = strtrim(brnname);
+    brnname = strtrim(brnname);
+
+	if strcmp(brnname, 'Brats17_2013_10_1')
+		disp(['Skipping brain: ',brnname]);
+		continue;
+else
 	disp(['Computing brain ',num2str(bi),' of ', num2str(length(brncell))]);
 	disp(['Brain name: ',brnname]);
+ end
+    
     
     % get figure
     figh = PlotGaborT1ceBrain(brn_dir,brnname,gaborfilts,buf,slices);
@@ -46,6 +52,6 @@ for bi = 1:length(brncell);
     % save figure
     figh.PaperUnits = punits;
     figh.PaperPosition = ppos;
-    print([outdir,brnname,'.gaborslices'],'-dpng','-r0')
+    print([out_dir,brnname,'.gaborslices'],'-dpng','-r0')
 end
 
