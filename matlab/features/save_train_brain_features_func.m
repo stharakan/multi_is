@@ -4,7 +4,7 @@ function [] = save_train_brain_features_func(section,tot_sections)
 % They would then complete each section.
 
 % Add path to other code
-addpath([getenv('BRATSREPO'),'/matlab/general/']);
+addpath([getenv('MISDIR'),'/matlab/general/']);
 SetPath;
 SetVariablesTACC;
 disp('Set path and variables')
@@ -12,8 +12,8 @@ disp('Set path and variables')
 % Location of brains --> going to set to augtest 
 %brn_dir = [brats,'/preprocessed/validationdata/bratsvalidation_240x240x155/pre-norm-aff/'];
 brn_dir = [brats,'/preprocessed/trainingdata/meanrenorm/'];
-brn_dir = [brats,'/preprocessed/validationdata/meanrenorm/'];
-brn_dir = [brats,'/preprocessed/augTestData/meanrenorm/'];
+%brn_dir = [brats,'/preprocessed/validationdata/meanrenorm/'];
+%brn_dir = [brats,'/preprocessed/augTestData/meanrenorm/'];
 brncell = GetBrnList(brn_dir);
 disp('Got brain list')
 
@@ -28,10 +28,26 @@ hggs = length(idxfile.hggcell);
 % Location of feature output 
 %feat_dir = [brats,'/classification/Brats17TrainingDataSample/'];
 %feat_dir = [brats,'/userbrats/BRATS17shashank/meanrenorm_val/']  ;
-feat_dir = [brats,'/userbrats/BRATS17siddhant/meanrenorm/']  ;
+feat_dir = [getenv('SCRATCH'),'/training_features/']  ;
+
+
+bw = 16;
+no = 8; 
+ang_max = 180 - ( (180)/no );
+angles = linspace(0,ang_max,no);
+for gi = 1:5
+    wv = 2^gi;
+    if wv < (bw * pi / sqrt(log(2)/2 ) )
+        gi_idx = (1:length(angles) ) + length(angles) * (gi-1);
+	gaborfilts(gi_idx) = gabor(wv,angles,'SpatialFrequencyBandwidth',...
+      	    GetSFBFromOthers(wv,bw),'SpatialAspectRatio',1.0);
+    end
+
+end
+
+dd = length(gaborfilts);
 
 % brns / features
-feature_types = {'gabor'};
 feature_types = {'gabor'};
 brns = length(brncell);
 bpsect = floor(brns/tot_sections);
@@ -115,11 +131,11 @@ for bi = 1:length(brncell)
 			
 		case 'gabor'
 			disp('Computing gabor');
-			GF = GetGaborFeatures(flair,t1,t1ce,t2);
+			GF = GetSpecificGaborFeatures(gaborfilts, flair,t1,t1ce,t2);
 			%GF = GF(nzidx,:);
 			GF = GF(ridx,:);
 			%fprintf('Norm of gabor features: %3.1f',norm(GF(:)));
-			filenm = [filenm,'288.gabor.bin'];
+			filenm = [filenm,num2str(dd*4),'.gabor.bin'];
 		otherwise
 			disp('No features to compute')
 
