@@ -8,11 +8,12 @@ myload_nii = @(filename) load_untouch_nii(filename);
 sfbs = [0.7,1.0,2.5];
 nangs = 8; nfreqs = 3; naf = nangs*nfreqs;
 modalities = 4;
-scratch_dir = [getenv('SCRATCH'),'/gabor.w4/'];
-tot_gabor_features = 288;
+%scratch_dir = [getenv('SCRATCH'),'/gabor.w4/'];
+scratch_dir = [getenv('SCRATCH'),'/training_matrices/'];
+tot_gabor_features = 160;
 mdlstr = 'BRATS_50M_meanrenorm';
-patch_sizes = [13,9,5];
-Xflag = true;
+patch_sizes = [33];
+Xflag = false;
 Yflag = true;
 
 if Xflag
@@ -79,6 +80,7 @@ if Yflag
   % load full y vec for checking purposes
   ff = [brats,'/userbrats/BRATS17tharakan/meanrenorm/',mdlstr,'.dd.',...
     num2str(tot_gabor_features),'.yy.bin'];
+  ff = [scratch_dir,'gabor50M.ps.33.seg.bin'];
   fid = fopen(ff);
   true_labs = fread(fid,Inf,'*single');
   fclose(fid);
@@ -166,21 +168,21 @@ if Yflag
     psize = patch_sizes(pp);
 
      % save each probability vec
-    fname = [scratch_dir,'gabor50M.wv.4.sfb.',num2str(sfbs(pp)), ...
+    fname = [scratch_dir,'gabor50M.ps.',num2str(psize), ...
       '.yy.bin'];
-    fprintf('Saving sfb %2.1f to %s\n',sfbs(pp),fname);
+    fprintf('Saving psize %2.1f to %s\n',psize,fname);
     fid = fopen(fname,'w+');
     fwrite(fid,single(patch_probs_vec(:,pp)),'single');
     fclose(fid);
 
   end
   
-  fname = [scratch_dir,'gabor50M.wv.4.sfb.ALL', ...
-    '.yy.bin'];
-  fprintf('Saving sfb all to %s\n',fname);
-  fid = fopen(fname,'w+');
-  fwrite(fid,single(ytot),'single');
-  fclose(fid);
+  %fname = [scratch_dir,'gabor50M.ps.ALL', ...
+  %  '.yy.bin'];
+  %fprintf('Saving sfb all to %s\n',fname);
+  %fid = fopen(fname,'w+');
+  %fwrite(fid,single(ytot),'single');
+  %fclose(fid);
 
   
 end
