@@ -14,10 +14,11 @@ lggs = length(idxfile.lggcell);
 hggs = length(idxfile.hggcell);
 brn_dir = [brats,'/preprocessed/trainingdata/meanrenorm/'];
 brncell = GetBrnList(brn_dir);
-feat_dir = [brats,'/userbrats/BRATS17shashank/meanrenorm/'];
+feat_dir = [getenv('SCRATCH'),'/training_features/'];
+out_dir = [getenv('SCRATCH'),'/training_matrices/'];
 
 % Find length of training data
-dd = 288;
+dd = 96;
 nn = sum(cellfun('length',[idxfile.ridxc_lgg(:);idxfile.ridxc_hgg(:)]));
 fprintf('Initializing array of size %d by %d\n',nn,dd);
 feature_mat = zeros(nn,dd,'single');
@@ -98,14 +99,14 @@ fprintf(' Max mean: %5.2f\n Min mean: %5.2f\n',max(mm),min(mm));
 fprintf(' Squared Norm of FM: %3.1f\n',norm(feature_mat(:))^2 );
 
 % Save matrix to binary 
-ff = [brats,'/userbrats/BRATS17tharakan/meanrenorm/',mdlstr,'.dd.',num2str(dd),'.XX.bin'];
+ff = [out_dir,mdlstr,'.dd.',num2str(dd),'.XX.bin'];
 fprintf('Saving matrix to %s\n',ff);
 fid = fopen(ff,'w');
 fwrite(fid, feature_mat,'single');
 fclose(fid);
 
 % Save labs to binary
-ff = [brats,'/userbrats/BRATS17tharakan/meanrenorm/',mdlstr,'.dd.',num2str(dd),'.yy.bin'];
+ff = [out_dir,mdlstr,'.dd.',num2str(dd),'.yy.bin'];
 fprintf('Saving labels to %s\n',ff);
 fid = fopen(ff,'w');
 fwrite(fid,labels,'single');
