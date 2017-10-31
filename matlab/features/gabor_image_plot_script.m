@@ -1,18 +1,18 @@
 % Add path to other code
-addpath(['./../general/']);
-SetPath;
-SetVariablesTACC;
-disp('Set path and variables')
+%addpath(['./../general/']);
+%SetPath;
+%SetVariablesTACC;
+%disp('Set path and variables')
 
 % Location of brains + output
-brn_dir = [brats,'/preprocessed/trainingdata/meanrenorm/'];
+brn_dir = [getenv('BRATSDIR'),'/preprocessed/trainingdata/meanrenorm/'];
 out_dir = [getenv('SCRATCH'),'/gabor_figs/'];
 
 % gabor preferences 
 wvs = 5; % goes to 2^wvs, number of gabor filts to check
-bw = 16; % 1/2 patch width
+bws = [2 4 8 ]; % 1/2 patch width
 angle = 0;
-slices = [50,60,70,80];
+slices = [60,70,80,90];
 
 % figure
 buf = 0.01; % on a scale of 0 - 1
@@ -21,15 +21,22 @@ punits = 'inches';
 
 % brain dir stuff
 brncell = GetBrnList(brn_dir);
-brncell = brncell(1:20);
+brncell = brncell(1:25);
 disp('Got brain list')
+
+for bw = bws
+fprintf('processing bw %d ..\n',bw);
 
 % Initialize gaborfilter array
 for gi = 1:wvs
     wv = 2^gi;
-    gaborfilts(gi) = gabor(wv,angle,'SpatialFrequencyBandwidth',...
-        GetSFBFromOthers(wv,bw),'SpatialAspectRatio',1.0);
+    if wv < (bw * pi / sqrt(log(2)/2 ) )
+	gaborfilts(gi) = gabor(wv,angle,'SpatialFrequencyBandwidth',...
+      	    GetSFBFromOthers(wv,bw),'SpatialAspectRatio',1.0);
+    end
+
 end
+
 
 % loop over brain
 for bi = 1:length(brncell);
@@ -52,6 +59,6 @@ else
     % save figure
     figh.PaperUnits = punits;
     figh.PaperPosition = ppos;
-    print([out_dir,brnname,'.gaborslices'],'-dpng','-r0')
+    print([out_dir,brnname,'.gaborslices.bw.',num2str(bw)],'-dpdf')
 end
-
+end
