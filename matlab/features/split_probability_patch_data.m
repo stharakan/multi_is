@@ -8,10 +8,11 @@ myload_nii = @(filename) load_untouch_nii(filename);
 sfbs = [0.7,1.0,2.5];nsfbs = length(sfbs);
 nangs = 8; nfreqs = 3; naf = nangs*nfreqs;
 modalities = 4;
-scratch_dir = [getenv('SCRATCH'),'/gabor.w4/'];
-tot_gabor_features = 288;
+scratch_dir = [getenv('SCRATCH'),'/training_matrices/'];
+tot_gabor_features = 160;
 mdlstr = 'BRATS_50M_meanrenorm';
 patch_sizes = [13,9,5];
+patch_sizes = 33;
 trn_perc = 0.8;
 
 % index file/ brain lists
@@ -80,6 +81,21 @@ for ii = 1:(lggs+ hggs)
   counter = counter + rr;
 end
 
+% reset to 40M and 9M for training/testing
+ntr = length(train_idx_50M);
+nte = length(test_idx_50M);
+bla = randperm(ntr,40000000);
+train_idx_50M = train_idx_50M(bla);
+bla = randperm(nte,9000000);
+test_idx_50M = test_idx_50M(bla);
+ntr = length(train_idx_50M);
+nte = length(test_idx_50M);
+
+fprintf('Changed training size: %d\n',ntr);
+fprintf('Changed testing size: %d\n',nte);
+
+save([scratch_dir,'trte_splits.mat'],'train_idx_50M','test_idx_50M');
+
 fprintf('Test/train indices created\n');
 % loop over patch sizes
 for pp = 1:length(patch_sizes)
@@ -87,60 +103,62 @@ for pp = 1:length(patch_sizes)
   ss = pp;
 
   % load current patch size features/labels
-  fname = [scratch_dir,'gabor50M.wv.4.sfb.',num2str(sfbs(ss)), ...
-    '.dd.', num2str(nangs *modalities), '.XX.bin'];
+  fname = [scratch_dir,'gabor.ps.',num2str(psize), ...
+    '.dd.', num2str(tot_gabor_features), '.XX.bin'];
   fid = fopen(fname);
   Gcur = fread(fid,Inf,'*single');
-  Gcur = reshape(Gcur, [], nangs*modalities);
+  Gcur = reshape(Gcur, [], tot_gabor_features);
   fclose(fid);
 
-  fname = [scratch_dir,'gabor50M.wv.4.sfb.',num2str(sfbs(pp)), ...
+  fname = [scratch_dir,'gabor.ps.',num2str(psize), ...
     '.yy.bin'];
   fid = fopen(fname);
   Ycur = fread(fid,Inf,'*single');
   fclose(fid);
   
-  yysize = size(Ycur)
-  ggsize = size(Gcur)
+  yysize = size(Ycur);
+  ggsize = size(Gcur);
 
   % split into training/ test 
   Gtr = Gcur(train_idx_50M,:);
   Gte = Gcur(test_idx_50M,:);
   Ytr = Ycur(train_idx_50M); 
   Yte = Ycur(test_idx_50M); 
+size(Gtr)
 
   % save training/testing features + labels
-  fname = [scratch_dir,'gabor50M.wv.4.sfb.',num2str(sfbs(ss)), ...
-    '.dd.', num2str(nangs *modalities), '.XX.trn.bin'];
+  fname = [scratch_dir,'gabor.ps.',num2str(psize),'.nn.', ...
+    num2str(ntr),'.dd.', num2str(tot_gabor_features), '.XX.trn.bin'];
   fid = fopen(fname,'w');
   fwrite(fid,Gtr,'single');
   fclose(fid);
 
-  fname = [scratch_dir,'gabor50M.wv.4.sfb.',num2str(sfbs(ss)), ...
-    '.dd.', num2str(nangs *modalities), '.XX.tst.bin'];
+  fname = [scratch_dir,'gabor.ps.',num2str(psize),'.nn.', ...
+    num2str(nte),'.dd.', num2str(tot_gabor_features), '.XX.tst.bin'];
   fid = fopen(fname,'w');
   fwrite(fid,Gte,'single');
   fclose(fid);
 
-  fname = [scratch_dir,'gabor50M.wv.4.sfb.',num2str(sfbs(pp)), ...
-    '.yy.trn.bin'];
+  fname = [scratch_dir,'gabor.ps.',num2str(psize), ...
+    '.nn.',num2str(ntr),'.yy.trn.bin'];
   fid = fopen(fname,'w');
   fwrite(fid,Ytr,'single');
   fclose(fid);
   
-  fname = [scratch_dir,'gabor50M.wv.4.sfb.',num2str(sfbs(pp)), ...
-    '.yy.tst.bin'];
+  fname = [scratch_dir,'gabor.ps.',num2str(psize), ...
+    '.nn.',num2str(nte),'.yy.tst.bin'];
   fid = fopen(fname,'w');
   fwrite(fid,Yte,'single');
   fclose(fid);
 
   % end patch loop
-  Gtr_tot(:,:,pp) = Gtr;
-  Gte_tot(:,:,pp) = Gte;
+  %Gtr_tot(:,:,pp) = Gtr;
+  %Gte_tot(:,:,pp) = Gte;
 end
 
 
 % save big mat
+if 0
 Gtr_tot = reshape(Gtr_tot, ntr, nangs*modalities*nsfbs);
 Gte_tot = reshape(Gte_tot, nte, nangs*modalities*nsfbs);
 
@@ -178,3 +196,4 @@ fname = [scratch_dir,'gabor50M.wv.4.sfb.ALL', ...
 fid = fopen(fname,'w');
 fwrite(fid,Yte,'single');
 fclose(fid);
+end
