@@ -42,7 +42,7 @@ for gi = 1:gs
     sig = GetBwFromOthers(gabors(gi).SpatialFrequencyBandwidth,lam);
     subplot('Position',SubplotPosititionVector(buf,si,gi-1,ss+1,gs+1))
     imshow(cur_im,[]);
-    title(sprintf('\\lambda = %d, \\sigma = %2.1f',lam, sig));
+    title(sprintf('\\lambda = %d, \\sigma = %2.0f',lam, sig) );
 end
 
 % handle first row 
@@ -60,7 +60,7 @@ for si = 1:ss
         cur_im = GG(:,:,gi,si);
         subplot('Position',SubplotPosititionVector(buf,si,gi-1,ss+1,gs+1))
         imshow(cur_im,[]);
-        title(sprintf('max = %3.0f',max(cur_im(:))));
+        title(sprintf('max = %3.2f',max(cur_im(:))));
     end
 end
 
