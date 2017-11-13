@@ -1,11 +1,19 @@
 % load scores, initialize cells
 addpath(genpath('./'));
 addpath('./../data/');
-load('./../data/ftRanks.nn10000.mat');
+prob_type = 'reg';
+C = .1;
 mod_cell = {'FLAIR','T1','T1CE','T2'};
 ang_cell = {'0','22.5','45','67.5','90','112.5','135','157.5'};
-stat_cell = {'avg','max','med','std'};
+ang_cell = {};
+stat_cell = {'avg','max','med','std','l2','l1'};
 bw_cell = {'2','4','8','16','32'};
+
+% fig dir
+fig_dir = './../data/figs/';
+mkdir(fig_dir);
+%load(['./../data/ftranks.reg.C.',num2str(C),'.nn.1000000.mat']);
+load(['./../data/fr.onlystats.reg.C.',num2str(C),'.nn.1000000.mat']);
 
 % compute all other quantities from cell arrays
 modalities = length(mod_cell);
@@ -41,12 +49,20 @@ for bi = 1:bws
         %legcell{bi} = sprintf('bw-%s',cur_bw);
         %legend(legcell,'Location','best');
         set(gca,'XTick',1:features_per_filter,'XTickLabel',[ang_cell,stat_cell]);
-        title(sprintf('Feature ranks for %s, bw %s',cur_mod,cur_bw));
+        title(sprintf('%s ranks for %s, freq %s',prob_type,cur_mod,cur_bw));
         xlabel('Angle/statistic');
         ylabel('SVM-RFE Rank');
-        ylim([1 tot_feats]);
+        ylim([1 tot_feats]);        
     end
     
+    title_str = sprintf('ftr.%s.c%2.1f.fr%s',prob_type,C,cur_bw);
+    filterplot.PaperUnits = 'inches';
+    orient(filterplot,'landscape');
+    %print(filterplot,'-djpeg',[fig_dir,title_str]);
+    %saveas(filterplot,[fig_dir,title_str,'.jpg']);
+    %print(filterplot,'-depsc','-loose',[fig_dir,title_str]);
+    saveas(filterplot,[fig_dir,title_str,'.eps']);
+    %print(filterplot,[fig_dir,title_str],'-dpdf');
     
     
 end
