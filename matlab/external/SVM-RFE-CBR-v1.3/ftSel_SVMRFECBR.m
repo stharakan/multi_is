@@ -176,9 +176,11 @@ end
 function [supVec,alpha_signed] = trainSVM(X,Y,kerOpt)
 % use libsvm to find the support vectors and alphas
 
-type = sprintf('-s 0 -t %d -c %f -g %f -q',kerOpt.type,kerOpt.C,kerOpt.g);
-model = svmtrain(Y, X, type);
-if isempty(model) || sum(model.nSV) == 0
+%type = sprintf('-s 0 -t %d -c %f -g %f -q',kerOpt.type,kerOpt.C,kerOpt.g);
+%model = svmtrain(Y,X, type); % use svm
+type = sprintf('-s 2 -c %f -e %f -q',kerOpt.C,kerOpt.g);
+model = train(Y,X, type); % use liblinear
+if isempty(model) %|| sum(model.nSV) == 0
 	error('libSVM cannot be trained properly. Please check your data')
 end
 supVec = full(model.SVs);

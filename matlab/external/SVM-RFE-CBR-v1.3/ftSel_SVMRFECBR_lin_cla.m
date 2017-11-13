@@ -1,4 +1,4 @@
-function [ftRank,ftScore] = ftSel_SVMRFECBR_lin(ft,label,param)
+function [ftRank,ftScore] = ftSel_SVMRFECBR_lin_cla(ft,label,param)
 % Feature selection using SVM-recursive feature elimination (SVM-RFE) with
 %	correlation bias reduction (CBR). LIBSVM is needed.
 %	CBR is designed to deal with the problem in SVM-RFE when lots of highly
@@ -36,7 +36,6 @@ kerType = 2; % kernel type, see libsvm. linear: 0; rbf:2
 rfeC = 2^0; % parameter C in SVM training
 rfeG = 2^-6; % parameter g in SVM training
 nStopChunk = 60; % when number of features is less than this num, start 
-rfeE = 0.1;
 % removing one-by-one for precision. if set to inf, only remove one-by-one,
 % accurate but slow.
 useApproxAlpha = true; % whether use approximate alpha. See Rakotomamonjy's paper
@@ -64,17 +63,14 @@ end
 kerOpt.C = rfeC;
 kerOpt.g = rfeG;
 kerOpt.type = kerType;
-kerOpt.p = rfeE;
 
 %% run
 while ~isempty(ftIn)
 	
 	nFtIn = length(ftIn);
-	[w,model] = trainLinearSVM_reg(ft(:,ftIn),label,kerOpt);
-
-
+	%[w] = trainLinearSVM_reg(ft(:,ftIn),label,kerOpt);
+	[w] = trainLinearSVM_cla(ft(:,ftIn),label,kerOpt);
 	criteria = w.^2;
-	%[criteria] = trainLinearSVM_cla(ft(:,ftIn),label,kerOpt);
 	
 	%nSv = size(supVec,1);
 	%svInProd = supVec*supVec';
@@ -98,9 +94,6 @@ while ~isempty(ftIn)
 		if nFtIn-nRemove < nStopChunk
 			nRemove = nFtIn-nStopChunk;
 		end
-		
-		[bla1,acc,bla2] = predict(label,ft(:,ftIn),model);
-		%fprintf('RMSE: %4.2f \nR^2: %3.1f\n',acc(1),acc(2));
 	else
 		nRemove = 1;
 	end
@@ -143,7 +136,7 @@ function [w] = trainLinearSVM_cla(X,Y,kerOpt)
 % use libsvm to find the support vectors and alphas
 
 % class
-type = sprintf('-s 2 -c %f -e %f -q',kerOpt.C,kerOpt.g);
+type = sprintf('-s 2 -c %f -e %f',kerOpt.C,kerOpt.g);
 model = train(Y,X, type); % use liblinear
 
 if isempty(model) || length(model.w) == 0
@@ -154,11 +147,11 @@ w = model.w;
 
 end
 
-function [w,model] = trainLinearSVM_reg(X,Y,kerOpt)
+function [w] = trainLinearSVM_reg(X,Y,kerOpt)
 % use libsvm to find the support vectors and alphas
 
 % reg
-type = sprintf('-s 11 -c %f -e %f -p %f -q',kerOpt.C,kerOpt.g,kerOpt.p);
+type = sprintf('-s 11 -c %f -e %f -p %f',kerOpt.C,kerOpt.g,kerOpt.p);
 model = train(Y, X, type);
 
 if isempty(model) || length(model.w) == 0
@@ -168,7 +161,4 @@ end
 w = model.w;
 % svIdxs = model.sv_indices; % older versions of libSVM don't have it
 
-% test accuracy
-%[bla1,acc,bla2] = predict(Y,X,model);
-%fprintf('RMSE: %4.2f \nR^2: %3.1f\n',acc(1),acc(2));
 end
