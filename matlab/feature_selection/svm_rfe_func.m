@@ -1,3 +1,5 @@
+function [] = svm_rfe_func(rfeC)
+
 % addpath, variables
 addpath([getenv('MISDIR'),'/matlab/general/']);
 SetPath;
@@ -6,29 +8,32 @@ myload_nii = @(filename) load_untouch_nii(filename);
 scratch_dir = [getenv('SCRATCH'),'/training_matrices/'];
 ntr = 40000000;
 tot_gabor_features = 240;
+init_str = 'gaborstats';
+tot_gabor_features = 120;
+init_str = 'onlystats';
 psize = 33;
-subset_size = 10000;
-runs = 40;
-runs = 2;
+subset_size = 1000000;
+runs = 20;
   
 fprintf('Setting kernel params ...\n');
 prob_type = 'reg' % reg (SVR) or class (SVM)
 params.kerType = 0; % linear kernel
-params.rfeC = 1; % epsilon for svr, C for svm
+params.rfeC = rfeC; % epsilon for svr, C for svm
 params.useCBR = 1; % bias-correction
 params.rfeG = 2^-4; % convergence criteria
 params.rfeE = params.rfeC; % liblinear uses separate for svr-eps
+params
 
 % save training/testing features + labels
 fprintf('Reading x ...\n');
-fname = [scratch_dir,'gaborstats.ps.',num2str(psize),'.nn.', ...
+fname = [scratch_dir,init_str,'.ps.',num2str(psize),'.nn.', ...
     num2str(ntr),'.dd.', num2str(tot_gabor_features), '.XX.trn.bin'];
 fid = fopen(fname,'r');
 Gtr_tot = fread(fid,Inf,'*single');
 Gtr_tot = reshape(Gtr_tot,ntr,tot_gabor_features);
 fclose(fid);
 
-%fname = [scratch_dir,'gabor.ps.',num2str(psize),'.nn.', ...
+%fname = [scratch_dir,init_str,'.ps.',num2str(psize),'.nn.', ...
 %  num2str(nte),'.dd.', num2str(tot_gabor_features), '.XX.tst.bin'];
 %fid = fopen(fname,'w');
 %fwrite(fid,Gte,'single');
@@ -87,18 +92,21 @@ for ri = 1:runs
   fprintf('SVM RFE took %d\n',rfe_time);
   
   ftRank = ftRank(:);
-  ftScores(:,:,ri) = ftScore;
   
-  fname = [scratch_dir,'ftranks.',prob_type,'.C.',num2str(params.rfeC),...
+  fname = [scratch_dir,'fr.',init_str,'.',prob_type,'.C.',num2str(params.rfeC),...
     '.nn.',num2str(subset_size),'.mat'];
   if ~exist(fname,'file')
     % if the file does not exist
+    ftScores{1} = ftScore;
     save(fname,'ftRank','ftScores');
   else
     % file does exist -- add to it
     ff = load(fname);
     ftRank = [ff.ftRank,ftRank];
+    ftScores = ff.ftScores;
+    ftScores{ end + 1 } = ftScore;
     save(fname,'ftRank','ftScores');
   end
-  
+
+end  
 end

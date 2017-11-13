@@ -16,6 +16,12 @@ out_mat(:,3) = median(feat_mat,2);
 % stds
 out_mat(:,4) = std(feat_mat,0,2);
 
+% two norm
+out_mat(:,5) = sqrt(sum(feat_mat.*feat_mat,2));
+
+% one norm
+out_mat(:,6) = sum(abs(feat_mat),2);
+
 end
 
 

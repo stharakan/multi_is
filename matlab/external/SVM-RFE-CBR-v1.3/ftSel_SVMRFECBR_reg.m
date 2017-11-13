@@ -34,7 +34,8 @@ function [ftRank,ftScore] = ftSel_SVMRFECBR(ft,label,param)
 % parameters for general SVM-RFE
 kerType = 2; % kernel type, see libsvm. linear: 0; rbf:2
 rfeC = 2^0; % parameter C in SVM training
-rfeG = 2^-6; % parameter g in SVM training
+rfeG = 2^-4; % parameter g in SVM training
+rfeE = 0.1; % epsilon in SVR
 nStopChunk = 60; % when number of features is less than this num, start 
 % removing one-by-one for precision. if set to inf, only remove one-by-one,
 % accurate but slow.
@@ -63,6 +64,7 @@ end
 kerOpt.C = rfeC;
 kerOpt.g = rfeG;
 kerOpt.type = kerType;
+kerOpt.p = rfeE;
 
 %% run
 while ~isempty(ftIn)
@@ -176,9 +178,12 @@ end
 function [supVec,alpha_signed] = trainSVM(X,Y,kerOpt)
 % use libsvm to find the support vectors and alphas
 
-type = sprintf('-s 3 -t %d -c %f -g %f -q',kerOpt.type,kerOpt.C,kerOpt.g);
-model = svmtrain(Y, X, type);
-if isempty(model) || sum(model.nSV) == 0
+%type = sprintf('-s 3 -t %d -c %f -q',kerOpt.type,kerOpt.C);
+%model = svmtrain(Y, X, type);
+type = sprintf('-s 11 -c %f -e %f -p %f -q',kerOpt.C,kerOpt.g,kerOpt.p);
+model = train(Y, X, type);
+if isempty(model) %|| sum(model.nSV) == 0
+        model_empty = isempty(model)
 	error('libSVM cannot be trained properly. Please check your data')
 end
 supVec = full(model.SVs);
