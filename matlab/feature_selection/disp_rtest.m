@@ -9,10 +9,10 @@ feat_cell = {'30','60','all'};
 
 % logit or no?
 if logit_flag
-    load([misdir,'/data/ranktest.logit.whiten.30.60.all.mat']); % all_accs, all_preds
+    load([misdir,'/data/ranktest.logit.outliers.e0.30.60.all.mat']); % all_accs, all_preds
     all_preds = inv_logit(all_preds);
 else
-    load([misdir,'/data/ranktest.30.60.all.mat']); % all_accs, all_preds
+    load([misdir,'/data/ranktest.01.30.60.all.mat']); % all_accs, all_preds
 end
 
 % preds are now between 0,1 for good vis
