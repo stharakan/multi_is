@@ -6,11 +6,12 @@ myload_nii = @(filename) load_untouch_nii(filename);
 
 % params
 scratch_dir = [getenv('SCRATCH'),'/training_matrices/'];
-tot_gabor_features = 160;
+scratch_dir = [getenv('PRDIR'),'/']; 
+tot_gabor_features = 128;
 num_stats = 6;
 nangs = 8;
 num_filters = tot_gabor_features/nangs;
-psize = 33;
+psize = 9;
 ntr = 40000000;
 nte = 9000000;
 

@@ -13,7 +13,7 @@ end
 bws = nn_dist(:,bw_rank).*bw_scale;
 
 % set up exponential matrix
-nn_dist_scaled = bsxfun(@rdivide, nn_dist,bws);
+nn_dist_scaled = bsxfun(@rdivide,nn_dist,bws);
 
 
 end

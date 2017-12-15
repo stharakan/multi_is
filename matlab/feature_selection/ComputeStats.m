@@ -1,7 +1,7 @@
 function out_mat = ComputeStats(feat_mat)
 
 nn = size(feat_mat,1);
-out_mat = zeros(nn,4);
+out_mat = zeros(nn,6);
 out_mat = cast(out_mat,'like',feat_mat);
 
 % means
