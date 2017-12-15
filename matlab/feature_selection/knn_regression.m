@@ -14,7 +14,7 @@ nnmax = 256;
 
 % other vars 
 prdir = [getenv('PRDIR'),'/'];
-knndir = [getenv('PRDIR'),'/knnfiles/'];
+knndir = [getenv('PRDIRSCRATCH'),'/knnfiles/'];
 prscratch = [getenv('PRDIRSCRATCH'),'/'];
 init_str = 'onlystats';
 ntr = 40000000;
@@ -25,13 +25,16 @@ kk = 256;
 knnfile = [knndir,init_str,'.ps.',num2str(psize), ...
     '.nn.',num2str(ntr),'.dd.',num2str(dd),'.kk.', ...
     num2str(kk),'.bin'];
-[ nns,ids,nn_ids,nn_dists ] = KNNReader( knnfile );
+fprintf('Loading knn file from %s ..\n',knnfile);
+tic;[ nns,ids,nn_ids,nn_dists ] = KNNReaderLoop( knnfile,ntr ); kntime = toc;
+fprintf('Took %d4.1f secs\n',kntime);
 if nnmax < nns
     nn_ids = nn_ids(:,1:nnmax);
     nn_dists = nn_dists(:,1:nnmax);
 end
     
 % scale distances
+fprintf('\nComputing scaled distances at rank %d ..\n',bw_rank);
 nn_dists_scale = NNDistanceScaleToRank(nn_dists,bw_rank);
 clear nn_dists
 
@@ -47,8 +50,10 @@ fclose(fid);
 
 % reorder ytr by nn_ids for a multiply
 pt_weights = ytr(nn_ids);
+clear nn_ids
 
 % final yguess
+fprintf('Computing final yg ..\n');
 yg = sum(potentials .*pt_weights );
 yg = yg(ids);
 
