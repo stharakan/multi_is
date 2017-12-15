@@ -1,4 +1,8 @@
-function [] = svm_rfe_func(rfeC)
+function [] = svm_rfe_func(rfeC,rfeE)
+
+if nargin == 1
+  rfeE = rfeC;
+end
 
 % addpath, variables
 addpath([getenv('MISDIR'),'/matlab/general/']);
@@ -11,9 +15,10 @@ tot_gabor_features = 240;
 init_str = 'gaborstats';
 tot_gabor_features = 120;
 init_str = 'onlystats';
-psize = 33;
+psize = 17;
 subset_size = 1000000;
 runs = 20;
+tol = 1e-6;
   
 fprintf('Setting kernel params ...\n');
 prob_type = 'reg' % reg (SVR) or class (SVM)
@@ -21,7 +26,7 @@ params.kerType = 0; % linear kernel
 params.rfeC = rfeC; % epsilon for svr, C for svm
 params.useCBR = 1; % bias-correction
 params.rfeG = 2^-4; % convergence criteria
-params.rfeE = params.rfeC; % liblinear uses separate for svr-eps
+params.rfeE = rfeE; % liblinear uses separate for svr-eps
 params
 
 % save training/testing features + labels
@@ -58,11 +63,13 @@ fclose(fid);
 %fclose(fid);
 
 fprintf('Whitening data ...\n');
-means_Gtr = mean(Gtr_tot);
-Gtr_tot = bsxfun(@minus,Gtr_tot,means_Gtr);
-stds = std(Gtr_tot);
-stds(stds == 0) = 1;
-Gtr_tot = bsxfun(@rdivide,Gtr_tot,stds);
+usable_idx = Ytr_tot > tol & Ytr_tot < (1-tol);
+ntr = sum(usable_idx)
+Gtr_tot = Gtr_tot(usable_idx,:);
+Ytr_tot = Ytr_tot(usable_idx);
+[Gtr_tot,means,stds] = whiten(Gtr_tot);
+Ytr_tot = logit(Ytr_tot);
+
 
 % loop over # runs?
 for ri = 1:runs
@@ -93,8 +100,8 @@ for ri = 1:runs
   
   ftRank = ftRank(:);
   
-  fname = [scratch_dir,'fr.',init_str,'.',prob_type,'.C.',num2str(params.rfeC),...
-    '.nn.',num2str(subset_size),'.mat'];
+  fname = [scratch_dir,'fr.',init_str,'.ps.',num2str(psize),'.',prob_type,'.C.',num2str(params.rfeC),...
+    '.e.',num2str(params.rfeE),'.nn.',num2str(subset_size),'.mat'];
   if ~exist(fname,'file')
     % if the file does not exist
     ftScores{1} = ftScore;

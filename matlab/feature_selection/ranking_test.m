@@ -6,21 +6,25 @@ SetVariablesTACC;
 % params
 scratch_dir = [getenv('SCRATCH'),'/training_matrices/'];
 tot_gabor_features = 120;
-psize = 33;
+psize = 17;
 subset_size = 1e6;
 ntr = 40000000;
 nte = 9000000;
 init_str = 'onlystats';
 prob_type = 'reg';
 params.kerType = 0; % linear kernel
-params.rfeC = rfeC; % epsilon for svr, C for svm
+params.rfeC = 100; % epsilon for svr, C for svm
 params.useCBR = 1; % bias-correction
 params.rfeG = 2^-4; % convergence criteria
-params.rfeE = params.rfeC; % liblinear uses separate for svr-eps
+params.rfeE = 0.1; % liblinear uses separate for svr-eps
+params
+tol = 1e-3 
+sname = [scratch_dir,'ranktest.logit.p',num2str(psize),'.outliers.e-3.30.60.all.mat'];
 
 % load ranking file
 rfile = [scratch_dir,'fr.',init_str,'.',prob_type,'.C.',num2str(params.rfeC),...
-    '.nn.',num2str(subset_size),'.mat'];
+    '.e.',num2str(params.rfeE),'.nn.',num2str(subset_size),'.mat'];
+mdl_specs = sprintf('-s 11 -c %f -e %f -p %f -q',params.rfeC,params.rfeG,params.rfeE);
 
 % load scores, initialize cells
 load(rfile);
@@ -78,6 +82,16 @@ fclose(fid);
 fprintf('\n');
 
 
+% redo probabilities, whiten
+usable_idx = Ytr > tol & Ytr < (1-tol);
+ntr = sum(usable_idx)
+Gtr = Gtr(usable_idx,:);
+Ytr = Ytr(usable_idx);
+[Gtr,means,stds] = whiten(Gtr);
+Gte = whiten(Gte,means,stds);
+Yte = logit(Yte);
+Ytr = logit(Ytr);
+
 % Sort features
 % sort and get indices
 [~,feat_importances] = sort(ftRank);
@@ -89,6 +103,7 @@ all_accs = zeros(2,4);
 all_accs(:,1) = [0,1.0];
 all_preds = zeros(nte,4);
 all_preds(:,1) = double(Yte(:));
+save(sname,'all_accs','all_preds');
 
 % run SVM for first 30 features
 fprintf('Top 30 feats svm \n');
@@ -107,8 +122,9 @@ fprintf(' Testing model for 30 feats \n\n');
 Gte_sel = sparse(double(Gte(:,ft_idx30) ) );
 [pred,acc,probs] = predict(Yte,Gte_sel,model);
 clear Gte_sel
-all_accs(:,2) = acc(:);
+all_accs(:,2) = acc(2:3);
 all_preds(:,2) = pred(:);
+save(sname,'all_accs','all_preds');
 
 % run SVM for first 60 features
 fprintf('Top 60 feats svm \n');
@@ -127,8 +143,9 @@ fprintf(' Testing model for 60 feats \n\n');
 Gte_sel = sparse(double(Gte(:,ft_idx60) ) );
 [pred,acc,probs] = predict(Yte,Gte_sel,model);
 clear Gte_sel
-all_accs(:,3) = acc(:);
+all_accs(:,3) = acc(2:3);
 all_preds(:,3) = pred(:);
+save(sname,'all_accs','all_preds');
 
 % run SVM for all features
 fprintf('All feats svm \n');
@@ -146,12 +163,11 @@ fprintf(' Testing model for all feats \n\n');
 Gte_sel = sparse(double(Gte) );
 [pred,acc,probs] = predict(Yte,Gte_sel,model);
 clear Gte_sel
-all_accs(:,4) = acc(:);
+all_accs(:,4) = acc(2:3);
 all_preds(:,4) = pred(:);
 
 
-
-
-
-
+% save file to scratch
+fprintf('Saving file! \n');
+save(sname,'all_accs','all_preds');
 
