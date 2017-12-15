@@ -12,9 +12,14 @@ modalities = 4;
 scratch_dir = [getenv('SCRATCH'),'/training_matrices/'];
 tot_gabor_features = 160;
 mdlstr = 'BRATS_50M_meanrenorm';
-patch_sizes = [33];
+max_tumor_pts_allowed = 100;
+idxstr = ['BRATS.nt',num2str(max_tumor_pts_allowed)];
+idxstr = ['BRATS_50M_Meta'];
+brn_dir = [brats,'/userbrats/BRATS17shashank/trainingdata/meanrenorm/'];
+patch_sizes = [9 5];
 Xflag = false;
 Yflag = true;
+save_patches_flag = false;
 
 if Xflag
   
@@ -68,7 +73,6 @@ end
 if Yflag
 
   % index file/ brain lists
-  idxstr = 'BRATS_50M_Meta';
   idxfile = [training_model_dir,idxstr,'.idxs.mat'];
   fprintf('Loading indices from %s\n',idxfile);
   idxfile = load(idxfile);
@@ -78,16 +82,20 @@ if Yflag
   brncell = GetBrnList(brn_dir);
   
   % load full y vec for checking purposes
-  ff = [brats,'/userbrats/BRATS17tharakan/meanrenorm/',mdlstr,'.dd.',...
-    num2str(tot_gabor_features),'.yy.bin'];
-  ff = [scratch_dir,'gabor50M.ps.33.seg.bin'];
-  fid = fopen(ff);
-  true_labs = fread(fid,Inf,'*single');
-  fclose(fid);
+  %ff = [brats,'/userbrats/BRATS17tharakan/meanrenorm/',mdlstr,'.dd.',...
+  %  num2str(tot_gabor_features),'.yy.bin'];
+  %ff = [scratch_dir,'gabor50M.ps.33.seg.bin'];
+  %fid = fopen(ff);
+  %true_labs = fread(fid,Inf,'*single');
+  %fclose(fid);
   
 
   % initialize patch probs vec storage
-  patch_probs_vec = zeros(length(true_labs),length(patch_sizes),'single');
+  nn = sum(cellfun('length',[idxfile.ridxc_lgg(:);idxfile.ridxc_hgg(:)]));
+  patch_probs_vec = zeros(nn,length(patch_sizes),'single');
+  if save_patches_flag
+    pat_mat = zeros(nn,4*(patch_sizes(1)^2),'single');
+  end
   
   % Loop over brains
   bla_idx = 1:(length(brncell));
@@ -133,11 +141,11 @@ if Yflag
     
     % check that we're the same
     rr = length(ridx);
-    cur_brain_tot_idx = (counter+1):(counter+rr);
-    tr_nnz = true_labs(cur_brain_tot_idx ) ;
     my_nnz = seg_my(ridx);
-    tr_my = norm(double(tr_nnz(:)) - double(my_nnz(:)))/norm(double(tr_nnz));
-    fprintf('Truth to myload: %3.1f\n',tr_my);
+    cur_brain_tot_idx = (counter+1):(counter+rr);
+    %tr_nnz = true_labs(cur_brain_tot_idx ) ;
+    %tr_my = norm(double(tr_nnz(:)) - double(my_nnz(:)))/norm(double(tr_nnz));
+    %fprintf('Truth to myload: %3.1f\n',tr_my);
     
     % ytot
     yupd = single(my_nnz(:) ~=0);
@@ -148,8 +156,15 @@ if Yflag
       psize = patch_sizes(pp);
 
       % extract patch at this size
-      [ ~,feat_idx ] = PatchIdx( psize,vert,horz,slc_per_brn,brns,ridx );
+      [ ~,feat_idx ] = PatchIdx2D( psize,vert,horz,slc_per_brn,brns,ridx );
       cur_patches = seg_my(feat_idx);
+      
+      if save_patches_flag
+      [ flair,t1,t1ce,t2] = ReadIdxBratsBrain( brn_dir,brain );
+        pat_mat_cur = [flair(feat_idx),t1(feat_idx),t1ce(feat_idx),t2(feat_idx)];
+	pat_mat(cur_brain_tot_idx,:) = pat_mat_cur;
+      end
+      
 
       % get probabilities (avg over whole patch --> WT, ED, EN)
       wt_probs = cur_patches; wt_probs(wt_probs ~=0) = 1;
@@ -163,12 +178,21 @@ if Yflag
     counter = counter + rr;
   end
 
+  % save patch_mat
+  if save_patches_flag
+  fname = [scratch_dir,'BRATS.nn.',num2str(size(pat_mat,1)),'.ps.',num2str(patch_sizes),'.patches.bin'];
+  fid = fopen(fname,'w+');
+  fwrite(fid,single(pat_mat),'single');
+  fclose(fid);
+  end
+  
+
   % new loop over patch sizes
   for pp = 1:length(patch_sizes)
     psize = patch_sizes(pp);
 
      % save each probability vec
-    fname = [scratch_dir,'gabor50M.ps.',num2str(psize), ...
+    fname = [scratch_dir,'gabor.ps.',num2str(psize), ...
       '.yy.bin'];
     fprintf('Saving psize %2.1f to %s\n',psize,fname);
     fid = fopen(fname,'w+');

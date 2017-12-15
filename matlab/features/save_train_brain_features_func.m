@@ -28,10 +28,8 @@ hggs = length(idxfile.hggcell);
 % Location of feature output 
 %feat_dir = [brats,'/classification/Brats17TrainingDataSample/'];
 %feat_dir = [brats,'/userbrats/BRATS17shashank/meanrenorm_val/']  ;
-feat_dir = [getenv('SCRATCH'),'/training_features/']  ;
 
-
-bw = 16;
+bw = 2;
 no = 8; 
 ang_max = 180 - ( (180)/no );
 angles = linspace(0,ang_max,no);
@@ -45,16 +43,18 @@ for gi = 1:5
 
 end
 
-dd = length(gaborfilts);
+dd = length(gaborfilts)
+feat_dir = [getenv('SCRATCH'),'/training_features/b',num2str(bw),'/']  ;
+mkdir(feat_dir);
 
 % brns / features
-feature_types = {'gabor'};
+feature_types = {'window'};
 brns = length(brncell);
 bpsect = floor(brns/tot_sections);
 
 section_idx = GetSectionIdx(section,tot_sections,brns);
 brncell = brncell(section_idx);
-
+psize = bw*2 + 1
 disp('updated brain list..')
 brncell;
 
@@ -123,6 +123,12 @@ for bi = 1:length(brncell)
 		filenm = [feat_dir,brnname,'.nn.',num2str(pts_from_brain),'.dd.'];
 
 		switch feat
+		case 'window'
+			disp('Computing window');
+			tic
+			GF = Get2DWindowFeatures(psize,ridx,flair,t1,t1ce,t2);
+			dd = size(GF,2);
+			filenm = [filenm,num2str(dd),'.window.bin'];
 		case 'int'
 			disp('Computing int');
 			tic
