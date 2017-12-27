@@ -15,10 +15,18 @@ classdef PointSelector
         % Point selector, add cases as necessary
         function idx = SelectPoints(obj,brain,ppb)
             switch obj.stype
+                case 'all'
+                    idx = obj.SelectRandom(brain,0);
+                case 'random'
+                    idx = obj.SelectRandom(brain,ppb);
                 case 'neartumor'
                     idx = obj.SelectNearTumor(brain,ppb);
+                case 'edemanormal'
+                    idx = obj.SelectEdemaNormal(brain,ppb);
             end
         end
+        
+        [ idx ] = SelectEdemaNormal( obj,brain,ppb )
                 
     end
     
