@@ -30,7 +30,7 @@ classdef BrainPointList
 			obj.pt_selector = pt_s;
 			tp = 0;
 			bm = zeros(bb+1,1);
-			bm(1) = 1;
+			bm(1) = 0;
 
 			if nargin > 4 & obj.CheckForList(sdir)
 				obj = obj.LoadList(sdir);
@@ -86,7 +86,7 @@ classdef BrainPointList
 
 		% Find index of bi within larger index
 		function idx = WithinTotalIdx(obj,bi)
-			idx = obj.brn_markers(bi):obj.brn_markers(bi+1);		
+			idx = (obj.brn_markers(bi) + 1):obj.brn_markers(bi+1);		
 		end
 		
 		function sfile = MakePPvecFile(obj,psize,target)
@@ -94,6 +94,13 @@ classdef BrainPointList
 			num2str(obj.pts_per_brain),'.bb.',...
 			num2str(obj.num_brains),'.ps.',num2str(psize), ...
 			'.t.', num2str(target),'.bin'];
+        end
+        
+        function sfile = MakePPvecAnalyzeFile(obj,psize,target)
+			sfile = ['figs.',obj.pt_selector.stype,'.ppb.',...
+			num2str(obj.pts_per_brain),'.bb.',...
+			num2str(obj.num_brains),'.ps.',num2str(psize), ...
+			'.t.', num2str(target),'.fig'];
 		end
 	end
 	
