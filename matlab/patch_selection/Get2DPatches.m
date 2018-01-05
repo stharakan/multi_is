@@ -8,6 +8,7 @@ mat_size = psize*psize*length(inds);
 
 if 0
 	% can we do some sort of filtering if num_inds is high?
+
 else
 	% explicitly extract all indices at once
   [ ~,p_inds] = PatchIdx2D( psize,d1,d2,d3,d4,inds);
