@@ -28,7 +28,7 @@ classdef PointSelector
         function idx = SelectPoints(obj,brain)
             switch obj.stype
                 case 'all'
-                    idx = obj.SelectRandom(brain);
+                    idx = obj.SelectRandom(brain); %TODO
                 case 'random'
                     idx = obj.SelectRandom(brain);
                 case 'neartumor'
