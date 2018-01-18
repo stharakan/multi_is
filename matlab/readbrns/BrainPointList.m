@@ -15,7 +15,7 @@ classdef BrainPointList
 
 	methods
 		% constructor
-		function obj = BrainPointList(bdir,bcell,pt_s,ppb,sdir)
+		function obj = BrainPointList(bdir,bcell,pt_s,sdir)
       if isempty(bcell)
 				bcell = GetBrnList(bdir);
     	end
@@ -26,7 +26,7 @@ classdef BrainPointList
 			obj.pt_inds = cell(bb,1);
 			obj.brain_cell = bcell(:);
 			obj.brain_dir = bdir;
-			obj.pts_per_brain = ppb;
+			obj.pts_per_brain = pt_s.ppb;
 			obj.pt_selector = pt_s;
 			tp = 0;
 			bm = zeros(bb+1,1);
@@ -40,7 +40,7 @@ classdef BrainPointList
 			for ii = 1:bb
 				%cur_brain = BrainReader(bdir,bcell{ii});
 				cur_brain = obj.MakeBrain(ii);
-				cur_idx = obj.pt_selector.SelectPoints(cur_brain,ppb);
+				cur_idx = obj.pt_selector.SelectPoints(cur_brain);
 				obj.pt_inds{ii} = cur_idx;
 				tp = tp + length(cur_idx);
 				bm(ii+1) = tp;
@@ -74,8 +74,7 @@ classdef BrainPointList
 
 		% Standardize file name creation
 		function sfile = MakeFileName(obj)
-			sfile = ['list.',obj.pt_selector.stype,'.ppb.',...
-			num2str(obj.pts_per_brain),'.bb.',...
+			sfile = ['list.',obj.pt_selector.PrintString(),'.bb.',...
 			num2str(obj.num_brains),'.mat'];
 		end
 
