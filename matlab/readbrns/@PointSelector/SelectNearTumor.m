@@ -1,10 +1,10 @@
-function [ idx ] = SelectNearTumor( ps,brain,ppb )
+function [ idx ] = SelectNearTumor( ps,brain )
 %SELECTNEARTUMOR selects points with the following distribution: half the 
 % points come from strictly tumor points, then of the remaining half, 75%
 % are randomly selected, and 25% are selected to be within 5 pixels of the
 % tumor. 
 
-
+ppb = ps.ppb;
 nt_frac = 0.25;
 
 if ppb

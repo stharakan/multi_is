@@ -1,7 +1,9 @@
-function [ idx ] = SelectEdemaNormal( ps,brain,ppb )
+function [ idx ] = SelectEdemaNormal( ps,brain)
 %SELECTEDEMANORMAL picks edema points and healthy points at random at an
 %even ratio for a total of ppb points, taken from brain. If ppb = 0, all
 %edema points and a corresponding number of healthy points are selected
+
+ppb = ps.ppb;
 
 % get tumor sample using seg
 seg = brain.ReadSeg();

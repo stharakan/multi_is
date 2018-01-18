@@ -1,9 +1,9 @@
-function idx = SelectRandom(ps,brain,ppb)
+function idx = SelectRandom(ps,brain)
 %SELECTRANDOM randomly selects ppb points from 
 % all the points that have a nonzero 
 % flair component for the given brain. 
 
-
+ppb = ps.ppb;
 flair = brain.ReadFlair();
 idx = find(flair);
 
