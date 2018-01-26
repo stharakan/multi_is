@@ -75,7 +75,8 @@ classdef BrainPointList
         % Standardize file name creation
         function sfile = MakeFileName(obj)
             sfile = ['list.',obj.pt_selector.PrintString(),'.bb.',...
-                num2str(obj.num_brains),'.mat'];
+                num2str(obj.num_brains),'.nn.',...
+                num2str(obj.tot_points),'.mat'];
         end
         
         % Make brain bi
@@ -113,6 +114,22 @@ classdef BrainPointList
             sfile = ['data.',str,'.bin'];
         end
         
+        % file name maker for feature ranks
+        function [sfile] = MakeFRString(obj,frstr,ftype,psize,target,params)
+            str = ['.',ftype,'.ps.',num2str(psize),'.',...
+                obj.pt_selector.PrintString(), ...
+                '.nn.',num2str(obj.tot_points),'.t.',num2str(target),...
+                PrintParams(params)];
+            sfile = [frstr,str,'.bin'];
+                
+        end
+        
+        [ fmat,fcell ] = PatchGaborFeatures( blist,psize )
+        
+        [ fmat,fcell ] = PatchStatsFeatures( blist,psize )
+        
+        [ fmat,fcell ] = PatchGStatsFeatures( blist,psize )
+        
     end
     
     methods (Static)
@@ -120,12 +137,14 @@ classdef BrainPointList
             switch feature_type
                 case 'patchstats'
                     %fcell = {'mean','max','median','std','l2','l1'};
-                    fcell = {'mean','std','skew','kurt','median','l2'};
+                    fcell = {'mean','std','median','l2'};
                     fcell = strcat('p.',num2str(psize),'.',fcell(:)');
                 case 'patchgabor'
-                    [~,fcell] = InitializeGaborBank(psize);
+                    bw = (psize - 1)/2;
+                    [~,fcell] = InitializeGaborBank(bw);
                 case 'patchgstats'
-                    [~,gcell] = InitializeGaborBank(psize,0);
+                    bw = (psize - 1)/2;
+                    [~,gcell] = InitializeGaborBank(bw,0);
                     scell = {'mean','max','median','std','l2','l1'};
                     ss = length(scell);
                     gg = length(gcell);
@@ -137,6 +156,12 @@ classdef BrainPointList
                 otherwise
                     error('feature_type not recognized');
             end
+            
+            % add in modalities
+            ddcur = length(fcell);
+            mods = repmat({'fl','t1','t1c','t2'},ddcur,1);
+            gcell = repmat(fcell(:),1,4);
+            fcell = strcat(mods(:)','.',gcell(:)');
             
         end
         
