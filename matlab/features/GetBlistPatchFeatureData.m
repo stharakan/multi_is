@@ -2,33 +2,53 @@ function [ fmat,fcell ] = GetBlistPatchFeatureData( blist,psize,feature_type,out
 %GETBLISTPATCHFEATUREDATA gets the feature data for a given list of points in
 %blist, for the given patch size psize. feature_type specifies the type of
 %features to compute. outdir, if given, will be the location where the data
-%matrix is saved. 
+%matrix is saved.
 
 % deal with outdir
-sflag = nargin > 3 & ~strcmp(outdir,'');
+sflag = nargin > 3;
 
-fcell = FeatureCell(feature_type,psize); %TODO
-dd = length(fcell);
-fmat = zeros(blist.tot_points,dd);
-
-% loop over blist
-for bi=1:blist.num_brains
-    brain = blist.MakeBrain(bi);
-    idx = blist.pt_inds{bi};
-    
-    switch feature_type
-        case stats
-            [curfeats] = BrainPatchStats(brain,psize,idx); %TODO
-        case gabor
-            [curfeats] = BrainPatchGaborStats(brain,psize,idx); %TODO
-        case gstats
-            [curfeats] = BrainPatchGaborStats(brain,psize,idx); %TODO
+if sflag
+    if ~strcmp(outdir,'')
+        [dstr] = blist.MakeFeatureDataString(feature_type,psize);
+        
+        sfile = [outdir,dstr];
+        if exist(sfile, 'file')
+            % load file
+            fid = fopen(sfile,'r');
+            fmat = fread(fid,Inf,'single');
+            
+            % get info and reshape
+            fcell = blist.FeatureCell(feature_type,psize);
+            dd = length(fcell);
+            fmat = reshape(fmat,blist.tot_points,dd);
+            return
+        end
+    else
+        sflag = false;
     end
-    
-    fmat(blist.WithinTotalIdx(bi),:) = curfeats;
-    
 end
 
+% deal with ftype
+switch feature_type
+    case 'patchstats'
+        [fmat,fcell] = blist.PatchStatsFeatures(psize); 
+    case 'patchgabor'
+        [fmat,fcell] = blist.PatchGaborFeatures(psize);
+    case 'patchgstats'
+        [fmat,fcell] = blist.PatchGStatsFeatures(psize);
+    otherwise 
+        error('Feature type not found');
+end
+
+% save if necessary 
+if sflag
+    [dstr] = blist.MakeFeatureDataString(feature_type,psize); 
+    
+    sfile = [outdir,dstr];
+    fid = fopen(sfile,'w');
+    fwrite(fid,single(fmat),'single');
+    fclose(fid);
+end
 
 end
 
