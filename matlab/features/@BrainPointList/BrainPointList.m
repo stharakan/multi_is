@@ -119,9 +119,33 @@ classdef BrainPointList
             str = ['.',ftype,'.ps.',num2str(psize),'.',...
                 obj.pt_selector.PrintString(), ...
                 '.nn.',num2str(obj.tot_points),'.t.',num2str(target),...
-                PrintParams(params)];
+                PrintRFEParams(params)];
             sfile = [frstr,str,'.bin'];
-                
+            
+        end
+        
+        % return a blist based on an index of brains
+        function blist = BlistSubsetFromIdx(obj,idx)
+            nb = length(idx);
+            
+            % --- things to set ----
+            % 1 pt_inds
+            % 2 pts_per_brain
+            % 3 brain_cell
+            % 4 brain_dir
+            % 5 num_brains
+            % 6 pt_selector
+            % 7 tot_points
+            % 8 brn_markers
+            
+            blist = obj; % pt_selector, brain_dir, pts_per_brain
+            blist.num_brains = nb; % num_brains
+            blist.pt_inds = obj.pt_inds(idx); % pt_inds
+            blist.brain_cell = obj.brain_cell(idx); % brain_cell
+            idx_lengths = cellfun('length',blist.pt_inds);
+            blist.tot_points = sum(idx_lengths); % tot_points
+            blist.brn_markers = zeros(nb + 1,1);
+            blist.brn_markers(2:end) = cumsum(idx_lengths); % brn_markers
         end
         
         [ fmat,fcell ] = PatchGaborFeatures( blist,psize )
@@ -130,6 +154,7 @@ classdef BrainPointList
         
         [ fmat,fcell ] = PatchGStatsFeatures( blist,psize )
         
+        [ trn_blist,tst_blist ] = Split( obj,perc )
     end
     
     methods (Static)
