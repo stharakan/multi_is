@@ -33,6 +33,8 @@ classdef PointSelector
                     idx = obj.SelectRandom(brain);
                 case 'neartumor'
                     idx = obj.SelectNearTumor(brain);
+                case 'nearedema'
+                    idx = obj.SelectNearEdema(brain);
                 case 'edemanormal'
                     idx = obj.SelectEdemaNormal(brain);
                 case 'edemadist'
@@ -71,6 +73,7 @@ classdef PointSelector
         [ idx ] = SelectEdemaNormal( obj,brain );
         [ idx ] = SelectRandom( obj,brain );
         [ idx ] = SelectNearTumor( obj,brain );
+        [ idx ] = SelectNearEdema( obj,brain );
         [ idx ] = SelectEdemaDistribution( obj,brain );
     end
     
