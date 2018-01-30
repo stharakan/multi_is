@@ -40,6 +40,23 @@ classdef PointSelector
             end
         end
         
+        % outputs a probability map for a given brain
+        function pmap = PointProbabilityMap(obj,brain)
+            switch obj.stype
+                case 'all'
+                    idx = obj.MapRandom(brain); %TODO
+                case 'random'
+                    idx = obj.MapRandom(brain);%TODO
+                case 'neartumor'
+                    idx = obj.MapNearTumor(brain);%TODO
+                case 'edemanormal'
+                    idx = obj.MapEdemaNormal(brain);%TODO
+                case 'edemadist'
+                    idx = obj.MapEdemaDistribution(brain);%TODO
+            end
+            
+        end
+        
         function pstr = PrintString(obj)
             
             if obj.psize
