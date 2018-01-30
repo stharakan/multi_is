@@ -19,6 +19,8 @@ classdef BrainPointList
             if isempty(bcell)
                 bcell = GetBrnList(bdir);
             end
+
+            if nargin < 3, sdir = []; end
             
             % set vars
             bb = length(bcell);
@@ -32,8 +34,8 @@ classdef BrainPointList
             bm = zeros(bb+1,1);
             bm(1) = 0;
             
-            if nargin > 4 & obj.CheckForList(sdir)
-                obj = obj.LoadList(sdir);
+            if nargin > 3 & BrainPointList.CheckForList(sdir,pt_s,bb)
+                obj = BrainPointList.LoadList(sdir,pt_s,bb);
                 return
             end
             
@@ -48,7 +50,7 @@ classdef BrainPointList
             obj.tot_points = tp;
             obj.brn_markers = bm;
             
-            if nargin > 4
+            if nargin > 3
                 obj.SaveList(sdir);
             end
         end
@@ -59,24 +61,10 @@ classdef BrainPointList
             save([sdir,sfile],'obj');
         end
         
-        % Load file
-        function obj2 = LoadList(obj,sdir)
-            sfile = obj.MakeFileName();
-            bla = load([sdir,sfile]);
-            obj2 = bla.obj;
-        end
-        
-        % check if file exists
-        function cflag = CheckForList(obj,sdir)
-            sfile = obj.MakeFileName();
-            cflag = exist([sdir,sfile],'file');
-        end
-        
         % Standardize file name creation
         function sfile = MakeFileName(obj)
             sfile = ['list.',obj.pt_selector.PrintString(),'.bb.',...
-                num2str(obj.num_brains),'.nn.',...
-                num2str(obj.tot_points),'.mat'];
+                num2str(obj.num_brains),'.mat'];
         end
         
         % Make brain bi
@@ -91,16 +79,14 @@ classdef BrainPointList
         
         % ppvec file name maker
         function sfile = MakePPvecFile(obj,psize,target)
-            sfile = ['ppv.',obj.pt_selector.PrintString(),'.ppb.',...
-                num2str(obj.pts_per_brain),'.bb.',...
+            sfile = ['ppv.',obj.pt_selector.PrintString(),'.bb.',...
                 num2str(obj.num_brains),'.ps.',num2str(psize), ...
                 '.t.', num2str(target),'.bin'];
         end
         
         % ppvec file name maker for figs
         function sfile = MakePPvecAnalyzeFile(obj,psize,target)
-            sfile = ['figs.',obj.pt_selector.PrintString(),'.ppb.',...
-                num2str(obj.pts_per_brain),'.bb.',...
+            sfile = ['figs.',obj.pt_selector.PrintString(),'.bb.',...
                 num2str(obj.num_brains),'.ps.',num2str(psize), ...
                 '.t.', num2str(target),'.fig'];
         end
@@ -147,6 +133,13 @@ classdef BrainPointList
             blist.brn_markers = zeros(nb + 1,1);
             blist.brn_markers(2:end) = cumsum(idx_lengths); % brn_markers
         end
+
+        function [] = PrintListInfo(obj)
+            fprintf([' BrainPointList stats\n Num_brains: %d\n ',...
+            'pt_selector: %s\n total pts: %d\n'],obj.num_brains, ...
+            obj.pt_selector.PrintString(),obj.tot_points);
+        end
+
         
         [ fmat,fcell ] = PatchGaborFeatures( blist,psize )
         
@@ -190,6 +183,23 @@ classdef BrainPointList
             
         end
         
+        function [str] = MakeFileNameStatic(ps,nb)
+            str = ['list.',ps.PrintString(),'.bb.',...
+                num2str(nb),'.mat'];
+        end
+
+        function [blist] = LoadList(sdir,ps,nb)
+            % add in modalities
+            sfile = BrainPointList.MakeFileNameStatic(ps,nb);
+            mat = load([sdir,sfile]);
+            blist = mat.obj;
+        end
+        
+        function [flag] = CheckForList(sdir,ps,nb)
+            % add in modalities
+            sfile = BrainPointList.MakeFileNameStatic(ps,nb);
+            flag = exist([sdir,sfile],'file');
+        end
     end
 end
 
