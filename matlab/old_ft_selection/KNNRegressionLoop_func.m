@@ -62,48 +62,48 @@ for ni=1:ntr
 	
 	avgdistanceNN(ni,:) = nn_dists(bw_ranks);
 
-	%for bi = 1:bbs
-	%bw_rank= bw_ranks(bi);
-	%% scale by bw
-	%%[ nn_dists_scale ] = NNDistanceScaleToRank( nn_dists,bw_rank );
-	%
-	%% exponential to get potentials
-	%%potentials = exp( -0.5 .* (nn_dists_scale).^2 );
-	%%if mod(ni,100000) == 0 
-	%%format long
-	%%potentials = potentials./sum(potentials)
-	%%else
-	%%potentials = potentials./sum(potentials);
-	%%end
-
-	%% reorder ytr by nn_ids for a multiply
-	%pt_weights = ytr(nn_ids);
-
-	%%ycur = potentials * pt_weights(:);
-	%%yg( ids(ni),bi ) = ycur;
-	%yg( ids(ni),bi ) = sum(pt_weights(1:bw_rank))/bw_rank;
-	%end
+	for bi = 1:bbs
+	bw_rank= bw_ranks(bi);
+	% scale by bw
+	%[ nn_dists_scale ] = NNDistanceScaleToRank( nn_dists,bw_rank );
 	
+	% exponential to get potentials
+	%potentials = exp( -0.5 .* (nn_dists_scale).^2 );
 	%if mod(ni,100000) == 0 
-	%tru = ytr( ids(ni) )
-	%yg( ni, :)
+	%format long
+	%potentials = potentials./sum(potentials)
+	%else
+	%potentials = potentials./sum(potentials);
 	%end
-	%
-	%if mod(ni,1000000) == 0
-	%	cur_idx = ids(1:ni);
-	%	[~,reo_idx] = sort(cur_idx);
-	%	ygt = yg(reo_idx,:);
-	%	ytt = ytr(cur_idx);
-	%	diff = abs(bsxfun(@minus,ygt,ytt));
-	%	cur_errs = sqrt(sum(diff.^2,1 ))./norm(ytt);
-	%	cur_avg_abs_errs = mean( diff,1 );
-	%	fprintf('%2dM \n',ni/1000000); 
-	%	fprintf('  Bw | Erel | Eavg \n'); 
-	%	for bi = 1:bbs
-	%		fprintf('  %2d | %3.2f | %3.2f\n', bw_ranks(bi),...
-	%			cur_errs(bi),cur_avg_abs_errs(bi));
-	%	end
-	%end
+
+	% reorder ytr by nn_ids for a multiply
+	pt_weights = ytr(nn_ids);
+
+	%ycur = potentials * pt_weights(:);
+	%yg( ids(ni),bi ) = ycur;
+	yg( ids(ni),bi ) = sum(pt_weights(1:bw_rank))/bw_rank;
+	end
+	
+	if mod(ni,100000) == 0 
+	tru = ytr( ids(ni) )
+	yg( ni, :)
+	end
+	
+	if mod(ni,1000000) == 0
+		cur_idx = ids(1:ni);
+		[~,reo_idx] = sort(cur_idx);
+		ygt = yg(reo_idx,:);
+		ytt = ytr(cur_idx);
+		diff = abs(bsxfun(@minus,ygt,ytt));
+		cur_errs = sqrt(sum(diff.^2,1 ))./norm(ytt);
+		cur_avg_abs_errs = mean( diff,1 );
+		fprintf('%2dM \n',ni/1000000); 
+		fprintf('  Bw | Erel | Eavg \n'); 
+		for bi = 1:bbs
+			fprintf('  %2d | %3.2f | %3.2f\n', bw_ranks(bi),...
+				cur_errs(bi),cur_avg_abs_errs(bi));
+		end
+	end
 end
 
 fprintf('  bw | avg | med |s: \n')
