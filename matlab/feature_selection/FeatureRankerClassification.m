@@ -44,6 +44,7 @@ ppvec = GetPatchProbabilities(blist,psize,target,outdir);
 
 % Whiten training
 fmat = whiten(fmat);
+fmat = sparse(fmat);
 
 % preprocess y 
 num_classes = 4;

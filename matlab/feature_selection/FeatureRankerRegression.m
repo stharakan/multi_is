@@ -38,6 +38,7 @@ end
 
 % Get data (assume this is only training)
 [ fmat ] = GetBlistPatchFeatureData( blist,psize,ftype,outdir );
+fmat = sparse(fmat);
 
 % Get outputs (assume only training)
 ppvec = GetPatchProbabilities(blist,psize,target,outdir);
