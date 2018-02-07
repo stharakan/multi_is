@@ -24,7 +24,7 @@ all_percs = all_abs;
 % print headers for brain stuff
 strs = {'0-10  ','10-20 ','20-30 ','30-40 ','40-50 ','50-60 ', ... 
 	'60-70 ','70-80 ','80-90 ','90-100'};
-all_strs = [{'0     '},strs,{'100   '}];
+all_strs = [{'0     '},strs,{'100   '}]; %TODO use bucket funcs
 
 if ~target
     all_strs = flip(all_strs);
@@ -53,7 +53,10 @@ for bi = 1:blist.num_brains
     
     % set up print output
     pp_vec = cur_abs./ppb;
-    pp_vec(2:end) = pp_vec(2:end)./sum(pp_vec(2:end));
+    sum_val = sum(pp_vec(2:end));
+    if sum_val ~=0
+    	pp_vec(2:end) = pp_vec(2:end)./sum(pp_vec(2:end));
+    end
     
 	% print histogram results
 	fprintf('\n%s\n',blist.brain_cell{bi});
@@ -67,7 +70,11 @@ end
 % average out things
 mean_abs = mean(all_abs,2);
 mean_percs(1) = mean(all_percs(1,:));
-mean_percs(2:(num_divs)) = mean(  bsxfun(@rdivide, all_percs(2:end,:), sum(all_percs(2:end,:))),2 );
+pmat = all_percs(2:end,:);
+sum_percs = sum(pmat);
+sum_percs(sum_percs == 0) = 1;
+pmat = bsxfun(@rdivide,pmat,sum_percs);
+mean_percs(2:(num_divs)) = mean( pmat,2 );
 
 % print averages for general idea
 fprintf('\n%s\n','Average over all brains');
