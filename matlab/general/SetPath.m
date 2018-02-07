@@ -1,8 +1,8 @@
 % set paths for BRATS17 data (brats), brats matlab scripts, and NIfTI14
 
-bratsmatlabpath = [getenv('BRATSREPO'), '/matlab'];
+bratsmatlabpath = [getenv('MISDIR'), '/matlab'];
 if isempty(bratsmatlabpath)
-    warning('Need to set env variable BRATSREPO'); 
+    warning('Need to set env variable MISDIR'); 
 end
 addpath(  genpath( bratsmatlabpath ) );   
 
