@@ -1,5 +1,5 @@
 % Add path to other code
-clearvars
+clearvars -except pmap
 close all
 bdir = ['./../data/trainingdata/'];
 addpath(['./../data/trainingdata/']);
@@ -12,18 +12,18 @@ ftype = 'patchstats';
 target = 2;
 params = [];
 outdir = '';
-%ps = PointSelector('neartumor',ppb);
+ps = PointSelector('nearedema',ppb);
 %ps = PointSelector('edemanormal',ppb);
 %ps = PointSelector('all',ppb);
-ps = PointSelector('edemadist',bperc,psize);
+%ps = PointSelector('edemadist',bperc,psize);
 blist = BrainPointList(bdir,[],ps,'./');
 
 %AnalyzePatchProbabilities(blist,5,2,'./');
 psize = 5;
 bi = 4;
-
-[ franks ] = FeatureRankerRegression( blist,ftype,psize,target,params );
 if 0
+[ franks ] = FeatureRankerRegression( blist,ftype,psize,target,params );
+
 
 % load brain
 curbrn = blist.MakeBrain(bi);
