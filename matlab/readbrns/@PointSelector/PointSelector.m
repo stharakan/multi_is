@@ -46,15 +46,17 @@ classdef PointSelector
         function pmap = PointProbabilityMap(obj,brain)
             switch obj.stype
                 case 'all'
-                    idx = obj.MapRandom(brain); %TODO
+                    pmap = obj.MapRandom(brain); %TODO
                 case 'random'
-                    idx = obj.MapRandom(brain);%TODO
+                    pmap = obj.MapRandom(brain);%TODO
                 case 'neartumor'
-                    idx = obj.MapNearTumor(brain);%TODO
+                    pmap = obj.MapNearTumor(brain);%TODO
+                case 'nearedema'
+                    pmap = obj.MapNearEdema(brain);%TODO
                 case 'edemanormal'
-                    idx = obj.MapEdemaNormal(brain);%TODO
+                    pmap = obj.MapEdemaNormal(brain);%TODO
                 case 'edemadist'
-                    idx = obj.MapEdemaDistribution(brain);%TODO
+                    pmap = obj.MapEdemaDistribution(brain);%TODO
             end
             
         end
@@ -75,6 +77,8 @@ classdef PointSelector
         [ idx ] = SelectNearTumor( obj,brain );
         [ idx ] = SelectNearEdema( obj,brain );
         [ idx ] = SelectEdemaDistribution( obj,brain );
+        [ pmap ] = MapEdemaDistribution( ps,brain );
+        [ pmap ] = MapNearEdema( ps,brain )
     end
     
 end
