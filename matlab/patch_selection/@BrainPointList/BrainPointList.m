@@ -148,6 +148,10 @@ classdef BrainPointList
         [ fmat,fcell ] = PatchGStatsFeatures( blist,psize )
         
         [ trn_blist,tst_blist ] = Split( obj,perc )
+        
+        [ blist_out ] = RoundDown( blist,pof10 )
+        
+        [ trn,tst ] = SplitAndRound( blist,sperc,pof10 )
     end
     
     methods (Static)
