@@ -11,7 +11,12 @@ end
 blist_out = blist; % pt_selector, brain_dir, pts_per_brain,brain_cell,tot_points
 nb = blist.num_brains;
 tp = blist.tot_points;
-new_tp = round(tp,-pof10);
+diff = mod(tp,10^pof10);
+
+if diff == 0
+    return;
+end
+new_tp = tp - diff;
 ss_factor = new_tp/tp;
 blist_out.tot_points = new_tp; % num_brains
 
@@ -36,7 +41,10 @@ end
 % loop through and truncate to get pt_inds
 blist_out.pt_inds = cell(nb,1);
 for bi = 1:nb
-    idx = randsample(blist.pt_inds{bi},ss_idx_lengths(bi));
+    tot = length(blist.pt_inds{bi});
+    sub = ss_idx_lengths(bi);
+    sub_idx = randperm(tot,sub);
+    idx = blist.pt_inds{bi}(sub_idx);
     blist_out.pt_inds{bi} = idx;
 end
 
