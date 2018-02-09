@@ -8,7 +8,11 @@ function [ trn,tst ] = MakeTrnTstListsFromAll( bdir,bcell,outdir,psstr,ps1,ps2 )
 if ~exist('ps2','var')
     ps = PointSelector(psstr,ps1);
 else
+	if isempty(ps2)
+    ps = PointSelector(psstr,ps1);
+	else
     ps = PointSelector(psstr,ps1,ps2);
+	end
 end
 
 % handle bcell
