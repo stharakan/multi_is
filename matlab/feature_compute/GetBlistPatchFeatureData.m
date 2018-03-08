@@ -26,16 +26,18 @@ if sflag
     else
         sflag = false;
     end
+else
+    outdir = '';
 end
 
 % deal with ftype
 switch feature_type
     case 'patchstats'
-        [fmat,fcell] = blist.PatchStatsFeatures(psize); 
+        [fmat,fcell] = PatchStatsFeatures(blist,psize); 
     case 'patchgabor'
-        [fmat,fcell] = blist.PatchGaborFeatures(psize);
+        [fmat,fcell] = PatchGaborFeatures(blist,psize);
     case 'patchgstats'
-        [fmat,fcell] = blist.PatchGStatsFeatures(psize);
+        [fmat,fcell] = PatchGStatsFeatures(blist,psize,outdir);
     otherwise 
         error('Feature type not found');
 end
