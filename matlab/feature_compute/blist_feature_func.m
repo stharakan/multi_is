@@ -9,7 +9,7 @@ bdir = [getenv('BRATSDIR'),'/preprocessed/trainingdata/meanrenorm/'];
 %bdir = [getenv('BRATSDIR'),'/preprocessed/trainingdata/HGG/pre-norm-aff/'];
 addpath(bdir);
 bcell = BrainCellAllTrain();
-num_brains = 260;
+num_brains = length(bcell);
 split_perc = 0.8;
 
 for pi= 1:length(psizes)
