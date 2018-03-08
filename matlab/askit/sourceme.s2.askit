@@ -1,0 +1,48 @@
+# set the compilers
+export MPICXX=mpicxx
+export MPICC=mpicc 
+
+# GNU scientific library
+export GSL_DIR=${TACC_GSL_DIR}
+
+export JHOME=/home1/02497/jll2752
+
+# The required KNN library
+export KNN_DIR=${JHOME}/lib/knn/src
+
+# Petsc and slepc
+# export PETSC_DIR=${HOME}/local
+# export SLEPC_DIR=${HOME}/local
+
+# deal with threads
+export OMP_NUM_THREADS=48
+export KS_IC_NT=48
+export GSKNN_IC_NT=48
+
+##### These are optional, but set USE_KS to false if not using it
+
+# The optional efficient kernel summation library
+export USE_KS=true
+export KS_DIR=${JHOME}/lib/ks
+
+# optional single precision linear algebra
+export USE_SINGLE_PRECISION=false
+
+# optional fast randomized qr factorization
+# export USE_HQRRP=true
+export USE_HQRRP=false
+# if you are on maverick, you don't have to change this
+# export HQRRP_DIR=/work/02497/jll2752/maverick/packages/hqrrp
+export HQRRP_DIR=${JHOME}/lib/hqrrp
+
+
+#################################################
+# No need to change things below this line
+#################################################
+
+# The regression code will look for this
+export ASKIT_DIR=${JHOME}/lib/askit/treecode
+
+
+
+
