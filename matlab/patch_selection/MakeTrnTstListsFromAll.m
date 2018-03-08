@@ -21,10 +21,25 @@ if strcmp(bcell,'alltrn')
 end 
     
 % make total list
+fprintf('Computing all points ..\n');
 blist = BrainPointList(bdir,bcell,ps,outdir);
 
 % make splits, keep randomizer the same for same brains
+fprintf('Splitting and rounding ..\n');
 rng(2);
 [trn,tst] = blist.SplitAndRound();
+
+% save lists
+fprintf('Saving to file ..\n');
+trn.SaveList(outdir);
+tst.SaveList(outdir);
+
+fprintf('Training list: \n')
+trn.PrintListInfo();
+
+fprintf('Testing list: \n')
+tst.PrintListInfo();
+
+
 end
 

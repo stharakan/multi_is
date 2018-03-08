@@ -102,12 +102,18 @@ classdef BrainPointList
         
         % file name maker for feature ranks
         function [sfile] = MakeFRString(obj,frstr,ftype,psize,target,params)
+            if nargin == 5 % no params
             str = ['.',ftype,'.ps.',num2str(psize),'.',...
                 obj.pt_selector.PrintString(), ...
-                '.nn.',num2str(obj.tot_points),'.t.',num2str(target),...
+                '.nn.',num2str(obj.tot_points),'.t.',num2str(target),'.'];
+            sfile = [frstr,str];
+            else 
+            str = ['.',ftype,'.ps.',num2str(psize),'.',...
+                obj.pt_selector.PrintString(), ...
+                '.nn.',num2str(obj.tot_points),'.t.',num2str(target),'.',...
                 PrintRFEParams(params)];
             sfile = [frstr,str,'.bin'];
-            
+            end
         end
         
         % return a blist based on an index of brains
@@ -140,12 +146,6 @@ classdef BrainPointList
             obj.pt_selector.PrintString(),obj.tot_points);
         end
 
-        
-        [ fmat,fcell ] = PatchGaborFeatures( blist,psize )
-        
-        [ fmat,fcell ] = PatchStatsFeatures( blist,psize )
-        
-        [ fmat,fcell ] = PatchGStatsFeatures( blist,psize )
         
         [ trn_blist,tst_blist ] = Split( obj,perc )
         
