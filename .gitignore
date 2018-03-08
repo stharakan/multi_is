@@ -3,3 +3,6 @@
 *.m~
 *.mat
 *.fig
+*.swp
+*.job
+*.e
