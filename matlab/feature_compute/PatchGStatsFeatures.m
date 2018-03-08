@@ -1,16 +1,22 @@
-function [ fmat,fcell ] = PatchGStatsFeatures( blist,psize )
+function [ fmat,fcell ] = PatchGStatsFeatures( blist,psize,outdir )
 %PATCHGSTATSFEATURES calculates the gabor stats for a given blist and psize.
 %It is called from a parent function, but can be called on its own if
 %preferred. 
 
 % initialize fmat, fcell
 fcell = blist.FeatureCell('patchgstats',psize); 
+print_skip = 5;
+
+gflag = nargin > 2;
+if gflag
+  if isempty(outdir), gflag = false; end;
+end
+
+if ~gflag
 dd = length(fcell);
 fmat = zeros(blist.tot_points,dd);
 bw = (psize -1)/2;
 gbank = InitializeGaborBank(bw);
-print_skip = 5;
-
 for bi=1:blist.num_brains
     % extract relevant indices
     brain = blist.MakeBrain(bi);
@@ -55,7 +61,12 @@ for bi=1:blist.num_brains
     fmat(blist.WithinTotalIdx(bi),:) = curfeats;
     
 end
-
+else
+    fprintf(' computing gabor features first\n');
+    gmat = GetBlistPatchFeatureData(blist,psize,'patchgabor',outdir);
+    fmat = GaborToStats(gmat);
+end
+    
 
 end
 
