@@ -11,6 +11,7 @@ classdef BrainPointList
         pt_selector
         tot_points
         brn_markers
+        brn_size
     end
     
     methods
@@ -47,6 +48,9 @@ classdef BrainPointList
                 tp = tp + length(cur_idx);
                 bm(ii+1) = tp;
             end
+            
+            seg = obj.MakeBrain(1).ReadSeg();
+            obj.brn_size = size(seg);
             obj.tot_points = tp;
             obj.brn_markers = bm;
             
