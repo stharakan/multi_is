@@ -39,6 +39,8 @@ classdef PointSelector
                     idx = obj.SelectEdemaNormal(brain);
                 case 'edemadist'
                     idx = obj.SelectEdemaDistribution(brain);
+                case 'sliceedemamax'
+                    idx = obj.SelectSliceEdemaMax(brain);
             end
         end
         
