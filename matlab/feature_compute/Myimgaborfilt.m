@@ -7,32 +7,48 @@ function [ fmat ] = Myimgaborfilt( im,gbank,idx )
 [d1,d2,slcs] = size(im);
 slice_size = d1*d2;
 gg = length(gbank);
+iflag = true;
 
 % set up fmat
 if nargin < 3
-    idx = 1:numel(im);
+    iflag = false;
+    nn = numel(im);
+else
+    nn = length(idx);
+
+    % divide index to find slice ownership
+    slice_idx = ceil(idx./slice_size);
+    slice_mod = mod(idx,slice_size);
 end
-nn = length(idx);
+
+% initialize matrix
 fmat = zeros(nn,gg);
 fmat = cast(fmat,'like',im);
 
-% divide index to find slice ownership
-slice_idx = ceil(idx./slice_size);
-slice_mod = mod(idx,slice_size);
 
 % loop over slices, process image
 for si = 1:slcs
-    % check which of idx is present
-    cur_slice = slice_idx == si;
-    
-    if any(cur_slice)
+    do_cur = true;
+    cur_slice = (1 + (slice_size)*(si-1)):(slice_size*si);
+
+    if iflag
+        % check which of idx is present
+        cur_slice = slice_idx == si;
+        do_cur = any(cur_slice);
+    end
+        
+
+    if do_cur 
         % take gabor of image
         filtered = imgaborfilt(im(:,:,si),gbank);
         filtered = reshape(filtered, [],gg);
-        filtered_trunc = filtered(slice_mod(cur_slice),:);
+        
+        if iflag
+            filtered = filtered(slice_mod(cur_slice),:);
+        end
         
         % load into mat
-        fmat( cur_slice,:) = filtered_trunc;
+        fmat( cur_slice,:) = filtered;
     end
 end
 
