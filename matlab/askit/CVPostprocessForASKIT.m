@@ -20,11 +20,6 @@ fprintf('Loading train list..\n');
 trn = BrainPointList.LoadList(outdir,ps,ntrn);
 trn.PrintListInfo();
 
-%ppvfile=$(ls ${OUTDIR}/ppv*${PSSTR}*${PSP1}*.${PSIZE}.*208.*${TARGET}*)
-%potfile=${ppvfile%.bin}.pot
-%yyfile=${potfile/ppv/trn.${FTYPE}.yy};
-%onesfile=${potfile/ppv/trn.${FTYPE}.1s};
-
 % load ytr
 fprintf('Loading ppvec and potential files..\n');
 pfile = trn.MakePPvecFile(psize,target);
@@ -81,7 +76,7 @@ for bi = 1:num_bws
   cur_errs = @(idx) sqrt(sum(diff(idx).^2,1 ))./norm(ytr(idx));
   cur_avg_abs_errs =@(idx) mean( diff(idx),1 );
   cmat = confusion_regression(ytr,yg,3)
-  dices = diag(cmat)./( sum(cmat,1)' + sum(cmat,2) - diag(cmat));
+  dices = 2.*diag(cmat)./( sum(cmat,1)' + sum(cmat,2));
   
   % print errors
   T = table({'Low';'Mid';'High'}, [num_lo;num_mid;num_hi], ...
@@ -93,17 +88,32 @@ for bi = 1:num_bws
   avg_dices(bi) = mean(dices);
   all_yg(:,bi) = yg(:);
   
+  cmat = confusion_regression(ytr,yg,2);
+  dices = 2.*diag(cmat)./( sum(cmat,1)' + sum(cmat,2));
+  bin_dice(bi,:) =   dices(:)';
+
 end
 
+disp('------------------------')
+T = table(all_bws(:),avg_dices(:),bin_dice(:,1),bin_dice(:,2)); 
+T.Properties.VariableNames = {'Bw','AvgDice','Hdice','Tdice'};
+T
 [max_dice,max_ind] = max(avg_dices);
 bw = all_bws(max_ind);
-disp('------------------------')
-T = table(all_bws(:),avg_dices(:)); 
-T.Properties.VariableNames = {'Bw','AvgDice'};
-T
-fprintf('Max dice: %.2f\nBest bw: %.2f\n',max_dice,bw);
+fprintf('Max avg dice: %.2f\nBest bw: %.2f\n',max_dice,bw);
+[max_tdice,max_ind] = max(bin_dice(:,2));
+bw = all_bws(max_ind);
+fprintf('Max tum dice: %.2f\nBest bw: %.2f\n',max_tdice,bw);
 
+% save
 save(bwfile,'bw','max_dice','avg_dices','all_yg','-append');
+
+% model file
+bwfiletxt = strrep([outdir,pfile],'ppv',['finbw.',ftype]);
+bwfiletxt = strrep(bwfiletxt,'bin','txt');
+fid = fopen(bwfiletxt,'w');
+fprintf(fid,'%s',num2str(bw));
+fclose(fid);
 
 end
 
