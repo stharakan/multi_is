@@ -1,4 +1,4 @@
-function [ fmat,fcell ] = GetBrainPatchFeatureData( brain,psize,feature_type,outdir )
+function [ fmat,fcell ] = GetBrainPatchFeatureData( brain,feature_type,psize,outdir )
 %GETBLISTPATCHFEATUREDATA gets the feature data for a given list of points in
 %blist, for the given patch size psize. feature_type specifies the type of
 %features to compute. outdir, if given, will be the location where the data
