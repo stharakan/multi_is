@@ -1,25 +1,40 @@
 #!/bin/bash
 source ./Parser.sh
 
-filen=ask.${BW}.${FKEEP}.${TARGET}.${FTYPE}.${PSSTR}.${PSP1}.${PSIZE}
+filen=askb.${BW}.${FKEEP}.${TARGET}.${FTYPE}.${PSSTR}.${PSP1}.${PSIZE}
 
-# find n_ref, trnfile, and knnfile
+# set askit running params 
+mm=256
+id_rank=128
+id_tol=0.00000001
+
+# tstdata
+tstfile=$(ls ${OUTDIR}/knntst*${FKEEP}*${FTYPE}*${PSIZE}*${BRAIN}*bin)
+IFS='.' read -ra delims <<< ${tstfile}
+n_tst=${delims[-2]};
+tknnfile=${tstfile%.bin}.kk.${KCUT}.bin;
+tknnfile=${tknnfile/knntst/nntstlist};
+
+# ASSUME CORRECT BW is passed!!!
+#mdlfile=$(ls ${OUTDIR}/askitregmdl.dd.${FKEEP}*data*${FTYPE}*ps.${PSIZE}.${PSSTR}*${PSP1}*)
 trnfile=$(ls ${OUTDIR}/knntrn.dd.${FKEEP}*data*${FTYPE}*ps.${PSIZE}.${PSSTR}*${PSP1}*)
 IFS='.' read -ra delims <<< ${trnfile}
 n_ref=${delims[-2]};
 knnfile=${trnfile%.bin}.kk.${KCUT}.bin;
 knnfile=${knnfile/knntrn/nntrnlist};
-mm=256
-id_rank=128
-id_tol=0.00000001
 
+
+# charge vecs
 ppvfile=$(ls ${OUTDIR}/ppv*${PSSTR}*${PSP1}*.${PSIZE}.*208.*${TARGET}*)
-cmfilein=${ppvfile/ppv/trn.${FTYPE}.cm};
+cmfilein=${ppvfile/ppv/cm};
+rofilein=${ppvfile/ppv/ro};
+
+# out vecs
 potfile=${ppvfile%.bin}.h.${BW}.pot
-yyfile=${potfile/ppv/trn.${FTYPE}.yy};
-onesfile=${potfile/ppv/trn.${FTYPE}.1s};
-cmfile=${potfile/ppv/trn.${FTYPE}.cm};
-rofile=${potfile/ppv/trn.${FTYPE}.ro};
+yyfile=${potfile/ppv/${BRAIN}.${FTYPE}.yy};
+onesfile=${potfile/ppv/${BRAIN}.${FTYPE}.1s};
+cmfile=${potfile/ppv/${BRAIN}.${FTYPE}.cm};
+rofile=${potfile/ppv/${BRAIN}.${FTYPE}.ro};
 
 # Make sbatch runfile
 echo "#!/bin/bash
@@ -51,51 +66,57 @@ time ibrun tacc-affinity /home1/02497/jll2752/lib/askit_skx/treecode/src/askit_d
 -knn_file ${knnfile} \
 -charges ones -N ${n_ref} -d ${FKEEP} -k ${KCUT} -m ${mm} -id_rank ${id_rank} -min_skeleton_level 7 -id_tol ${id_tol} \
 -sort_method nn -kernel_type gaussian -balloon_k 0 -h ${BW} -c 0 -p 0 -output output.out \
--training_potentials_file ${onesfile} \
--test_potentials_file None -num_power_iterations 10 -test_data_file None -test_knn_file None \
--num_test_points 0 -num_skel_targets 2 -num_uniform_required 0 -oversampling_fac 5 -err 100 \
+-training_potentials_file None \
+-test_potentials_file ${onesfile} -num_power_iterations 10 \
+-test_data_file ${tstfile} \
+-test_knn_file ${tknnfile} \
+-num_test_points ${n_tst} -num_skel_targets 2 -num_uniform_required 0 -oversampling_fac 5 -err 100 \
 -num_error_repeats 10 -max_sampling_iterations 3 -adaptive_sample_size 2 -pruning_num_neighbors 0 \
 -neighbors_to_pass_up 4 -lambda 0.0 -binary -do_simplified_adaptive_rank \
--do_split_k -use_adaptive_sampling -save_training_potentials
+-do_split_k -use_adaptive_sampling -save_test_potentials
 
 time ibrun tacc-affinity /home1/02497/jll2752/lib/askit_skx/treecode/src/askit_distributed_main.exe \
 -data ${trnfile} \
 -knn_file ${knnfile} \
--charges ${ppvfile} \
--N ${n_ref} -d ${FKEEP} -k ${KCUT} -m ${mm} -id_rank ${id_rank} -min_skeleton_level 7 -id_tol ${id_tol} \
+-charges ${ppvfile} -N ${n_ref} -d ${FKEEP} -k ${KCUT} -m ${mm} -id_rank ${id_rank} -min_skeleton_level 7 -id_tol ${id_tol} \
 -sort_method nn -kernel_type gaussian -balloon_k 0 -h ${BW} -c 0 -p 0 -output output.out \
--training_potentials_file ${yyfile} \
--test_potentials_file None -num_power_iterations 10 -test_data_file None -test_knn_file None \
--num_test_points 0 -num_skel_targets 2 -num_uniform_required 0 -oversampling_fac 5 -err 100 \
+-training_potentials_file None \
+-test_potentials_file ${yyfile} -num_power_iterations 10 \
+-test_data_file ${tstfile} \
+-test_knn_file ${tknnfile} \
+-num_test_points ${n_tst} -num_skel_targets 2 -num_uniform_required 0 -oversampling_fac 5 -err 100 \
 -num_error_repeats 10 -max_sampling_iterations 3 -adaptive_sample_size 2 -pruning_num_neighbors 0 \
 -neighbors_to_pass_up 4 -lambda 0.0 -binary -do_simplified_adaptive_rank \
--do_split_k -use_adaptive_sampling -save_training_potentials
+-do_split_k -use_adaptive_sampling -save_test_potentials
+
 
 time ibrun tacc-affinity /home1/02497/jll2752/lib/askit_skx/treecode/src/askit_distributed_main.exe \
 -data ${trnfile} \
 -knn_file ${knnfile} \
--charges ${rofilein} \
--N ${n_ref} -d ${FKEEP} -k ${KCUT} -m ${mm} -id_rank ${id_rank} -min_skeleton_level 7 -id_tol ${id_tol} \
+-charges ${cmfilein} -N ${n_ref} -d ${FKEEP} -k ${KCUT} -m ${mm} -id_rank ${id_rank} -min_skeleton_level 7 -id_tol ${id_tol} \
 -sort_method nn -kernel_type gaussian -balloon_k 0 -h ${BW} -c 0 -p 0 -output output.out \
--training_potentials_file ${rofile} \
--test_potentials_file None -num_power_iterations 10 -test_data_file None -test_knn_file None \
--num_test_points 0 -num_skel_targets 2 -num_uniform_required 0 -oversampling_fac 5 -err 100 \
+-training_potentials_file None \
+-test_potentials_file ${cmfile} -num_power_iterations 10 \
+-test_data_file ${tstfile} \
+-test_knn_file ${tknnfile} \
+-num_test_points ${n_tst} -num_skel_targets 2 -num_uniform_required 0 -oversampling_fac 5 -err 100 \
 -num_error_repeats 10 -max_sampling_iterations 3 -adaptive_sample_size 2 -pruning_num_neighbors 0 \
 -neighbors_to_pass_up 4 -lambda 0.0 -binary -do_simplified_adaptive_rank \
--do_split_k -use_adaptive_sampling -save_training_potentials
+-do_split_k -use_adaptive_sampling -save_test_potentials
 
 time ibrun tacc-affinity /home1/02497/jll2752/lib/askit_skx/treecode/src/askit_distributed_main.exe \
 -data ${trnfile} \
 -knn_file ${knnfile} \
--charges ${cmfilein} \
--N ${n_ref} -d ${FKEEP} -k ${KCUT} -m ${mm} -id_rank ${id_rank} -min_skeleton_level 7 -id_tol ${id_tol} \
+-charges ${rofilein} -N ${n_ref} -d ${FKEEP} -k ${KCUT} -m ${mm} -id_rank ${id_rank} -min_skeleton_level 7 -id_tol ${id_tol} \
 -sort_method nn -kernel_type gaussian -balloon_k 0 -h ${BW} -c 0 -p 0 -output output.out \
--training_potentials_file ${cmfile} \
--test_potentials_file None -num_power_iterations 10 -test_data_file None -test_knn_file None \
--num_test_points 0 -num_skel_targets 2 -num_uniform_required 0 -oversampling_fac 5 -err 100 \
+-training_potentials_file None \
+-test_potentials_file ${rofile} -num_power_iterations 10 \
+-test_data_file ${tstfile} \
+-test_knn_file ${tknnfile} \
+-num_test_points ${n_tst} -num_skel_targets 2 -num_uniform_required 0 -oversampling_fac 5 -err 100 \
 -num_error_repeats 10 -max_sampling_iterations 3 -adaptive_sample_size 2 -pruning_num_neighbors 0 \
 -neighbors_to_pass_up 4 -lambda 0.0 -binary -do_simplified_adaptive_rank \
--do_split_k -use_adaptive_sampling -save_training_potentials
+-do_split_k -use_adaptive_sampling -save_test_potentials
 " > ${filen}.job
 
 # If test, cat file, o.w. sbatch and rm
