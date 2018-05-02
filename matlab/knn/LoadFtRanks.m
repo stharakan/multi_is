@@ -12,6 +12,8 @@ if length(files) > 1
   end
   
   warning(wstr);
+elseif length(files) == 0
+  error('Feature selection file not found!!');
 end
 
 % open ftranks
