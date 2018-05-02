@@ -84,6 +84,9 @@ classdef BrainReader
             hdr = nifti.hdr;
         end
             
+        function nvox  = GetTotalVoxels(obj)
+            nvox = 240*240*155;
+        end
         
     end
     
