@@ -62,8 +62,8 @@ tstdata = tstdata(:,ftIdx);
 means = means(ftIdx);
 stds = stds(ftIdx);
 tstdata = whiten(tstdata,means,stds);
-tstdata = double(tstdata);
 ntst = size(tstdata,1);
+tstdata = double(tstdata');
 
 % write testing data as double so no preprocessing necessary for knn?
 prefix = ['knntst.dd.',num2str(fkeep),'.',ftype,'.ps.',num2str(psize)];
