@@ -34,7 +34,7 @@ bw = BwRegLookup(ftype,psize);
 
 % patch regression 
 yy_guess = (pyy - ppv)./(p1s - 1);
-yy_truth = BrainPatchProbabilities(brain,psize,target); % TODO
+yy_truth = GetBrainPatchProbabilities(brain,psize,target); 
 
 % pixel-classification values
 cm_guess = round(pcm);
@@ -48,8 +48,8 @@ ro_truth = round(yy_truth);
 % Print results
 fprintf('Results for brain %s\n\n ------------------ \n',bname);
 fprintf('Patch regression (psize %d)\n',psize);
-PrintRegressionAccuracy(yy_truth,yy_guess); %TODO
-PrintClassificationAccuracy(cm_truth,cm_guess); %TODO
+PrintRegressionAccuracy(yy_truth,yy_guess); 
+PrintClassificationAccuracy(cm_truth,cm_guess); 
 PrintClassificationAccuracy(ro_truth,ro_guess);
 
 
