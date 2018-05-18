@@ -9,6 +9,9 @@ crfiters = 10;
 [flair,t1,t1ce,t2,seg] = brain.ReadAll;
 im1 = size(flair,1);im2 = size(flair,2);
 slices = size(flair,3);
+slice_list = 1:slices;
+slices = 1;
+slice_list = 78;
 
 % load brain probabilities
 probs = brain.ReadProbs(pdir,pstr);
@@ -19,7 +22,7 @@ Pf = zeros(im1, im2,slices);
 
 % loop over slices 
 for si = 1:slices
-    slice = si;
+    slice = slice_list(si);
     fprintf('Slice %d of %d\n',si,slices);
     
     % load images
@@ -45,6 +48,8 @@ for si = 1:slices
     switch crfmethod
         case 'klmin'
             Qf = KLMinIterateCRF(crf,crfiters,[],downseg);
+        case 'quasi'
+            Qf = QuasiIterateCRF(crf,crfiters,[],downseg);
     end
     
     % upsample probs, load into full mat
