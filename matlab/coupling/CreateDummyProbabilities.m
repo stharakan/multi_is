@@ -12,8 +12,13 @@ else
     seg = brain;
 end
 
+% set what confidence is
+conf = 0.75;
+
 % find pixels == target
 tseg = seg == target;
+tseg(tseg == 1) = conf;
+tseg(tseg == 0) = 1 - conf;
 
 % add noise
 P = tseg + noise.*randn(size(seg),'single');
