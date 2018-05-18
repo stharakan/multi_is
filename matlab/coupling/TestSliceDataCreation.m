@@ -10,6 +10,7 @@ blist = BrainPointList(bdir,bcell,ps,'');
 
 % params
 imsz1 = 240;
+conf = 0.4;
 ntr = blist.tot_points;
 abs_noise = [0.55 0.50 0.25];
 spatial_bw = 3;
@@ -22,8 +23,8 @@ crf_iters = 5;
 % Calculate patch probs, y vec
 y_true = GetSegVals(blist,target);
 fprintf(' Getting synth patch probabilities \n');
-y0(:,1) = (y_true == 0) + min(abs_noise).*randn(ntr,1);
-y0(:,2) = (y_true == 1) + min(abs_noise).*randn(ntr,1);
+y0(:,1) = conf.*((y_true == 0)+1) + min(abs_noise).*randn(ntr,1);
+y0(:,2) = conf.*((y_true == 1)+1) + min(abs_noise).*randn(ntr,1);
 sumy = sum(y0,2);
 sumy(sumy == 0) = 1;
 y0 = bsxfun(@rdivide,y0,sumy);
