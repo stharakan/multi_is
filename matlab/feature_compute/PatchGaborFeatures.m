@@ -10,8 +10,9 @@ fmat = zeros(blist.tot_points,dd);
 bw = (psize -1)/2;
 gbank = InitializeGaborBank(bw);
 print_skip = 5;
+nb = blist.num_brains;
 
-for bi=1:blist.num_brains
+for bi=1:nb
     % extract relevant indices
     brain = blist.MakeBrain(bi);
     idx = blist.pt_inds{bi};

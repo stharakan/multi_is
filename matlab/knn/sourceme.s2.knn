@@ -1,4 +1,4 @@
-export KNN_DIR=/home1/02497/jll2752/lib/knn/src
+export KNN_DIR=$JHOME/lib/knn/src
 echo "KNN_DIR = $KNN_DIR"
 export MPICC=mpicc
 export MPICXX=mpicxx

@@ -6,7 +6,14 @@ function [franks,ftOrder,AvgPos] = LoadFtRanks(blist,frstr,ftype,psize,target,ou
 % check directory
 files = dir([outdir,sfile,'*']);
 if length(files) > 1
-  warning('Found multiple FtRank files, using first one');
+  wstr = sprintf('%s\n','Found multiple FtRank files, using first one. Here is a list:');
+  for fi = 1:length(files)
+    wstr = sprintf('%s%s\n',wstr,files(fi).name);
+  end
+  
+  warning(wstr);
+elseif length(files) == 0
+  error('Feature selection file not found!!');
 end
 
 % open ftranks

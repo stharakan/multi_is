@@ -47,7 +47,8 @@ if ~gflag
     
 else
     fprintf(' computing gabor features first\n');
-    gmat = GetBrainPatchFeatureData(brain,psize,'patchgabor',outdir);
+    %gmat = GetBrainPatchFeatureData(brain,psize,'patchgabor',outdir);
+    gmat = GetBrainPatchFeatureData(brain,'patchgabor',psize,outdir);
     fmat = GaborToStats(gmat);
 end
 
