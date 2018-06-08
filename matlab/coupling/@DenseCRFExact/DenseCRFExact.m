@@ -13,11 +13,13 @@ classdef DenseCRFExact
         unary % stores unary probabilities (nn x cc)
         mods % 3rd dimension of image
         imsz % vector of imsize
+        weight % weight factor for message passing
+        app_weight % weight factor for appearance kernel
     end
     
     methods
         % constructor 
-        function obj = DenseCRFExact(im,bws,mu,un)
+        function obj = DenseCRFExact(im,bws,mu,un,ww)
             % unary, basic params
             [obj.nn,obj.cc] = size(un);
             obj.unary = ResetProbabilityZeros(un);
@@ -27,6 +29,12 @@ classdef DenseCRFExact
                 obj.M = 1- eye(obj.cc);
             else
                 obj.M = mu;
+            end
+
+            if nargin < 5
+                obj.weight = 1;
+            else
+                obj.weight = ww;
             end
 
             % image 
@@ -46,6 +54,7 @@ classdef DenseCRFExact
             obj.K_app = gaussiankerneldiag(fmat,fmat,app_bws);
             obj.K_app(1:(obj.nn+1):end) = 0;
             obj.app_sum = sum(obj.K_app,2);
+            obj.app_weight = 1;
             
             
             % spatial kernel
@@ -77,8 +86,10 @@ classdef DenseCRFExact
             m_spa = obj.ApplySpaKernel(Qin);
             
             % combine messages
-            m = m_spa + m_app;
-            m = m * obj.M;
+            m = m_spa + obj.app_weight .* m_app;
+            %m = m_spa;
+            %m = m_app;
+            m = (m * obj.M).* obj.weight;
         end
         
         % Gradient only
@@ -99,22 +110,28 @@ classdef DenseCRFExact
             Qin = NormalizeClassProbabilities(Qin);
             lg = log(Qin);
             m = obj.PairwiseMessage(Qin);
-            ff = (obj.unary + m + lg).*Qin;
+            ff = (-log(obj.unary) + m./2 + lg).*Qin;
             fval = sum(ff(:));
         end
         
         % fval + grad
         function [fval,g] = FunctionAndGradient(obj,Qin)
-            Qin = NormalizeClassProbabilities(Qin);
+            %Qin = NormalizeClassProbabilities(Qin);
             m = obj.PairwiseMessage(Qin);
             
             % gradient
-            g = - log(obj.unary./Qin) + obj.PairwiseMessage(Qin) + 1;
+            %lg = double(log(Qin));
+            %obj_sum = double(m)./2 +  log(  double(Qin)./double(obj.unary) ) ;
+            %obj_sum = double(m)./2 +  log(  double(Qin) ) - log(double(obj.unary) ) ;
+            obj_sum = log(  double(Qin) ) - log( double(obj.unary) ) ;
+            g = obj_sum + 1;
+            g = double(g);
             
             % fval
-            lg = log(Qin);
-            ff = (obj.unary + m + lg).*Qin;
+            ff = obj_sum.*Qin;
+            %ff = double(obj.unary).*Qin;
             fval = sum(ff(:));
+            fval = double(fval);
         end
         
     end
