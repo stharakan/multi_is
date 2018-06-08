@@ -1,4 +1,4 @@
-function [ P ] = CreateDummyProbabilities( brain,target,noise )
+function [ P,seg ] = CreateDummyProbabilities( brain,target,noise,conf)
 %CREATEDUMMYPROBABILITIES outputs a probability matrix for a given brain by
 %reading its seg file and adding noise to true (aka labeled) probabilities.
 %The noise variable corresponds to the std dev of the noise distribution
@@ -13,12 +13,13 @@ else
 end
 
 % set what confidence is
-conf = 0.75;
+if nargin < 4
+    conf = 0.75;
+end
 
 % find pixels == target
-tseg = seg == target;
-tseg(tseg == 1) = conf;
-tseg(tseg == 0) = 1 - conf;
+tseg = ones(size(seg)).*(1-conf);
+tseg(seg == target) = conf;
 
 % add noise
 P = tseg + noise.*randn(size(seg),'single');
