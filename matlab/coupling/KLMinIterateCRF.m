@@ -33,10 +33,11 @@ if pflag
     [f0,g0] = crf.FunctionAndGradient(Qin);
     
     if sflag
-        qoi = sum(seg(:) == round(Qcur(:,1)))./numel(seg);
+        %qoi = sum(seg(:) == round(Qcur(:,1)))./numel(seg);
+        qoi = ComputeDiceScore(seg(:),round(Qcur(:,1)),1);
     end
     
-    PrintIterationInfo(0,f0,g0,f0,g0,qoi);
+    PrintIterationInfo(0,g0,f0,g0,qoi);
 end
 
 
@@ -53,14 +54,15 @@ for ii = 1:iters
     
     % Compute qoi if possible
     if sflag
-        qoi = sum(seg(:) == round(Qcur(:,1)))./numel(seg);
+        %qoi = sum(seg(:) == round(Qcur(:,1)))./numel(seg);
+        qoi = ComputeDiceScore(seg(:),round(Qcur(:,1)),1);
     end
     
     
     % spit out function stats
     if pflag
         [fc,gc] = crf.FunctionAndGradient(Qcur);
-        PrintIterationInfo(ii,f0,g0,fc,gc,qoi);
+        PrintIterationInfo(ii,g0,fc,gc,qoi);
     end
 end
 
