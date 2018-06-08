@@ -69,6 +69,13 @@ classdef BrainReader
         function st = MakeDataString(obj,prefix,suffix)
             st = [prefix,'.',obj.bname,'.',suffix];
         end
+				
+				function str = MakePPvecFile(obj,psize,target)
+					prefix = 'ppv';
+					suffix = ['ps.',num2str(psize),'.t.',num2str(target),'.bin'];
+					str = obj.MakeDataString(prefix,suffix);
+				end
+        
         
         function [] = SaveProbs(obj,P,pdir,pstr)
             fname = [pdir,obj.MakeDataString(pstr,'nii.gz')];
@@ -87,7 +94,7 @@ classdef BrainReader
         function nvox  = GetTotalVoxels(obj)
             nvox = 240*240*155;
         end
-        
+
     end
     
 end
