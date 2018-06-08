@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo $FTYPE
-echo $PSIZE
-
 if [ "$FTYPE" == "patchgabor" ]; then
   if [ "$PSIZE" == "5" ]; then
     BW=1.47;
@@ -40,3 +37,5 @@ else
   echo "Feature type not recognized! Assigning bw = 1.0"
   BW=1.0
 fi
+
+echo "Bandwidth set to ${BW}"
