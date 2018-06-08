@@ -31,7 +31,7 @@ for si = 1:slices
     curim(:,:,3) = t1ce(:,:,slice);
     curim(:,:,4) = t2(:,:,slice);
     imseg= single(seg(:,:,slice) == 2);
-    unary = probs(:,:,slice);
+    unary = single(probs(:,:,slice));
     
     % downsample
     downim = imresize(curim,dsfac,'bilinear');
@@ -41,6 +41,10 @@ for si = 1:slices
     [d1,d2] = size(downseg);
     downun = [downun(:),1 - downun(:)];
     
+    % initial dice
+    dice = ComputeDiceScore(downseg(:),round(downun(:,1)),1);
+    fprintf('Initial dice %4.2f\n',dice);
+
     % initialize crf
     crf = DenseCRFExact(downim,bws,[],downun);
     
@@ -53,6 +57,8 @@ for si = 1:slices
     end
     
     % upsample probs, load into full mat
+    dice = ComputeDiceScore(downseg(:),round(Qf(:,1)),1);
+    fprintf('Final dice %4.2f\n',dice);
     upprobs = imresize( reshape(Qf(:,1),d1,d2), 1/dsfac, 'bilinear');
     acc = sum( round(upprobs(:)) == imseg(:) )/(im1*im2);
     fprintf('Slice accuracy: %3.2f\n',acc);
