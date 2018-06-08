@@ -28,9 +28,8 @@ end
 Qcur = Qin;
 
 if sflag
-    tp = sum(seg(:) == round(Qcur(:,1)));
     qoi = sum(seg(:) == round(Qcur(:,1)))./numel(seg);
-    dice = 2*tp/(sum(seg(:)) + sum(round(Qcur(:,1))));
+    dice = ComputeDiceScore(seg(:),round(Qcur(:,1)),1);
 end
 
 if pflag
@@ -40,24 +39,32 @@ end
 
 % options w/ gradient check
 %options = optimoptions(@fminunc,'MaxIterations',iters,'CheckGradients',true,'Display','iter');
-%options = optimoptions(@fminunc,'MaxIter',iters,'DerivativeCheck','on','Algorithm','quasi-newton','Display','iter');
+%options = optimoptions(@fminunc,'MaxIterations',iters,'Display','iter-detailed','SpecifyObjectiveGradient',true,'OptimalityTolerance',1e-10,'DerivativeCheck','on','FiniteDifferenceType','central');
 
 % options w/o gradient check
-options = optimoptions(@fminunc,'MaxIterations',iters,'Display','iter');
-%options = optimoptions(@fminunc,'MaxIter',iters,'Algorithm','quasi-newton','Display','iter');
 
 % function and gradient
-fun = @(Q) double(crf.FunctionAndGradient(Q));
+fun = @(Q) crf.FunctionAndGradient(Q);
+fun = @(Q) TestFunc(Q,crf);
+
+% unc
+%options = optimoptions(@fminunc,'MaxIterations',iters,'Display','iter-detailed','SpecifyObjectiveGradient',false,'OptimalityTolerance',1e-10,'FiniteDifferenceType','central');
+options = optimoptions(@fminunc,'MaxIterations',iters,'Display','iter-detailed','SpecifyObjectiveGradient',true,'OptimalityTolerance',1e-10,'FiniteDifferenceType','central');
+Qcur = NormalizeClassProbabilities(Qcur);
 Qcur = fminunc(fun,double(Qcur),options);
 
-% Post process
+% con
+%nn = size(Qcur,1);
+%options = optimoptions(@fmincon,'Algorithm','sqp','MaxIterations',iters,'Display','iter-detailed','SpecifyObjectiveGradient',true,'OptimalityTolerance',1e-10);
+%Qcur = fmincon(fun,double(Qcur),[],[],[speye(nn),speye(nn)] ,ones(nn,1),zeros(nn*2,1),ones(nn*2,1),[], options);
+
+% Reset probs
 Qcur = NormalizeClassProbabilities(Qcur);
 
 % qoi compute if possible
 if sflag
-    tp = sum(seg(:) == round(Qcur(:,1)));
     qoi = sum(seg(:) == round(Qcur(:,1)))./numel(seg);
-    dice = 2*tp/(sum(seg(:)) + sum(round(Qcur(:,1))));
+    dice = ComputeDiceScore(seg(:),round(Qcur(:,1)),1);
 end
 
 % print if needed
@@ -72,3 +79,9 @@ Qout = Qcur;
 
 end
 
+function [f,g] = TestFunc(bla,crf)
+  [f,g] = crf.FunctionAndGradient(bla);
+  %f = -f;
+  %g = -g;
+
+end
