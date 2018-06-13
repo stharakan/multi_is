@@ -47,7 +47,9 @@ for ii = 1:iters
     m = crf.PairwiseMessage(Qcur);
     
     % update
-    Qcur = exp(-m) .* crf.unary;
+    Qcur = -m + log(crf.unary);
+    Qcur = exp(Qcur);
+    %Qcur = exp(-m) .* crf.unary;
     
     % normalize
     Qcur = NormalizeClassProbabilities(Qcur);
