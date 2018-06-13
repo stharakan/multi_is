@@ -116,18 +116,19 @@ classdef DenseCRFExact
         
         % fval + grad
         function [fval,g] = FunctionAndGradient(obj,Qin)
-            %Qin = NormalizeClassProbabilities(Qin);
+            Qin = NormalizeClassProbabilities(Qin);
             m = obj.PairwiseMessage(Qin);
             
             % gradient
             %lg = double(log(Qin));
             %obj_sum = double(m)./2 +  log(  double(Qin)./double(obj.unary) ) ;
-            %obj_sum = double(m)./2 +  log(  double(Qin) ) - log(double(obj.unary) ) ;
-            obj_sum = log(  double(Qin) ) - log( double(obj.unary) ) ;
+            obj_sum = double(m) +  log(  double(Qin) ) - log(double(obj.unary) ) ;
+            %obj_sum = log(  double(Qin) ) - log( double(obj.unary) ) ;
             g = obj_sum + 1;
             g = double(g);
             
             % fval
+            obj_sum = obj_sum - double(m)./2;
             ff = obj_sum.*Qin;
             %ff = double(obj.unary).*Qin;
             fval = sum(ff(:));
