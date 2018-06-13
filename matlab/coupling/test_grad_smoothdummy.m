@@ -52,7 +52,7 @@ noise = noises(nn);
 
 % create SMOOTH probs
 probs = CreateDummyProbabilities(seg,1,noise,0.75);
-probs = imgaussfilt(probs,smoothing_bw);
+probs = SmoothProbabilities(probs,smoothing_bw);
 
 
 unary = [probs(:), 1 - probs(:)];
