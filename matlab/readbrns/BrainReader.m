@@ -16,31 +16,31 @@ classdef BrainReader
         % Reader funcs
         function im = ReadFlair(obj)
             fbase = [obj.bdir,obj.bname,'/',obj.bname];
-            nifti = load_untouch_nii([fbase,'_flair_normaff.nii.gz']);
+            nifti = load_untouch_nii([fbase,'_flair.nii.gz']);
             im = nifti.img;
         end
         
         function im = ReadT2(obj)
             fbase = [obj.bdir,obj.bname,'/',obj.bname];
-            nifti = load_untouch_nii([fbase,'_t2_normaff.nii.gz']);
+            nifti = load_untouch_nii([fbase,'_t2.nii.gz']);
             im = nifti.img;
         end
         
         function im = ReadT1(obj)
             fbase = [obj.bdir,obj.bname,'/',obj.bname];
-            nifti = load_untouch_nii([fbase,'_t1_normaff.nii.gz']);
+            nifti = load_untouch_nii([fbase,'_t1.nii.gz']);
             im = nifti.img;
         end
         
         function im = ReadT1ce(obj)
             fbase = [obj.bdir,obj.bname,'/',obj.bname];
-            nifti = load_untouch_nii([fbase,'_t1ce_normaff.nii.gz']);
+            nifti = load_untouch_nii([fbase,'_t1ce.nii.gz']);
             im = nifti.img;
         end
         
         function im = ReadSeg(obj)
             fbase = [obj.bdir,obj.bname,'/',obj.bname];
-            nifti = load_untouch_nii([fbase,'_seg_aff.nii.gz']);
+            nifti = load_untouch_nii([fbase,'_seg.nii.gz']);
     		im = nifti.img;
         end
         
