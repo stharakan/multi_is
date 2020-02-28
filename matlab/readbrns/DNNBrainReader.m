@@ -54,6 +54,16 @@ classdef DNNBrainReader < BrainReader
             fbase = [obj.bdir_dnn_tissue,obj.bname];
             im = obj.read_brain_hd5([fbase,'_feature.h5']);
         end
+        
+        function feats = ReadTissueFeatures2D(obj)
+            im = obj.ReadTissueFeatures();
+            feats = reshape(im,[],16);
+        end
+        
+        function feats = ReadTumorFeatures2D(obj)
+            im = obj.ReadTumorFeatures();
+            feats = reshape(im,[],16);
+        end
 
     end
 end
