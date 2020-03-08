@@ -1,6 +1,5 @@
 % variable
-klr_file = 'klr_model.mat';
-data_file = 'test.mat';
+data_locations;
 brain_idx = 1;
 is_runs = 10;
 
@@ -22,7 +21,7 @@ tumor_feats   = reshape(tumor_feats(:,:,max_tumor_idx,:), [], size(tumor_feats,4
 Xtest = [healthy_feats,tumor_feats];
 
 % Load klr
-klr_data = load(klr_file);
+klr_data = load(klr_file)
 
 
 % Run KLR 
