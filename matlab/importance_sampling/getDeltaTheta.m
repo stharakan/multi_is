@@ -3,7 +3,7 @@ function [delta_theta] = getDeltaTheta(mean_theta,klr,Qcell,Dcell)
 % sample randomly
 nn = length(Qcell);
 cc = size( Qcell{1}, 1);
-xi = randn(  nn*cc,1 );
+xi = randn(  nn*(cc-1),1 );
 
 % scale by d
 Dhalf = abs(sqrt(cell2mat(Dcell)));

@@ -1,6 +1,7 @@
 function [Q,D] = decomposeW(probs)
 
 % Form W
+probs = NormalizeClassProbabilities(probs);
 W_ncc = composeW_ncc(probs);
 
 % initialize matrices
@@ -18,8 +19,8 @@ for ni = 1:nn
     [Q_i, D_i] = eig(cur_W);
     
     % load
-    Q{ni} = Q_i;
-    D{ni} = diag(D_i);
+    Q{ni} = Q_i(:,1:(cc-1));
+    D{ni} = diag(D_i(1:(cc-1),1:(cc-1)));
     %Q(start_idx:end_idx,:) = Q_i;
     %D(start_idx:end_idx) = diag(D_i);
 end

@@ -1,7 +1,7 @@
 function [vec_out] = applyW_ncc(vec,Qcell,Dcell,invert)
 
 % Q is nc x c
-[~,cc] = size(Qcell{1});
+cc = size(Qcell{1},1);
 nn = length(Qcell);
 nc = nn * cc;
 
