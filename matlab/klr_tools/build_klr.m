@@ -11,6 +11,7 @@ klr_file_name = generate_klr_filename(ka_type,rank,batches);
 klr_file = [klr_model_dir,klr_file_name,'.mat'];
 
 if exist(klr_file,'file')
+    fprintf('Loading klr model from old..\n')
     load(klr_file, 'klr');
     return 
 end
