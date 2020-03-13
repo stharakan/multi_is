@@ -43,8 +43,7 @@ fprintf('Computed importance sampling..\n')
 
 
 % save to file
-klr_file_name = generate_klr_filename(varargin{:});
-brn_file_name = generate_is_results_filename(tst_brn_idx, is_runs, klr_file_name);
+brn_file_name = generate_is_results_filename(tst_brn_idx, is_runs, varargin{:});
 results_file = [results_dir,brn_file_name,klr_file_name,'.mat'];
 save(results_file,'brain_name','dnn_probs','dnn_seg','max_tumor_idx',...
     'klr_probs','klr_seg','seg','is_probs','is_segs')
