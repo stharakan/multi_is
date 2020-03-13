@@ -16,11 +16,13 @@ for ni = 1:nn
     cur_W = W_ncc(start_idx:end_idx,:);
     
     % compute current decomp
-    [Q_i, D_i] = eig(cur_W);
+    [Q_i, D_i] = eig(cur_W,'vector');
+    [~,sort_idx] = sort(D_i, 'descend');
+    keep_idx = sort_idx(1:(cc-1));
     
     % load
-    Q{ni} = Q_i(:,1:(cc-1));
-    D{ni} = diag(D_i(1:(cc-1),1:(cc-1)));
+    Q{ni} = Q_i(:,keep_idx);
+    D{ni} = D_i(keep_idx);
     %Q(start_idx:end_idx,:) = Q_i;
     %D(start_idx:end_idx) = diag(D_i);
 end
