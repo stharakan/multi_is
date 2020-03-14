@@ -1,4 +1,4 @@
-function [ idx,varargout ] = get_idx( yy,s,varargin )
+function [ idx,varargout ] = get_subsample_idx( yy,s,varargin )
 %UNTITLED2 Summary of this function goes here
 %   Detailed explanation goes here
 
