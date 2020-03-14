@@ -1,6 +1,10 @@
-filename = './single_brain_results.mat';
+filename = './data/results/b1_i1000_klr_kOneShot_r4096_b1.mat';
+filename = './data/single_brain_results.mat';
+%load(filename);
 
-load(filename);
+is_segs = is_segs(:,1:100);
+is_probs = is_probs(:,:,1:100);
+
 
 tumor_klr_probs = sum(klr_probs(:,:,2:end),3);
 tumor_dnn_probs = sum(dnn_probs(:,:,1:3),3);
@@ -8,6 +12,7 @@ tumor_dnn_probs(tumor_dnn_probs > 1) = 1;
 tumor_klr_is_probs =  mean(is_probs,3);
 tumor_klr_is_probs = NormalizeClassProbabilities(tumor_klr_is_probs);
 tumor_klr_is_probs = sum(tumor_klr_is_probs(:,2:end),2);
+is_seg = reshape( mode(is_segs,2), size(dnn_seg));
 
 my_im = @(x) imresize(x,3,'nearest');
 
@@ -31,7 +36,7 @@ subplot(2,2,3);
 image_handle = imshow(my_im(im), []);
 title(my_title);
 
-im = reshape( mode(is_segs,2), size(dnn_seg));
+im = is_seg;
 my_title = 'KLR-IS Segmentation';
 subplot(2,2,4);
 image_handle = imshow(my_im(im), []);
@@ -92,4 +97,9 @@ my_title = 'WT var';
 subplot(2,2,4);
 image_handle = imshow(my_im(im), []);
 title(my_title);
+
+%% statistics
+PrintSegmentationStats(klr_seg,seg,'KLR');
+PrintSegmentationStats(dnn_seg,seg,'DNN');
+PrintSegmentationStats(is_seg,seg,'KLR-IS');
 
