@@ -1,6 +1,6 @@
 function [Xtr, Ytr] = subsample_data_from_rank(Xtrain,Ytrain,rank)
 
-rank_adjustment = 10; % output datasize is at most rank * 10
+rank_adjustment = 20; % output datasize is at most rank * 20
 nsub = rank * rank_adjustment;
 
 % Get index

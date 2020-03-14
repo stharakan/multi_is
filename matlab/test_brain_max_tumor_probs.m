@@ -44,7 +44,7 @@ fprintf('Computed importance sampling..\n')
 
 % save to file
 brn_file_name = generate_is_results_filename(tst_brn_idx, is_runs, varargin{:});
-results_file = [results_dir,brn_file_name,klr_file_name,'.mat'];
+results_file = [results_dir,brn_file_name,'.mat'];
 save(results_file,'brain_name','dnn_probs','dnn_seg','max_tumor_idx',...
     'klr_probs','klr_seg','seg','is_probs','is_segs')
 
