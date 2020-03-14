@@ -41,6 +41,11 @@ fprintf('Computed klr + dnn probabilities..\n')
 [is_probs,is_segs] = importance_sample_from_features(Xtest,klr,is_runs);
 fprintf('Computed importance sampling..\n')
 
+% print some stats
+is_seg = reshape( mode(is_segs,2), size(dnn_seg));
+PrintSegmentationStats(klr_seg,seg,'KLR');
+PrintSegmentationStats(dnn_seg,seg,'DNN');
+PrintSegmentationStats(is_seg,seg,'KLR-IS');
 
 % save to file
 brn_file_name = generate_is_results_filename(tst_brn_idx, is_runs, varargin{:});
