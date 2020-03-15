@@ -19,6 +19,11 @@ segmented_matrix = zeros(ntest,samples);
 Kt = klr_obj.KA.SKernel(feature_matrix);
 
 for ss = 1:samples
+    
+    if mod(ss, 100) == 0
+        fprintf(' finished %d samples..\n',ss);
+    end
+    
     % sample and scale to get delta theta
     delta_theta = getDeltaTheta(theta_mean,klr_obj,Q,D); 
     
