@@ -15,8 +15,9 @@ end
 vec = reshape(vec,nc,[]);
 
 % permute input
-perm_idx = reshape(repmat((1:cc:(nc))',1,cc) + repmat(0:(cc-1),nn,1), nc,1);
-vec = vec( perm_idx, :);
+%perm_idx = reshape(repmat((1:cc:(nc))',1,cc) + repmat(0:(cc-1),nn,1), nc,1);
+%vec = vec( perm_idx, :);
+vec = permute_to_cbyc(vec,nn,cc);
 
 % compute multiplication
 vec_out = zeros(size(vec));
@@ -30,7 +31,7 @@ for ni = 1:nn
     if invert
         cur_vec_out = Q * ( (Q' * cur_vec) ./D );
     else
-        cur_vec_out = Q * ( D .* (Q' * cur_vec) );
+        cur_vec_out = Q * ( bsxfun(@times,(Q' * cur_vec),D(:)));
     end
 
     vec_out(cur_idx,:) = cur_vec_out;
@@ -46,7 +47,8 @@ end
 %end
 %
 % permute output and reshape
-vec_out = vec_out(perm_idx,:);
+%vec_out = vec_out(perm_idx,:);
+vec_out = permute_to_nbyn(vec_out,nn,cc);
 vec_out = reshape(vec_out,nn, cc, []);
 
 end
