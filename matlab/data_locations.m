@@ -19,6 +19,7 @@ end
 
 % things to save
 klr_model_dir = [save_dir,'/klr_model_files/'];
+image_dir = [save_dir,'figures/'];
 results_dir = [save_dir,'/results/'];
 data_file = [save_dir,'dnn_features.mat'];
 single_brain_file = [save_dir,'single_brain_results.mat'];
