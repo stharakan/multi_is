@@ -8,9 +8,9 @@ my_im = @(x) imresize(x,1,'nearest');
 seg = my_im(seg);
 dnn_seg = my_im(dnn_seg);
 nzidx = seg ~=0 | dnn_seg ~= 0;
-wt_correct_idx = seg~=0 & dnn_seg ~=0;
-ed_correct_idx = seg==2 & dnn_seg ==2;
-en_correct_idx = seg==4 & dnn_seg ==4;
+wt_correct_idx = (seg~=0) == (dnn_seg ~=0);
+ed_correct_idx = (seg==2) == (dnn_seg ==2);
+en_correct_idx = (seg==4) == (dnn_seg ==4);
 
 % properly set up dnn seg
 dnn_seg(dnn_seg ~= 4) = dnn_seg( dnn_seg~=4) + 1;
@@ -70,28 +70,23 @@ my_title = 'WT var';
 axes(ha(4));
 imshow(my_im(im), [0, max_var - min_var]);
 %title(my_title);
-hold on
-blues = cat(3, zeros(size(dnn_seg)), ones(size(dnn_seg)), ones(size(dnn_seg)));
-h = imshow(blues);
+% hold on
+% reds = cat(3, ones(size(dnn_seg)), zeros(size(dnn_seg)), zeros(size(dnn_seg)));
+% hr = imshow(reds);
+% set(hr, 'AlphaData', alpha*(~en_correct_idx & nzidx));
 hold off
-set(h, 'AlphaData',alpha*I);
 
 im = tumor_var(:,:,3);
 im(wt_cols(:,:,2) < prob_tol) = min_var;
 im = max_var - im;
 axes(ha(5));
-my_title = 'ED var';
 imshow(my_im(im), [0, max_var - min_var]);
-%title(my_title);
-hold on
-reds = cat(3, ones(size(dnn_seg)), zeros(size(dnn_seg)), zeros(size(dnn_seg)));
-greens = cat(3, zeros(size(dnn_seg)), ones(size(dnn_seg)), zeros(size(dnn_seg)));
-
-cur_dnn_seg = dnn_seg; cur_dnn_seg(dnn_seg ~= 3) = 0;
-rgbidx = ind2rgb(single(cur_dnn_seg),RGBtrips);
-h = imshow(rgbidx);
+% my_title = 'ED var';
+% %title(my_title);
+% hold on
+% hr = imshow(reds);
+% set(hr, 'AlphaData',alpha*(~ed_correct_idx & nzidx));
 hold off
-set(h, 'AlphaData',alpha*I);
 
 im = tumor_var(:,:,4);
 im(wt_cols(:,:,3) < prob_tol) = min_var;
@@ -99,14 +94,12 @@ im = max_var - im;
 %im(~hi_prob_idx) = min_var;
 axes(ha(6));
 my_title = 'EN var';
-image_handle = imshow(my_im(im), [0, max_var - min_var]);
-%title(my_title);
-hold on
-cur_dnn_seg = dnn_seg; cur_dnn_seg(dnn_seg ~= 4) = 0;
-rgbidx = ind2rgb(single(cur_dnn_seg),RGBtrips);
-h = imshow(rgbidx);
-hold off
-set(h, 'AlphaData', alpha*I);
+imshow(my_im(im), [0, max_var - min_var]);
+% %title(my_title);
+% hold on
+% hr = imshow(reds);
+% set(hr, 'AlphaData', alpha*(~en_correct_idx & nzidx));
+% hold off
 
 end
 
