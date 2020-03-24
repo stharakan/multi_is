@@ -1,6 +1,8 @@
 filename = './data/results/b1_i1000_klr_kOneShot_r4096_b1.mat';
 filename = './data/single_brain_results.mat';
-%load(filename);
+filename = './data/results/b1_i100_klr_kDiagNyst_r128_b2.mat'
+data_locations;
+load(filename);
 
 is_segs = is_segs(:,1:100);
 is_probs = is_probs(:,:,1:100);
@@ -13,93 +15,66 @@ tumor_klr_is_probs =  mean(is_probs,3);
 tumor_klr_is_probs = NormalizeClassProbabilities(tumor_klr_is_probs);
 tumor_klr_is_probs = sum(tumor_klr_is_probs(:,2:end),2);
 is_seg = reshape( mode(is_segs,2), size(dnn_seg));
+is_seg = remap_klr_seg_to_labels(is_seg);
 
 my_im = @(x) imresize(x,3,'nearest');
 
-%% segmentations
-figure;
-im = seg;
-my_title = 'True Segmentation';
-subplot(2,2,1);
-imshow(my_im(im), []);
-title(my_title);
+%% summary figure
+is_probs = reshape(is_probs, size(seg,1),size(seg,2),size(is_probs,2),size(is_probs,3));
+% f = summaryFigure(seg,dnn_seg,klr_seg,is_probs);
+% print(f,[image_dir,sprintf('%s_summary',brain_name)],'-dpng')
+% 
+% [rows,cols] = getTumorBox(dnn_seg);
+% f2 = summaryFigure(seg(rows,cols),dnn_seg(rows,cols),klr_seg(rows,cols),is_probs(rows,cols,:,:));
+% print(f2,[image_dir,sprintf('%s_zoom',brain_name)],'-dpng')
 
-im = klr_seg;
-my_title = 'KLR Segmentation';
-subplot(2,2,2);
-image_handle = imshow(my_im(im), []);
-title(my_title);
-
-im = dnn_seg;
-my_title = 'DNN Segmentation';
-subplot(2,2,3);
-image_handle = imshow(my_im(im), []);
-title(my_title);
-
-im = is_seg;
-my_title = 'KLR-IS Segmentation';
-subplot(2,2,4);
-image_handle = imshow(my_im(im), []);
-title(my_title);
-
-%% probabilities -- means
-figure;
-im = seg;
-my_title = 'True Segmentation';
-subplot(2,2,1);
-imshow(my_im(im), []);
-title(my_title);
-
-im = tumor_klr_probs;
-subplot(2,2,2);
-my_title = 'KLR WT probs';
-image_handle = imshow(my_im(im), []);
-title(my_title);
-
-im = tumor_dnn_probs;
-subplot(2,2,3);
-my_title = 'DNN WT probs';
-image_handle = imshow(my_im(im), []);
-title(my_title);
-
-im = reshape( tumor_klr_is_probs, size(seg));
-my_title = 'KLR-IS WT probs';
-subplot(2,2,4);
-image_handle = imshow(my_im(im), []);
-title(my_title);
-
-%% probabilities -- variances
-wt_cols = permute( sum(is_probs(:,2:end,:),2), [1,3,2]) ;
-wt_var = var( wt_cols, 0, 2);
-tumor_var = var( is_probs, 0, 3);
-
-figure;
-im = seg;
-my_title = 'True seg';
-subplot(2,2,1);
-imshow(my_im(im), []);
-title(my_title);
-
-im = reshape(tumor_var(:,4), size(seg));
-subplot(2,2,2);
-my_title = 'EN var';
-image_handle = imshow(my_im(im), []);
-title(my_title);
-
-im = reshape(tumor_var(:,3), size(seg));
-subplot(2,2,3);
-my_title = 'ED var';
-image_handle = imshow(my_im(im), []);
-title(my_title);
-
-im = reshape(wt_var, size(seg));
-my_title = 'WT var';
-subplot(2,2,4);
-image_handle = imshow(my_im(im), []);
-title(my_title);
 
 %% statistics
 PrintSegmentationStats(klr_seg,seg,'KLR');
 PrintSegmentationStats(dnn_seg,seg,'DNN');
 PrintSegmentationStats(is_seg,seg,'KLR-IS');
+
+%% pixel wise histograms
+
+% for true target pixels, 4 categories, correctly identified (TP), incorrectly
+% identified (FP), correctly not identified (TN), incorrectly not
+% identified (FN). Choose 10 pixels at random, plot in faded g
+
+figure;
+ha = tight_subplot(2,2,[.05,.05],[.05,.05],[.05,.05]);
+titles = {'WT','NE', 'ED','EN'};
+
+for i = 2:4
+    im = seg;
+    my_title = titles{i};
+    axes(ha(i));
+    
+    % f xi
+    target_idx = seg(:) == (2^i)/4;
+    sub_is_probs = reshape(is_probs(:,:,:,i),[],size(is_probs,3));
+    sub_is_probs = sub_is_probs(target_idx,:);
+    for j = 1:size(sub_is_probs,1)
+        [kde,xi] = ksdensity(sub_is_probs(j,:)');
+        plot(xi,kde./sum(kde(:)),'Color',[0.9 0.9 0.9],'linewidth',2);
+        hold on
+    end
+    
+    % plot
+    title(my_title);
+    
+    
+end
+
+
+
+%% spectrum plots -- probably over multiple ka types
+
+
+
+
+
+
+
+
+
 
