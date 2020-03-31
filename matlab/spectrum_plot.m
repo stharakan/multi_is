@@ -25,3 +25,5 @@ for li = 1:length(li_cell)
     hold on
 end
 legend()
+
+savefig(f1,'spectrum_fig.fig')

@@ -26,7 +26,7 @@ for bi = 1:length(brns)
             
             results_filename = generate_is_results_filename(tst_brn_idx, is_runs, ka_type,rank,batches);
             if exist([results_dir,results_filename,'.mat'],'file')
-                load(results_filename,'dnn_seg','seg','klr_seg', 'is_probs','brain_name','max_tumor_idx');
+                load([results_dir,results_filename],'dnn_seg','seg','klr_seg', 'is_probs','brain_name','max_tumor_idx');
                 fprintf('loaded %s\n',results_filename);
             else
                 fprintf('cannot find %s, continuing\n',results_filename);
@@ -47,3 +47,5 @@ for bi = 1:length(brns)
     end
 end
 
+kernel_types = {'DiagNyst','EnsNyst','OneShot'}
+save('all_brain_results.mat', 'en_dice','wt_dice','ed_dice','dnn_dice','is_runs','ranks','kas','kernel_types')

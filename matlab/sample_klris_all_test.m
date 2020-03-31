@@ -9,13 +9,15 @@ nb = length(data.tst_list.brain_cell);
 klr = build_klr(varargin{:});
 fprintf('Loaded klr model..\n');
 
-for bi = 1:nb
+
+for bi = 6:nb
     fprintf('--------------------------\nProcessing brain %d of %d\n',bi,nb);
     
     % load brain, pick slice
     brn = data.tst_list.MakeBrain(bi);
     brain_name = brn.bname;
     max_tumor_idx = MaxTumorSlice(brn);
+    %max_tumor_idx = MaxTumorSlice(brn) + tumor_shift;
     seg = brn.ReadSeg();
     seg = seg(:,:,max_tumor_idx);
     
