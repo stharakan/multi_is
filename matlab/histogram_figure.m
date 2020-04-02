@@ -1,7 +1,19 @@
-function [] = histogram_figure(tst_brn_idx, is_runs, varargin)
+function [] = histogram_figure(tst_brn_idx, is_runs,extra_str, varargin)
+
+
+
 data_locations;
-filename = generate_is_results_filename(tst_brn_idx,is_runs,varargin{:});
-load([results_dir,filename],'seg','dnn_seg','is_probs');
+results_filename = generate_is_results_filename(tst_brn_idx, is_runs, varargin{:});
+
+%results_dir = [results_dir(1:end-1),'_m5/']
+fname = [results_dir,results_filename,extra_str,'.mat'];
+if exist(fname,'file')
+    load(fname,'dnn_seg','seg','is_probs');
+    fprintf('loaded %s\n',fname);
+else
+    fprintf('Could not find %s, exiting..\n',results_filename);
+    return
+end
 
 is_probs = reshape(is_probs, size(seg,1),size(seg,2),size(is_probs,2),size(is_probs,3));
 

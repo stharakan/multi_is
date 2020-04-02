@@ -10,7 +10,7 @@ results_filename = generate_is_results_filename(tst_brn_idx, is_runs, ka_type,ra
 fname = [results_dir,results_filename,extra_str,'.mat'];
 if exist(fname,'file')
     load(fname,'dnn_seg','seg','klr_seg', 'is_probs','brain_name','max_tumor_idx');
-    fprintf('loaded %s\n',results_filename);
+    fprintf('loaded %s\n',fname);
 else
     fprintf('Could not find %s, exiting..\n',results_filename);
     return
@@ -54,14 +54,14 @@ RGBtrips = [0 0 0;
 rgbidx = ind2rgb(single(test_dnn),RGBtrips);
 alpha = 0.25;
 
-t2 = brn.ReadT2();
-if strcmp(extra_str,'coronal')
-    t2 = t2(:,max_tumor_idx,:);
-    t2 = permute( t2, [1,3,2]);
-else
-    t2 = t2(:,:,max_tumor_idx);
-end
-im = t2;
+%t2 = brn.ReadT2();
+%if strcmp(extra_str,'coronal')
+%    t2 = t2(:,max_tumor_idx,:);
+%    t2 = permute( t2, [1,3,2]);
+%else
+%    t2 = t2(:,:,max_tumor_idx);
+%end
+im = fl;
 axes(ha(1));
 imshow(im,[]);
 hold on

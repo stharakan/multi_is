@@ -1,9 +1,18 @@
-function [] = line_plot_figure(dim,tst_brain_idx,is_runs,varargin)
+function [] = line_plot_figure(dim,tst_brain_idx,is_runs,extra_str,varargin)
 % load
 %filename = './data/results/b1_i100_klr_kDiagNyst_r128_b2.mat'
 data_locations;
-filename = [results_dir,generate_is_results_filename(tst_brain_idx,is_runs,varargin{:}),'.mat']
-load(filename);
+results_filename = generate_is_results_filename(tst_brain_idx, is_runs, varargin{:});
+
+%results_dir = [results_dir(1:end-1),'_m5/']
+fname = [results_dir,results_filename,extra_str,'.mat'];
+if exist(fname,'file')
+    load(fname,'klr_probs','dnn_probs','dnn_seg','seg','klr_seg', 'is_probs','brain_name','max_tumor_idx');
+    fprintf('loaded %s\n',fname);
+else
+    fprintf('Could not find %s, exiting..\n',results_filename);
+    return
+end
 
 % get indices, etc. from seg
 sum_dim = 3-dim;
