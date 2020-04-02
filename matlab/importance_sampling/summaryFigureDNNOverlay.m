@@ -89,7 +89,7 @@ hold off
 
 % ed var
 im = tumor_var(:,:,3);
-im(wt_cols(:,:,2) < prob_tol) = min_var;
+im(~hi_prob_idx) = min_var;
 im = max_var - im;
 axes(ha(5));
 imshow(my_im(im), [0, max_var - min_var]);
@@ -106,7 +106,8 @@ hold off
 
 % en var
 im = tumor_var(:,:,4);
-im(wt_cols(:,:,3) < prob_tol) = min_var;
+im(~hi_prob_idx) = min_var;
+%im(wt_cols(:,:,3) < prob_tol) = min_var;
 im = max_var - im;
 axes(ha(6));
 imshow(my_im(im), [0, max_var - min_var]);

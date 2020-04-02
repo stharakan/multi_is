@@ -10,7 +10,7 @@ klr = build_klr(varargin{:});
 fprintf('Loaded klr model..\n');
 
 
-for bi = 6:nb
+for bi = 1:nb
     fprintf('--------------------------\nProcessing brain %d of %d\n',bi,nb);
     
     % load brain, pick slice
