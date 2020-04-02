@@ -6,7 +6,7 @@ is_runs = 1000;
 
 % fixed vars
 data_locations;
-tot_brns = prod( length(brns) * length(ranks) * length(kas));
+tot_brns = length(brns);
 
 
 % set up figure
@@ -14,7 +14,6 @@ tot_brns = prod( length(brns) * length(ranks) * length(kas));
 %ha = tight_subplot(tot_brns,6,[.001,.001],[.001,.001],[.001,.001]);
 
 
-tot_ims = 6*tot_brns;
 
 % loop and create
 for rank = ranks
