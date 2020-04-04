@@ -62,6 +62,12 @@ for bi = 1:nb
     save(results_file,'brain_name','dnn_probs','dnn_seg','max_tumor_idx',...
         'klr_probs','klr_seg','seg','is_probs','is_segs')
 
+
+
+    dnn_probs = permute(dnn_probs,[1,2,4,3]);
+    truncated_results_file = [results_dir,brn_file_name,'_trunc.mat'];
+    save_truncated_metrics(truncated_results_file, brain_name, dnn_probs, dnn_seg, ...
+        max_tumor_idx,klr_probs,klr_seg,seg,is_probs);
 end
 
 
