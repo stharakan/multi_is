@@ -1,4 +1,4 @@
-function [] = sample_klris_all_test(is_runs,varargin)
+function [] = sample_klris_all_test(save_full,is_runs,varargin)
 data_locations;
 
 % get brain, seg
@@ -59,9 +59,10 @@ for bi = 1:nb
     % save to file
     brn_file_name = generate_is_results_filename(bi, is_runs, varargin{:});
     results_file = [results_dir,brn_file_name,'.mat'];
-    save(results_file,'brain_name','dnn_probs','dnn_seg','max_tumor_idx',...
-        'klr_probs','klr_seg','seg','is_probs','is_segs')
-
+    if save_full
+        save(results_file,'brain_name','dnn_probs','dnn_seg','max_tumor_idx',...
+            'klr_probs','klr_seg','seg','is_probs','is_segs')
+    end
 
 
     dnn_probs = permute(dnn_probs,[1,2,4,3]);

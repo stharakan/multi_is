@@ -1,4 +1,4 @@
-function [] = sample_klris_all_test_coronal(is_runs,varargin)
+function [] = sample_klris_all_test_coronal(save_full,is_runs,varargin)
 data_locations;
 
 % get brain, seg
@@ -56,9 +56,11 @@ for bi = 1:nb
     
     % save to file
     brn_file_name = generate_is_results_filename(bi, is_runs, varargin{:});
-    results_file = [results_dir,brn_file_name,'coronal.mat'];
-    save(results_file,'brain_name','dnn_probs','dnn_seg','max_tumor_idx',...
-        'klr_probs','klr_seg','seg','is_probs','is_segs')
+    results_file = [results_dir,brn_file_name,'.mat'];
+    if save_full
+        save(results_file,'brain_name','dnn_probs','dnn_seg','max_tumor_idx',...
+            'klr_probs','klr_seg','seg','is_probs','is_segs')
+    end
 
     truncated_results_file = [results_dir,brn_file_name,'coronal_trunc.mat'];
     save_truncated_metrics(truncated_results_file, brain_name, dnn_probs, dnn_seg, ...
