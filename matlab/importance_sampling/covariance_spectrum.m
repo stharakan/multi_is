@@ -7,6 +7,7 @@ c1 = cc - 1;
 
 % make random vecs
 sampling_p = min(eigenvectors + 40,cc *klr.mm);
+eigenvectors = min(eigenvectors, cc * klr.mm);
 xi = normrnd(0,1,nn*c1,sampling_p);
 
 % compute product
