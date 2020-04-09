@@ -12,7 +12,10 @@ else
     denom =  sum(guess(:) ~= target) + sum(truth(:) ~= target);
 end
 
-dice = inter*2/denom;
-
+if inter == 0 & denom == 0
+    dice = 1.0;
+else
+    dice = inter*2/denom;
+end
 end
 
